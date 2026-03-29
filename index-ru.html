@@ -1,0 +1,2295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>БОГИ ДУШАНБЕ — Видение нового городского сердца Душанбе</title>
+<style>
+:root {
+  --navy: #1a1f3a;
+  --navy-deep: #111428;
+  --navy-light: #242a4a;
+  --stone: #8a8d93;
+  --stone-light: #b0b3b8;
+  --glacier: #f5f7fa;
+  --glacier-warm: #eef1f5;
+  --gold: #c5a55a;
+  --gold-light: #d4bc7e;
+  --gold-dark: #a8893d;
+  --emerald: #2d6a4f;
+  --emerald-light: #40916c;
+  --sky: #5b9bd5;
+  --sky-light: #7db3e0;
+  --terracotta: #c4784a;
+  --terracotta-light: #d4956e;
+  --white: #ffffff;
+  --text-dark: #1a1f3a;
+  --text-light: #e8eaf0;
+  --text-muted: #9a9da3;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-dark);
+  background: var(--navy-deep);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAVIGATION ── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(17, 20, 40, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(197, 165, 90, 0.15);
+  transition: all 0.3s ease;
+}
+
+nav.scrolled {
+  background: rgba(17, 20, 40, 0.97);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+}
+
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 60px;
+}
+
+.nav-brand {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.25rem;
+  list-style: none;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.65rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold);
+  background: rgba(197, 165, 90, 0.1);
+}
+
+/* ── SECTIONS ── */
+section {
+  padding: 6rem 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Dark sections */
+.dark-section {
+  background: var(--navy);
+  color: var(--text-light);
+}
+
+.dark-section h2,
+.dark-section h3 {
+  color: var(--gold);
+}
+
+.dark-section .muted {
+  color: var(--text-muted);
+}
+
+/* Light sections */
+.light-section {
+  background: var(--glacier);
+  color: var(--text-dark);
+}
+
+.light-section h2,
+.light-section h3 {
+  color: var(--navy);
+}
+
+/* Deep sections */
+.deep-section {
+  background: var(--navy-deep);
+  color: var(--text-light);
+}
+
+.deep-section h2 {
+  color: var(--gold);
+}
+
+/* ── TYPOGRAPHY ── */
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.01em;
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.dark-section .section-label,
+.deep-section .section-label {
+  color: var(--gold);
+}
+
+.light-section .section-label {
+  color: var(--emerald);
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  max-width: 800px;
+}
+
+.dark-section .subtitle {
+  color: var(--stone-light);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+strong {
+  font-weight: 600;
+}
+
+/* ── HERO / COVER ── */
+#cover {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 40%, #1e2848 70%, var(--navy-deep) 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 2rem;
+}
+
+#cover::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 20%, rgba(197,165,90,0.06) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 80%, rgba(45,106,79,0.05) 0%, transparent 50%),
+              radial-gradient(ellipse at 50% 50%, rgba(91,155,213,0.03) 0%, transparent 40%);
+  animation: heroGlow 15s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlow {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(-2%, -1%) rotate(1deg); }
+}
+
+#cover .pattern-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: repeating-linear-gradient(
+    60deg,
+    transparent,
+    transparent 60px,
+    rgba(197,165,90,0.5) 60px,
+    rgba(197,165,90,0.5) 61px
+  ),
+  repeating-linear-gradient(
+    -60deg,
+    transparent,
+    transparent 60px,
+    rgba(197,165,90,0.5) 60px,
+    rgba(197,165,90,0.5) 61px
+  );
+}
+
+.cover-content {
+  position: relative;
+  z-index: 2;
+}
+
+.cover-content .pre-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.cover-content h1 {
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.cover-content h1 em {
+  font-style: normal;
+  color: var(--gold);
+  display: block;
+  font-size: 0.4em;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+}
+
+.cover-subtitle {
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  color: var(--stone-light);
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.cover-line {
+  width: 80px;
+  height: 1px;
+  background: var(--gold);
+  margin: 2rem auto;
+}
+
+.cover-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+
+.cover-meta strong {
+  color: var(--stone-light);
+}
+
+.cover-tagline {
+  font-size: 0.95rem;
+  color: var(--stone);
+  max-width: 680px;
+  margin: 0 auto 3rem;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+/* ── KEY METRICS BAR ── */
+.metrics-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.metric-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-radius: 8px;
+}
+
+.dark-section .metric-card,
+.deep-section .metric-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(197,165,90,0.12);
+}
+
+.light-section .metric-card {
+  background: var(--white);
+  border: 1px solid rgba(26,31,58,0.08);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.metric-card .metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.2;
+}
+
+.metric-card .metric-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.35rem;
+}
+
+.dark-section .metric-label,
+.deep-section .metric-label {
+  color: var(--stone-light);
+}
+
+/* ── CARDS ── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.card {
+  padding: 2rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.dark-section .card,
+.deep-section .card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.dark-section .card:hover,
+.deep-section .card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  border-color: rgba(197,165,90,0.2);
+}
+
+.light-section .card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.light-section .card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.card-icon {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+/* ── TABLES ── */
+.table-wrapper {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.dark-section table,
+.deep-section table {
+  background: rgba(255,255,255,0.02);
+}
+
+.light-section table {
+  background: var(--white);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+thead th {
+  text-align: left;
+  padding: 1rem 1.25rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--gold);
+}
+
+.dark-section thead th,
+.deep-section thead th {
+  background: rgba(197,165,90,0.08);
+  color: var(--gold);
+}
+
+.light-section thead th {
+  background: var(--navy);
+  color: var(--gold);
+}
+
+td {
+  padding: 0.85rem 1.25rem;
+  vertical-align: top;
+}
+
+.dark-section td,
+.deep-section td {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.light-section td {
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+tbody tr:hover td {
+  background: rgba(197,165,90,0.04);
+}
+
+/* ── BADGES ── */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.badge-gold {
+  background: rgba(197,165,90,0.15);
+  color: var(--gold);
+}
+
+.badge-emerald {
+  background: rgba(45,106,79,0.15);
+  color: var(--emerald-light);
+}
+
+.badge-sky {
+  background: rgba(91,155,213,0.15);
+  color: var(--sky);
+}
+
+.badge-terracotta {
+  background: rgba(196,120,74,0.15);
+  color: var(--terracotta);
+}
+
+.badge-recommended {
+  background: var(--gold);
+  color: var(--navy-deep);
+}
+
+/* ── PROGRESS BARS ── */
+.progress-row {
+  margin-bottom: 1.25rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.progress-bar {
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.dark-section .progress-bar,
+.deep-section .progress-bar {
+  background: rgba(255,255,255,0.08);
+}
+
+.light-section .progress-bar {
+  background: rgba(0,0,0,0.08);
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+  transition: width 1.2s ease;
+}
+
+.progress-fill.emerald {
+  background: linear-gradient(90deg, var(--emerald), var(--emerald-light));
+}
+
+.progress-fill.sky {
+  background: linear-gradient(90deg, var(--sky), var(--sky-light));
+}
+
+/* ── TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 3rem;
+  margin: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold), var(--emerald), var(--sky));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.6rem;
+  top: 0.35rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 3px solid var(--navy);
+}
+
+.timeline-item .timeline-phase {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+
+.timeline-item h4 {
+  margin-bottom: 0.5rem;
+}
+
+.timeline-item p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ── TWO COLUMN ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin: 2rem 0;
+}
+
+.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* ── SCHEME CARDS ── */
+.scheme-card {
+  padding: 2.5rem;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-section .scheme-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.scheme-card .scheme-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.scheme-card.balanced .scheme-badge {
+  background: var(--emerald);
+  color: var(--white);
+}
+
+.scheme-card.landmark .scheme-badge {
+  background: var(--gold);
+  color: var(--navy-deep);
+}
+
+/* ── RENDER PROMPT ── */
+.render-prompt {
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  position: relative;
+  padding-left: 3rem;
+}
+
+.dark-section .render-prompt,
+.deep-section .render-prompt {
+  background: rgba(255,255,255,0.03);
+  border-left: 3px solid var(--gold);
+}
+
+.light-section .render-prompt {
+  background: var(--white);
+  border-left: 3px solid var(--navy);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+}
+
+.render-prompt .prompt-number {
+  position: absolute;
+  left: 0.75rem;
+  top: 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.render-prompt .prompt-title {
+  font-weight: 600;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── NAME TABLE ── */
+.name-highlight {
+  position: relative;
+}
+
+.dark-section tr.name-highlight td {
+  background: rgba(197,165,90,0.06);
+}
+
+/* ── SWOT ── */
+.swot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.swot-cell {
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.swot-cell h4 {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.swot-cell ul {
+  list-style: none;
+  padding: 0;
+}
+
+.swot-cell li {
+  padding: 0.4rem 0;
+  padding-left: 1.2rem;
+  position: relative;
+  font-size: 0.9rem;
+}
+
+.swot-cell li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.swot-s { background: rgba(45,106,79,0.08); border: 1px solid rgba(45,106,79,0.2); }
+.swot-s h4 { color: var(--emerald-light); }
+.swot-s li::before { background: var(--emerald-light); }
+
+.swot-w { background: rgba(196,120,74,0.08); border: 1px solid rgba(196,120,74,0.2); }
+.swot-w h4 { color: var(--terracotta); }
+.swot-w li::before { background: var(--terracotta); }
+
+.swot-o { background: rgba(91,155,213,0.08); border: 1px solid rgba(91,155,213,0.2); }
+.swot-o h4 { color: var(--sky); }
+.swot-o li::before { background: var(--sky); }
+
+.swot-t { background: rgba(197,165,90,0.08); border: 1px solid rgba(197,165,90,0.2); }
+.swot-t h4 { color: var(--gold); }
+.swot-t li::before { background: var(--gold); }
+
+/* ── RISK TABLE ── */
+.risk-high { color: #e05555; font-weight: 600; }
+.risk-med { color: var(--terracotta); font-weight: 600; }
+.risk-low { color: var(--emerald-light); font-weight: 600; }
+
+/* ── CALLOUT ── */
+.callout {
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.callout-gold {
+  background: rgba(197,165,90,0.08);
+  border: 1px solid rgba(197,165,90,0.2);
+  color: var(--gold-light);
+}
+
+.callout-note {
+  background: rgba(91,155,213,0.08);
+  border: 1px solid rgba(91,155,213,0.2);
+}
+
+.light-section .callout-note {
+  color: var(--navy);
+}
+
+/* ── DIVIDER ── */
+.section-divider {
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  margin: 2rem 0;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy-deep);
+  color: var(--text-muted);
+  padding: 3rem 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  border-top: 1px solid rgba(197,165,90,0.1);
+}
+
+footer .footer-brand {
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .two-col, .swot-grid { grid-template-columns: 1fr; }
+  .three-col { grid-template-columns: 1fr; }
+  section { padding: 4rem 1.25rem; }
+  .nav-links { display: none; }
+  .metrics-bar { grid-template-columns: repeat(2, 1fr); }
+  .card-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .metrics-bar { grid-template-columns: 1fr; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+}
+
+/* ── PRINT ── */
+@media print {
+  nav { display: none; }
+  section { opacity: 1 !important; transform: none !important; padding: 2rem 1rem; }
+  .dark-section, .deep-section { background: #fff !important; color: #000 !important; }
+  .dark-section h2, .dark-section h3, .deep-section h2 { color: #1a1f3a !important; }
+  .dark-section .section-label, .deep-section .section-label { color: #333 !important; }
+  .dark-section .card, .deep-section .card { border-color: #ddd !important; }
+  .metric-card .metric-value { color: #1a1f3a !important; }
+  body { background: #fff; }
+  #cover { min-height: auto; background: #fff !important; }
+  #cover h1, #cover .cover-subtitle { color: #1a1f3a !important; }
+  #cover .pre-title, .cover-content h1 em { color: #666 !important; }
+  .callout-gold { border-color: #ccc; color: #333; }
+}
+
+/* ── SLIDE OUTLINE ── */
+.slide-list {
+  counter-reset: slide;
+  list-style: none;
+  padding: 0;
+}
+
+.slide-list li {
+  counter-increment: slide;
+  padding: 0.8rem 0 0.8rem 3.5rem;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.9rem;
+}
+
+.slide-list li::before {
+  content: counter(slide, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold);
+  background: rgba(197,165,90,0.1);
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  top: 0.85rem;
+}
+
+.slide-list li strong {
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.slide-list li span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ── MISC ── */
+ul.styled-list {
+  list-style: none;
+  padding: 0;
+}
+
+ul.styled-list li {
+  padding: 0.35rem 0 0.35rem 1.5rem;
+  position: relative;
+  font-size: 0.92rem;
+}
+
+ul.styled-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.text-gold { color: var(--gold); }
+.text-emerald { color: var(--emerald-light); }
+.text-sky { color: var(--sky); }
+.text-terracotta { color: var(--terracotta); }
+.text-muted { color: var(--text-muted); }
+.text-small { font-size: 0.82rem; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mt-3 { margin-top: 3rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.fw-300 { font-weight: 300; }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════ NAVIGATION ════════════════════ -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <div class="nav-brand">Боги Душанбе</div>
+    <ul class="nav-links">
+      <li><a href="#cover">Обложка</a></li>
+      <li><a href="#executive">Резюме</a></li>
+      <li><a href="#names">Названия</a></li>
+      <li><a href="#vision">Видение</a></li>
+      <li><a href="#site">Участок</a></li>
+      <li><a href="#masterplan">Мастер-план</a></li>
+      <li><a href="#design-language">Дизайн</a></li>
+      <li><a href="#renders">Визуализация</a></li>
+      <li><a href="#program">Программа</a></li>
+      <li><a href="#economics">Экономика</a></li>
+      <li><a href="#phasing">Этапы</a></li>
+      <li><a href="#government">Согласование</a></li>
+      <li><a href="#risks">Риски</a></li>
+      <li><a href="#closing">Заключение</a></li>
+      <li><a href="#pptx">PPTX</a></li>
+      <li><a href="#sources">Источники</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ════════════════════ 1. COVER ════════════════════ -->
+<section id="cover" class="visible">
+  <div class="pattern-overlay"></div>
+  <div class="cover-content">
+    <div class="pre-title">Концептуальное предложение &middot; Март 2026</div>
+    <h1>БОГИ ДУШАНБЕ<em>Сад Душанбе</em></h1>
+    <div class="cover-line"></div>
+    <div class="cover-subtitle">Видение нового городского сердца Душанбе</div>
+    <p class="cover-tagline">Преобразование 30 гектаров промышленного наследия в район мирового класса смешанной застройки для столицы Таджикистана</p>
+    <div class="cover-meta">
+      <strong>Подготовлено для</strong><br>
+      Правительства Республики Таджикистан<br>
+      Мэра города Душанбе<br><br>
+      <strong>Дата</strong><br>
+      Март 2026<br><br>
+      <strong>Гриф</strong><br>
+      Конфиденциально &mdash; Только для правительственного рассмотрения
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 2. EXECUTIVE SUMMARY ════════════════════ -->
+<section id="executive" class="dark-section">
+  <div class="section-inner">
+    <span class="section-label">01 &mdash; Резюме проекта</span>
+    <h2>Возможность поколения</h2>
+    <div class="section-divider"></div>
+    <p class="subtitle">В самом сердце Душанбе 30 гектаров промышленных земель открывают уникальную возможность, которая выпадает раз в столетие, &mdash; переосмыслить столицу Таджикистана. Боги Душанбе предусматривает преобразование этого недоиспользуемого участка &mdash; в настоящее время занятого устаревшей теплоэнергетической и промышленной инфраструктурой &mdash; в динамичный многофункциональный район, который станет новым центром общественной, коммерческой и культурной жизни растущей нации.</p>
+
+    <div class="metrics-bar">
+      <div class="metric-card">
+        <div class="metric-value">30 га</div>
+        <div class="metric-label">Площадь участка</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">~2,5 млн</div>
+        <div class="metric-label">м² общей площади</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">15 000+</div>
+        <div class="metric-label">Жителей</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">20 000+</div>
+        <div class="metric-label">Рабочих мест</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">$3&ndash;5 млрд</div>
+        <div class="metric-label">Прогнозная стоимость</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">10&ndash;15</div>
+        <div class="metric-label">Лет поэтапной реализации</div>
+      </div>
+    </div>
+
+    <div class="two-col mt-3">
+      <div>
+        <h3>Контекст</h3>
+        <p>Население Душанбе, составляющее 1,07 миллиона человек, растёт на 2,73% ежегодно, создавая интенсивный спрос на жильё, рабочие места и городские удобства, который существующий жилой фонд не способен удовлетворить. Город расширяет свои границы до 25 000 гектаров к 2040 году, однако наиболее ценное вмешательство возможно не на периферии, а в центре &mdash; там, где инфраструктура уже существует и где трансформация несёт наибольший символический и экономический вес.</p>
+        <p>Международные институты, включая Всемирный банк (Проект устойчивого городского развития Душанбе) и ЕБРР (Страновая стратегия по Таджикистану на 2025&ndash;2030 годы с приоритетом «зелёных городов»), уже инвестируют в модернизацию Душанбе, создавая благоприятную среду для масштабного городского развития.</p>
+      </div>
+      <div>
+        <h3>Видение</h3>
+        <p>Боги Душанбе &mdash; это не просто девелоперский проект. Это заявление о национальных амбициях: Таджикистан способен создавать урбанистику мирового класса, укоренённую в собственной культуре, климате и ценностях. Проект предлагает поэтапный подход государственно-частного партнёрства к строительству примерно 12 000&ndash;15 000 жилых квартир, 200 000&ndash;300 000 м² коммерческих площадей, торговых объектов, знакового культурного центра, люксового отеля и обширных парковых зон &mdash; и всё это в рамках пешеходного, зелёного и архитектурно целостного района.</p>
+        <p>Само название &mdash; «Боги Душанбе», означающее «Сад Душанбе», &mdash; отражает замысел: создать городской оазис, где ландшафт, вода, горные виды и современная таджикская архитектура сливаются воедино, рождая место непреходящей гражданской гордости.</p>
+      </div>
+    </div>
+
+    <div class="callout callout-gold mt-2">
+      <strong>Подход:</strong> Настоящий документ представляет концептуальную основу для рассмотрения. Все цифры, площади и прогнозы являются ориентировочными и подлежат уточнению по результатам детальных технико-экономических обоснований, экологических оценок, анализа инфраструктуры и юридической экспертизы. Цель документа — продемонстрировать потенциал участка и обеспечить основу для принятия информированного решения правительством.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 3. PROJECT NAMES ════════════════════ -->
+<section id="names" class="light-section">
+  <div class="section-inner">
+    <span class="section-label">02 &mdash; Идентичность проекта</span>
+    <h2>Альтернативные названия проекта</h2>
+    <div class="section-divider" style="background: var(--navy);"></div>
+    <p class="subtitle" style="color: var(--stone);">Проект такого масштаба требует названия, которое найдёт отклик у государственных чиновников, международных инвесторов и граждан Таджикистана. Ниже представлены оценённые альтернативы с нашей рекомендацией.</p>
+
+    <div class="table-wrapper mt-2">
+      <table>
+        <thead>
+          <tr>
+            <th>Название</th>
+            <th>Значение</th>
+            <th>Тон</th>
+            <th>Обоснование</th>
+            <th>Оценка</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="name-highlight" style="background: rgba(197,165,90,0.06);">
+            <td><strong>Боги Душанбе</strong></td>
+            <td>Сад Душанбе</td>
+            <td><span class="badge badge-emerald">Гражданский</span> <span class="badge badge-gold">Премиальный</span> <span class="badge badge-sky">Семейный</span></td>
+            <td>Глубокий культурный смысл &mdash; «бог» (сад/рай) занимает центральное место в персидско-таджикской цивилизации. Ассоциируется с зелёным урбанизмом, обновлением и красотой. Мгновенно понятно всем носителям таджикского языка. Удобно для правительственного использования и поэтично.</td>
+            <td><span class="badge badge-recommended">Рекомендовано</span></td>
+          </tr>
+          <tr class="name-highlight" style="background: rgba(91,155,213,0.04);">
+            <td><strong>Тоджи Душанбе</strong></td>
+            <td>Корона Душанбе</td>
+            <td><span class="badge badge-gold">Премиальный</span> <span class="badge badge-emerald">Гражданский</span></td>
+            <td>Передаёт первенство и престиж. Позиционирует район как вершину города. Сильная привлекательность для власти &mdash; ассоциации с лидерством и превосходством.</td>
+            <td><span class="badge badge-gold">Топ-3</span></td>
+          </tr>
+          <tr class="name-highlight" style="background: rgba(91,155,213,0.04);">
+            <td><strong>Дарвоза-и-Нау</strong></td>
+            <td>Новые ворота</td>
+            <td><span class="badge badge-emerald">Гражданский</span> <span class="badge badge-terracotta">Международный</span></td>
+            <td>Позиционирует проект как точку входа в новый Душанбе. «Дарвоза» (ворота) исторически значимо в центральноазиатском градостроительстве &mdash; города определялись своими воротами.</td>
+            <td><span class="badge badge-gold">Топ-3</span></td>
+          </tr>
+          <tr>
+            <td><strong>Район Навои</strong></td>
+            <td>Новый / Инновации</td>
+            <td><span class="badge badge-terracotta">Международный</span> <span class="badge badge-sky">Современный</span></td>
+            <td>Чистое, современное, устремлённое в будущее название. Также отсылает к великому поэту Алишеру Навои. Однако может восприниматься слишком обобщённо без культурной специфики.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Ситора Сити</strong></td>
+            <td>Звёздный город</td>
+            <td><span class="badge badge-gold">Премиальный</span> <span class="badge badge-terracotta">Международный</span></td>
+            <td>Амбициозное и запоминающееся. «Ситора» (звезда) встречается в таджикской поэзии и топонимике (дворец Ситора-и-Мохи-Хоса в Бухаре). Несколько коммерческий тон.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Самаркандский квартал</strong></td>
+            <td>Наследие Шёлкового пути</td>
+            <td><span class="badge badge-terracotta">Международный</span> <span class="badge badge-gold">Премиальный</span></td>
+            <td>Вызывает ассоциации с величием Шёлкового пути. Сильная международная узнаваемость. Риск: Самарканд находится в Узбекистане, что может создать политическую чувствительность, несмотря на общее наследие.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Равшан Парк</strong></td>
+            <td>Светлый / Сияющий парк</td>
+            <td><span class="badge badge-emerald">Гражданский</span> <span class="badge badge-sky">Семейный</span></td>
+            <td>Тёплое, оптимистичное, семейное название. «Равшан» &mdash; любимое таджикское слово, означающее светлый или лучезарный. Парковое название соответствует концепции зелёного урбанизма.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Истиклол Хайтс</strong></td>
+            <td>Высоты Независимости</td>
+            <td><span class="badge badge-emerald">Гражданский</span> <span class="badge badge-gold">Премиальный</span></td>
+            <td>Патриотическое и государственное. Отсылает к национальной независимости и возвышению (как буквальному, так и метафорическому). Сильное название для официальных коммуникаций.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Район Пойтахт</strong></td>
+            <td>Столичный район</td>
+            <td><span class="badge badge-emerald">Гражданский</span> <span class="badge badge-terracotta">Международный</span></td>
+            <td>Прямое и авторитетное. Позиционирует проект как квинтэссенцию столичного района. Функционально, но менее поэтично.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Варзобская терраса</strong></td>
+            <td>Названо по реке Варзоб</td>
+            <td><span class="badge badge-sky">Семейный</span> <span class="badge badge-emerald">Гражданский</span></td>
+            <td>Географическая конкретность. Связь с рекой Варзоб и горами. Ландшафтное название. Может принизить масштаб амбиций проекта.</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-note mt-2">
+      <strong>Рекомендация:</strong> Мы настоятельно рекомендуем <strong>Боги Душанбе</strong> в качестве названия проекта. Оно несёт глубокий культурный резонанс, передаёт зелёный и комфортный для жизни характер проекта, запоминается как в таджикском, так и в международном контексте и исключает риски чрезмерно коммерческих или политически чувствительных альтернатив. «Тоджи Душанбе» и «Дарвоза-и-Нау» являются сильными вторичными вариантами для рассмотрения.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 4. VISION NARRATIVE ════════════════════ -->
+<section id="vision" class="dark-section">
+  <div class="section-inner">
+    <span class="section-label">03 &mdash; Видение</span>
+    <h2>Почему этот участок. Почему сейчас. Почему это важно.</h2>
+    <div class="section-divider"></div>
+
+    <div class="two-col mt-2">
+      <div>
+        <h3>Уникальный актив</h3>
+        <p>Тридцать гектаров единой территории в центре Душанбе &mdash; это исключительный актив. В большинстве столиц мира участки такого масштаба просто не появляются на рынке. Промышленный участок в районе Лучоб &mdash; расположенный вблизи ботанического сада города, с потенциальной близостью к коридору реки Варзоб и в досягаемости от институционального и коммерческого ядра Душанбе &mdash; обладает подлинным стратегическим значением.</p>
+        <p>Его нынешнее использование в качестве устаревшей промышленной и теплоэнергетической инфраструктуры отражает наследие советского градостроительства, которое, несмотря на историческую значимость, более не соответствует потребностям и устремлениям современного Душанбе. По мере перехода электрогенерации на новые мощности и роста потребности центра города в более высоком и лучшем использовании обоснование трансформации становится убедительным.</p>
+
+        <h3 class="mt-2">Город в процессе трансформации</h3>
+        <p>Душанбе не стоит на месте. Проект башни RMJM Dushanbe Tower &mdash; задуманной как сверхвысотная доминанта &mdash; свидетельствует о готовности города войти в ряды современных мировых столиц. Проект Всемирного банка по устойчивому городскому развитию Душанбе и страновая стратегия ЕБРР на 2025&ndash;2030 годы (которая прямо включает развитие «зелёных городов») демонстрируют международную уверенность в городском будущем Таджикистана.</p>
+        <p>План расширения города до 25 000 гектаров к 2040 году признаёт демографическую реальность: население растёт на 2,73% ежегодно, рынок недвижимости дорожает на 4,69% в год, а хронический дефицит жилья затрагивает семьи всех уровней дохода.</p>
+      </div>
+      <div>
+        <h3>Символ национального прогресса</h3>
+        <p>Трансформация промышленного участка в многофункциональный район мирового класса &mdash; это нечто большее, чем градостроительное упражнение. Это заявление о национальной идентичности и направлении развития. Оно говорит о том, что Таджикистан ценит качество жизни своих граждан, что он принимает современные стандарты устойчивости и дизайна и что он способен привлекать международный опыт и инвестиции, оставаясь при этом укоренённым в собственных культурных традициях.</p>
+        <p>Боги Душанбе продолжит ряд преобразующих городских проектов &mdash; от лондонского Кингс-Кросс до сеульского Чхонгечхона, от сингапурского Марина-Бэй до нового центра Астаны, &mdash; где целенаправленное переосмысление недоиспользуемых городских территорий стало катализатором масштабного национального прогресса.</p>
+
+        <h3 class="mt-2">Человеческое измерение</h3>
+        <p>За каждой статистикой стоит семья из Душанбе, ищущая достойное жильё, молодой специалист, стремящийся к карьерным возможностям рядом с домом, ребёнок, заслуживающий безопасных парков и хороших школ. Жилищный кризис &mdash; не абстракция &mdash; его ежедневно ощущают сотни тысяч жителей. Боги Душанбе обращается к этой проблеме напрямую: 12 000&ndash;15 000 новых домов, современные школы, поликлиники и парки &mdash; и всё в рамках пешеходной инфраструктуры «15-минутного района».</p>
+        <p>Это не развитие ради самого себя. Это развитие в интересах жителей Душанбе и Республики Таджикистан.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 5. SITE & CONTEXT ANALYSIS ════════════════════ -->
+<section id="site" class="light-section">
+  <div class="section-inner">
+    <span class="section-label">04 &mdash; Анализ участка и контекста</span>
+    <h2>Изучение территории</h2>
+    <div class="section-divider" style="background: var(--navy);"></div>
+
+    <div class="metrics-bar">
+      <div class="metric-card">
+        <div class="metric-value" style="color: var(--navy);">295 000</div>
+        <div class="metric-label">м² площадь участка</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value" style="color: var(--navy);">~2 792</div>
+        <div class="metric-label">Метров периметра</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value" style="color: var(--navy);">38.6088</div>
+        <div class="metric-label">Широта</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value" style="color: var(--navy);">68.7732</div>
+        <div class="metric-label">Долгота</div>
+      </div>
+    </div>
+
+    <div class="two-col mt-2">
+      <div>
+        <h3>Характеристики участка</h3>
+        <ul class="styled-list">
+          <li><strong>Размер и форма:</strong> Приблизительно 30 гектаров (295 000&ndash;300 000 м²) примерно прямоугольной конфигурации с периметром около 2 792 метров, обеспечивающим эффективную застраиваемую площадь с выраженными фронтальными линиями.</li>
+          <li><strong>Текущее использование:</strong> Промышленная и теплоэнергетическая инфраструктура, вероятно, связанная с душанбинской сетью ТЭЦ (теплоэлектроцентралей). Действующие производства потребуют поэтапного вывода или переноса в рамках редевелопмента.</li>
+          <li><strong>Расположение:</strong> Район Лучоб, центральный Душанбе. Вблизи ботанического сада города, в пределах городского ядра и вдоль предполагаемого значительного транспортного или инфраструктурного коридора.</li>
+          <li><strong>Рельеф:</strong> Душанбе расположен в Гиссарской долине на высоте около 800 м, Фанские горы видны к северу. Участок, вероятно, имеет пологий уклон, следуя градиенту дна долины.</li>
+          <li><strong>Близость к реке:</strong> Река Варзоб протекает через центр Душанбе. В зависимости от точных границ участка может появиться возможность для прибрежной застройки или, как минимум, визуальной связи с речным коридором.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Контекст и окружение</h3>
+        <ul class="styled-list">
+          <li><strong>Ботанический сад:</strong> Близость к ботаническому саду Душанбе формирует ландшафтный нарратив &mdash; Боги Душанбе как продолжение зелёной инфраструктуры города.</li>
+          <li><strong>Транспортная доступность:</strong> Центральный Душанбе имеет сеть основных магистралей. Участок, вероятно, выходит как минимум на одну главную дорогу с возможностью нескольких точек транспортного доступа вдоль его периметра в 2,8 км.</li>
+          <li><strong>Институциональная близость:</strong> Центральный Душанбе является местом расположения министерств, посольств, университетов и Национального музея. Такое соседство повышает коммерческую жизнеспособность и гражданскую значимость.</li>
+          <li><strong>Горные виды:</strong> Фанские горы и окружающие хребты создают впечатляющий визуальный фон. Ориентация зданий и градация высот должны сохранять видовые коридоры.</li>
+          <li><strong>Потенциал входных ворот:</strong> 30-гектарный район в центре Душанбе будет виден и доступен с основных городских подъездов, функционируя одновременно как пункт назначения и ориентир.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="mt-3">SWOT-анализ</h3>
+    <div class="swot-grid">
+      <div class="swot-cell swot-s">
+        <h4>Сильные стороны</h4>
+        <ul>
+          <li>Исключительно крупный единый участок в центре города</li>
+          <li>Близость к общественным, культурным и институциональным объектам</li>
+          <li>Выразительные горные и потенциально речные виды</li>
+          <li>Соседство с ботаническим садом поддерживает «зелёный» бренд</li>
+          <li>Существующая дорожная инфраструктура по периметру</li>
+          <li>Масштаб позволяет комплексное мастер-планирование</li>
+          <li>Единый собственник (вероятно, государство) упрощает консолидацию земли</li>
+        </ul>
+      </div>
+      <div class="swot-cell swot-w">
+        <h4>Слабые стороны</h4>
+        <ul>
+          <li>Действующие промышленные объекты требуют переноса</li>
+          <li>Потенциальное загрязнение почв за десятилетия промышленного использования</li>
+          <li>Инфраструктура (электроснабжение, водоснабжение, канализация) может потребовать полной замены</li>
+          <li>Ограниченный опыт масштабной многофункциональной застройки в Таджикистане</li>
+          <li>Неопределённые сроки вывода из эксплуатации</li>
+          <li>Существующие строения могут иметь ограниченный потенциал для адаптивного повторного использования</li>
+        </ul>
+      </div>
+      <div class="swot-cell swot-o">
+        <h4>Возможности</h4>
+        <ul>
+          <li>Непосредственное решение критического дефицита жилья</li>
+          <li>Соответствие стратегиям городского развития Всемирного банка и ЕБРР</li>
+          <li>План расширения города до 2040 года обеспечивает политическую поддержку</li>
+          <li>Рынок недвижимости растёт на 4,69% ежегодно</li>
+          <li>Доходность аренды ~10% привлекает инвесторов</li>
+          <li>Нарратив национальной модернизации (башня RMJM, инфраструктурные инвестиции)</li>
+          <li>Возможность ГЧП-структур с международными девелоперами</li>
+          <li>Потенциал роста туризма (Шёлковый путь, горный туризм)</li>
+        </ul>
+      </div>
+      <div class="swot-cell swot-t">
+        <h4>Угрозы</h4>
+        <ul>
+          <li>Затраты на экологическую рекультивацию могут быть значительными</li>
+          <li>Политическая и нормативная сложность</li>
+          <li>Ограничения финансирования в развивающейся экономике</li>
+          <li>Строительный потенциал и ограничения цепочек поставок</li>
+          <li>Валютные и макроэкономические риски</li>
+          <li>Общественное сопротивление переносу промышленных объектов</li>
+          <li>Региональная геополитическая нестабильность</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout callout-note mt-2">
+      <strong>Допущения, требующие проверки:</strong> Настоящий анализ основан на общедоступных данных и интерпретации спутниковых снимков. Формальное технико-экономическое обоснование должно подтвердить: (1) точные границы участка и структуру собственности; (2) уровень экологического загрязнения; (3) статус и сроки промышленной деятельности; (4) состояние и мощность инженерной инфраструктуры; (5) точные топографические и геотехнические условия; (6) применимые правила зонирования и планирования; (7) транспортную пропускную способность окружающих дорог; и (8) точное соотношение реки Варзоб с участком.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 6. MASTER PLAN CONCEPT ════════════════════ -->
+<section id="masterplan" class="deep-section">
+  <div class="section-inner">
+    <span class="section-label">05 &mdash; Концепция мастер-плана</span>
+    <h2>Два пути развития</h2>
+    <div class="section-divider"></div>
+    <p class="subtitle" style="color: var(--stone-light);">Мы представляем две схемы развития &mdash; одну прагматичную, другую амбициозную &mdash; чтобы проиллюстрировать диапазон возможностей. Любая из них может быть доработана, или элементы обеих могут быть объединены в зависимости от приоритетов правительства и рыночных условий.</p>
+
+    <div class="two-col mt-3">
+      <!-- SCHEME A -->
+      <div class="scheme-card balanced">
+        <div class="scheme-badge">Прагматичная</div>
+        <h3 style="color: var(--emerald-light); font-size: 1.4rem; margin-bottom: 0.3rem;">Схема А</h3>
+        <h4 style="color: var(--text-light); font-weight: 300; font-size: 1.1rem; margin-bottom: 1.5rem;">«Сбалансированный город»</h4>
+
+        <p style="color: var(--stone-light);">Район человеческого масштаба, удобный для жизни, организованный вокруг центральной зелёной оси. Эта схема отдаёт приоритет жилой застройке, полноценности микрорайона и поэтапной экономической жизнеспособности.</p>
+
+        <h4 class="mt-2" style="color: var(--emerald-light);">Распределение функций</h4>
+        <div class="progress-row">
+          <div class="progress-header"><span>Жилая (башни + среднеэтажная)</span><span>60%</span></div>
+          <div class="progress-bar"><div class="progress-fill emerald" style="width: 60%;"></div></div>
+        </div>
+        <div class="progress-row">
+          <div class="progress-header"><span>Коммерческая / Офисная</span><span>15%</span></div>
+          <div class="progress-bar"><div class="progress-fill sky" style="width: 15%;"></div></div>
+        </div>
+        <div class="progress-row">
+          <div class="progress-header"><span>Торговля и гостеприимство</span><span>10%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 10%;"></div></div>
+        </div>
+        <div class="progress-row">
+          <div class="progress-header"><span>Общественное пространство и озеленение</span><span>15%</span></div>
+          <div class="progress-bar"><div class="progress-fill emerald" style="width: 15%;"></div></div>
+        </div>
+
+        <h4 class="mt-2" style="color: var(--emerald-light);">Характерные зоны</h4>
+        <ul class="styled-list" style="color: var(--stone-light);">
+          <li><strong>Северный жилой квартал:</strong> Жилые башни 8&ndash;12 этажей с торговлей на первых этажах, организованные вокруг общих дворов с посадками взрослых деревьев. Семейные квартиры площадью 80&ndash;140 м².</li>
+          <li><strong>Центральная зелёная ось:</strong> 30-метровый ландшафтный бульвар, идущий с востока на запад, соединяющий зону ботанического сада с коммерческим ядром района. Водные каналы, зоны отдыха и детские площадки.</li>
+          <li><strong>Торговая улица:</strong> 600-метровый пешеходный проспект с магазинами, кафе и ресторанами на первых этажах. Среднеэтажная жилая застройка над торговлей (6&ndash;8 этажей). Характер, вдохновлённый европейскими рыночными улицами, адаптированный к таджикскому климату.</li>
+          <li><strong>Офисный кластер:</strong> Три-четыре офисных здания класса А высотой 12&ndash;18 этажей вблизи основного дорожного фронта, обеспечивающих современные коммерческие площади для отечественных и международных компаний.</li>
+          <li><strong>Общественное ядро:</strong> Центральная мечеть (вместимость 2 000+), начальная школа, медицинская клиника и публичная библиотека, сгруппированные вокруг общественной площади.</li>
+          <li><strong>Южная жилая зона и парк:</strong> Среднеэтажная жилая застройка (6&ndash;10 этажей) вокруг 3-гектарного районного парка со спортивными объектами, амфитеатром и террасами с видом на горы.</li>
+        </ul>
+
+        <h4 class="mt-2" style="color: var(--emerald-light);">Плотность и характер</h4>
+        <p style="color: var(--stone-light);">Средний коэффициент плотности застройки (FAR) 3,5&ndash;4,0 по всему участку. Максимальная высота зданий 80 метров (офисный кластер). Преимущественно среднеэтажный пешеходный район с щедрым общественным пространством. Парковка преимущественно подземная.</p>
+      </div>
+
+      <!-- SCHEME B -->
+      <div class="scheme-card landmark">
+        <div class="scheme-badge">Амбициозная</div>
+        <h3 style="color: var(--gold); font-size: 1.4rem; margin-bottom: 0.3rem;">Схема Б</h3>
+        <h4 style="color: var(--text-light); font-weight: 300; font-size: 1.1rem; margin-bottom: 1.5rem;">«Знаковый район»</h4>
+
+        <p style="color: var(--stone-light);">Знаковый городской центр притяжения, формирующий новый силуэт Душанбе. Эта схема концентрирует плотность и амбиции для создания иконической архитектуры и объекта национального значения.</p>
+
+        <h4 class="mt-2" style="color: var(--gold);">Распределение функций</h4>
+        <div class="progress-row">
+          <div class="progress-header"><span>Жилая (включая премиальную)</span><span>45%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 45%;"></div></div>
+        </div>
+        <div class="progress-row">
+          <div class="progress-header"><span>Коммерческая / Технохаб</span><span>15%</span></div>
+          <div class="progress-bar"><div class="progress-fill sky" style="width: 15%;"></div></div>
+        </div>
+        <div class="progress-row">
+          <div class="progress-header"><span>Торговый центр и отель</span><span>15%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 15%;"></div></div>
+        </div>
+        <div class="progress-row">
+          <div class="progress-header"><span>Культурная и общественная</span><span>10%</span></div>
+          <div class="progress-bar"><div class="progress-fill emerald" style="width: 10%;"></div></div>
+        </div>
+        <div class="progress-row">
+          <div class="progress-header"><span>Общественное пространство и набережная</span><span>15%</span></div>
+          <div class="progress-bar"><div class="progress-fill emerald" style="width: 15%;"></div></div>
+        </div>
+
+        <h4 class="mt-2" style="color: var(--gold);">Характерные зоны</h4>
+        <ul class="styled-list" style="color: var(--stone-light);">
+          <li><strong>Знаковая башня (200 м+):</strong> Многофункциональная башня высотой 50&ndash;60 этажей в центральной точке района, включающая 5-звёздочный отель (верхние этажи), офисы класса А (средние уровни) и смотровую площадку с панорамным видом на горы. Проект всемирно признанного архитектора, формирующий характерный силуэт Душанбе.</li>
+          <li><strong>Культурный центр и амфитеатр:</strong> Центр исполнительских искусств и выставок площадью 15 000 м² с главным залом на 1 500 мест, выставочными галереями и открытым амфитеатром. Архитектура, переосмысляющая таджикскую традицию «чайханы» в монументальном масштабе.</li>
+          <li><strong>Торгово-развлекательный центр:</strong> Лайфстайл-молл площадью 120 000 м² с международными и местными брендами, мультиплекс-кинотеатром, крытым катком и фуд-холлами. Спроектирован как архитектурная достопримечательность, а не типовая коробка.</li>
+          <li><strong>Технологический инновационный хаб:</strong> Кластер гибких офисных и коворкинг-пространств, ориентированных на технологии, финтех и креативные индустрии, со стартап-инкубатором и конференц-площадками.</li>
+          <li><strong>Набережная:</strong> При наличии близости к реке — ландшафтная набережная протяжённостью 1,2 км с ресторанами, временными рынками и рекреационными зонами. В случае отсутствия прямого выхода к реке — линейный водный элемент с фонтанами и каналами.</li>
+          <li><strong>Премиальный жилой анклав:</strong> Башни премиум-класса (25&ndash;40 этажей) с видом на горы, частными удобствами, консьерж-сервисом и потенциалом брендированных резиденций (Aman, Four Seasons и др.).</li>
+        </ul>
+
+        <h4 class="mt-2" style="color: var(--gold);">Плотность и характер</h4>
+        <p style="color: var(--stone-light);">Средний FAR 5,0&ndash;6,0 по участку с пиковым FAR 12+ в кластере башен. Максимальная высота 200 м+ (знаковая башня). Впечатляющий высотный район. Международный архитектурный конкурс для ключевых зданий.</p>
+      </div>
+    </div>
+
+    <div class="callout callout-gold mt-3">
+      <strong>Рекомендация:</strong> Мы предлагаем начать со Схемы А в качестве основы &mdash; обеспечить жильём, школами, парками и торговлей, в которых Душанбе нуждается наиболее остро, &mdash; зарезервировав южную или восточную часть участка для элементов Схемы Б (знаковая башня, культурный центр, торгово-развлекательный комплекс), внедряемых по мере развития рыночных условий и финансирования. Этот гибридный подход сочетает прагматизм с амбициями.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 7. VISUAL CONCEPT LANGUAGE ════════════════════ -->
+<section id="design-language" class="light-section">
+  <div class="section-inner">
+    <span class="section-label">06 &mdash; Архитектурный язык</span>
+    <h2>Современный центральноазиатский урбанизм</h2>
+    <div class="section-divider" style="background: var(--navy);"></div>
+    <p class="subtitle" style="color: var(--stone);">Архитектурная идентичность Боги Душанбе должна чтить выдающееся художественное наследие Таджикистана, одновременно утверждая безоговорочно современное видение. Язык дизайна соединяет традицию и современность без подражательства и китча.</p>
+
+    <div class="card-grid mt-2">
+      <div class="card">
+        <h3 style="color: var(--navy);">Язык фасадов</h3>
+        <p>Чистые геометрические формы с глубиной и текстурой. Современные реинтерпретации машрабий &mdash; перфорированных геометрических экранов исламской архитектуры &mdash; выполненные из анодированного алюминия, кортеновской стали или сборного железобетона. Эти экраны обеспечивают солнцезащиту (критически важную в континентальном климате Душанбе с жарким летом), визуальную приватность жилых зданий и ритмичный, соразмерный человеку узор, связывающий здания с многовековым декоративным искусством Центральной Азии.</p>
+        <p>Геометрические узоры опираются на исмаилитские и более широкие исламские геометрические традиции, характерные для Таджикистана &mdash; переплетающиеся звёзды, шестиугольные тесселяции и арабески &mdash; абстрагированные до современной точности, а не буквально воспроизведённые.</p>
+      </div>
+      <div class="card">
+        <h3 style="color: var(--navy);">Палитра материалов</h3>
+        <p><strong>Травертин:</strong> Добывается из обширных известняковых месторождений Таджикистана. Используется для облицовки цокольных уровней, мощения общественных пространств и акцентных стен. Тёплые кремовые и медовые тона, сияющие в чистом горном свете Душанбе.</p>
+        <p><strong>Местный гранит:</strong> Тёмный серо-чёрный гранит для цокольных курсов, мощения площадей и обрамления водных объектов. Придаёт весомость и основательность.</p>
+        <p><strong>Анодированный алюминий:</strong> Бронзовый и шампанский оттенки анодированного алюминия для машрабий, балконных ограждений и завершений башен. Не требует сложного обслуживания, устойчив к коррозии и допускает точную геометрическую обработку.</p>
+        <p><strong>Стеклянные навесные стены:</strong> Высокоэффективное остекление для офисных зданий и башен. Низкоэмиссионные покрытия для энергоэффективности с избирательным использованием фриттованного или гравированного стекла с геометрическими узорами.</p>
+      </div>
+      <div class="card">
+        <h3 style="color: var(--navy);">Композиция силуэта</h3>
+        <p>Высоты нарастают от краёв к центру или ключевому узлу, формируя читаемый силуэт с множества городских точек обзора. Знаковая башня выступает доминантой композиции, окружающие здания поэтапно снижаются. Ни одно здание не перекрывает видовые коридоры к горам, заложенные в мастер-плане.</p>
+        <p>Силуэт читается как горный хребет в миниатюре &mdash; вершины, гряды и долины &mdash; архитектурная метафора Фанских гор, обрамляющих горизонт Душанбе. Это достигается за счёт варьирования высот башен (80 м, 120 м, 150 м, 200 м+) и артикулированных завершений кровель вместо плоскостной однородности.</p>
+      </div>
+      <div class="card">
+        <h3 style="color: var(--navy);">Ландшафт и общественное пространство</h3>
+        <p><strong>Посадка взрослых деревьев:</strong> Платаны, грецкие орехи, шелковицы и вязы (все аборигенные или натурализованные в Таджикистане), высаженные в полувзрослом размере для мгновенного создания кроны. Идентичность «бога» (сада) требует пышного, щедрого озеленения с первого дня.</p>
+        <p><strong>Водные объекты:</strong> Отражающие бассейны, каналы (джуи) и фонтаны, отсылающие к персидско-таджикской садовой традиции текущей воды как элемента охлаждения и духовной метафоры. Системы рециркуляции воды для устойчивого развития.</p>
+        <p><strong>Видовые коридоры к горам:</strong> Визуальные оси восток-запад, поддерживаемые расположением зданий, обеспечивающие жителям и посетителям постоянное ощущение связи с Фанскими горами и впечатляющим рельефом, определяющим идентичность Душанбе.</p>
+      </div>
+      <div class="card">
+        <h3 style="color: var(--navy);">Ночная идентичность</h3>
+        <p>Тёплая золотистая подсветка ключевых фасадных элементов и общественных зданий, создающая целостный ночной образ, видимый со всего города. Завершение знаковой башни освещено светодиодным рисунком, вдохновлённым созвездиями, &mdash; отсылка к короне и звёздам на государственном флаге Таджикистана.</p>
+        <p>Торговые бульвары освещены гирляндами тёплого белого света. Ландшафтные элементы с встроенной подсветкой в бассейнах и каналах. Общий эффект: тёплый, гостеприимный и отчётливо «золотистый» &mdash; район, который светится, а не ослепляет.</p>
+      </div>
+      <div class="card">
+        <h3 style="color: var(--navy);">Интеграция таджикского наследия</h3>
+        <p><strong>Мотивы сюзане:</strong> Яркие вышитые текстили Таджикистана &mdash; сюзане &mdash; абстрагированные в крупноформатные фасадные панели, объекты паблик-арта и узоры мощения. Не буквальное воспроизведение, а перевод текучих ботанических форм и радиальных симметрий сюзане в современные материалы.</p>
+        <p><strong>Традиция чайханы:</strong> Таджикская чайхана &mdash; место общественного собрания, приподнятое на платформе с коврами и низкими столиками &mdash; вдохновляет дизайн общественных павильонов, террас на крышах и общественных пространств по всему району. Это социальная инфраструктура, а не декорация.</p>
+        <p><strong>Исламская геометрия:</strong> Плитки гирих, навесы, вдохновлённые мукарнасами, и геометрические тесселяции как функциональные архитектурные элементы (затенение, вентиляция, навигация), а не прикладной орнамент.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 8. RENDER PROMPTS ════════════════════ -->
+<section id="renders" class="dark-section">
+  <div class="section-inner">
+    <span class="section-label">07 &mdash; Промпты для визуализации</span>
+    <h2>Промпты для архитектурных рендеров</h2>
+    <div class="section-divider"></div>
+    <p class="subtitle mb-2">Следующие промпты предназначены для использования с инструментами генерации изображений на основе ИИ (Midjourney, DALL-E 3, Stable Diffusion) или в качестве брифов для традиционных студий архитектурной визуализации. Каждый промпт описывает конкретный вид Боги Душанбе.</p>
+
+    <div class="render-prompt">
+      <span class="prompt-number">01</span>
+      <span class="prompt-title">Аэрофотосъёмка мастер-плана</span>
+      Aerial photograph, 45-degree angle, of a 30-hectare mixed-use urban district in Dushanbe, Tajikistan. Central green spine running east-west. Residential towers of 8-15 stories in warm travertine and glass with geometric mashrabiya screens. Landmark tower of 200m+ in the southeast quadrant. Lush tree canopy, reflecting pools, pedestrian promenades. Fann Mountains visible in the background under clear blue sky. Warm afternoon light. Photorealistic architectural visualization, 8K resolution, Foster+Partners style.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">02</span>
+      <span class="prompt-title">Торговая улица в золотой час</span>
+      Eye-level street view of a 600-meter pedestrian retail promenade in a Central Asian city. 6-8 story buildings on both sides with ground-floor cafes and shops, bronze anodized aluminum balconies, travertine facades. Mature plane trees lining the street, festoon lighting strung between buildings. Families walking, outdoor dining. Mountains visible at the street's vanishing point. Golden hour light, warm tones. Photorealistic, cinematic composition.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">03</span>
+      <span class="prompt-title">Знаковая башня на закате</span>
+      Dramatic low-angle view of a 200-meter supertall tower in Dushanbe, Tajikistan. Slender, tapering form with faceted glass curtain wall and bronze aluminum crown inspired by Islamic geometric patterns. Sunset sky with dramatic orange and purple clouds, Fann Mountains silhouetted behind. Reflecting pool in foreground with gold uplighting beginning to glow. Contemporary Central Asian architecture, photorealistic rendering.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">04</span>
+      <span class="prompt-title">Центральная площадь с видом на горы</span>
+      Large public plaza in a modern Central Asian urban district. Granite paving with embedded geometric star patterns. Central fountain with low water jets. Groups of people gathering, children playing. Framed view of snow-capped mountains through a gap between contemporary buildings. Mature walnut trees providing shade. Warm travertine seating walls. Clear sky, midday light. Architectural visualization.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">05</span>
+      <span class="prompt-title">Жилой двор</span>
+      Intimate residential courtyard within a 10-story apartment complex. Central garden with mulberry trees, a narrow water channel (jui) running through, low benches. Mashrabiya-screen balconies overlooking the courtyard, casting geometric shadow patterns on the travertine paving. A mother and child walking, an elderly man reading in the shade. Warm, serene, human-scale. Photorealistic, Aga Khan Award-worthy architecture.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">06</span>
+      <span class="prompt-title">Атриум торгового центра</span>
+      Grand interior atrium of a contemporary shopping mall in Central Asia. 5-story height, with a muqarnas-inspired ceiling structure in white concrete and timber, allowing natural light to filter through geometric openings. Retail balconies on each level. Indoor trees and a central water feature. International and local brand stores visible. Warm lighting, clean lines, luxurious but not garish. Photorealistic interior visualization.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">07</span>
+      <span class="prompt-title">Парк на набережной в сумерках</span>
+      Linear waterfront park along a river or canal in a modern Central Asian city. Stepped terraces leading down to the water's edge. Joggers, families on picnic blankets, cyclists on a separated path. Warm-toned LED pathway lighting beginning to illuminate. Residential towers and the landmark tower visible in the background, reflecting gold light. Dusk sky, mountains in silhouette. Landscape architecture visualization.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">08</span>
+      <span class="prompt-title">Ночная панорама</span>
+      Panoramic nighttime view of a new urban district skyline in Dushanbe, Tajikistan. Graduated tower heights from 8 stories to 200m landmark tower. Warm gold uplighting on facades, constellation-pattern LED crown on the tallest tower. Reflecting pool or river in foreground mirroring the lights. Dark mountain silhouettes behind. Clear night sky with stars. Long-exposure photography style, photorealistic.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">09</span>
+      <span class="prompt-title">Вход в культурный центр</span>
+      Dramatic entrance of a contemporary performing arts and cultural center. Large cantilevered roof with muqarnas-inspired geometric underside in timber and concrete. Glass facade revealing a warmly lit lobby. Granite steps, reflecting pool, and a monumental bronze sculpture of a Tajik eagle. Evening event with well-dressed attendees arriving. Mountain backdrop. Photorealistic architectural rendering, Zaha Hadid or Snohetta aesthetic.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">10</span>
+      <span class="prompt-title">Школа и семейный парк</span>
+      Modern primary school building in warm brick and timber with large windows, set beside a children's adventure playground in a neighborhood park. 3-story school with rooftop garden. Parents picking up children, others playing in the park. Colorful but tasteful playground equipment. Mountain views. Safe, joyful, community-oriented atmosphere. Architectural visualization.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">11</span>
+      <span class="prompt-title">Современная мечеть</span>
+      A contemporary mosque in a modern Central Asian urban district. Capacity for 2,000 worshippers. Cubic main volume in local travertine with a geometric perforated screen allowing soft light to enter. Slender minaret of 45 meters in bronze-toned aluminum with subtle spiral form. Courtyard with ablution fountain and mature cypress trees. Modern Tajik Islamic architecture — dignified, geometric, luminous. NOT Ottoman, NOT Gulf-style. Photorealistic.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">12</span>
+      <span class="prompt-title">Лобби офиса класса А</span>
+      Double-height office building lobby with travertine floors, a feature wall of geometric Tajik patterns in bronze aluminum, and a large-format art piece depicting abstract mountain landscape. Reception desk in dark granite. Suited professionals, a coffee bar in the corner. Abundant natural light from full-height glazing. Premium, international, but culturally rooted. Interior visualization.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">13</span>
+      <span class="prompt-title">Прибытие в отель</span>
+      Porte-cochere and arrival court of a 5-star hotel in the landmark tower. Double-height entrance with a dramatic geometric timber ceiling. Doormen in contemporary Tajik-inspired uniforms. Black SUVs arriving, luggage being unloaded. Water feature flanking the entrance. Warm gold lighting, evening atmosphere. Luxurious, understated, Central Asian hospitality. Photorealistic rendering.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">14</span>
+      <span class="prompt-title">Чайхана на крыше</span>
+      Rooftop restaurant and teahouse on a 12-story residential building. Traditional Tajik-style elevated platform seating with modern low furniture and cushions, shaded by a contemporary tensile fabric canopy. Panoramic views of the Fann Mountains and the district below. Sunset light, tea being served, groups of friends and families. Fusion of traditional chaikhona culture with contemporary design. Photorealistic.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">15</span>
+      <span class="prompt-title">Подземный паркинг и транспортный хаб</span>
+      Modern underground parking garage with clean concrete, LED wayfinding, electric vehicle charging stations, and a bright, well-signed elevator lobby connecting to the street above. Bicycle storage area visible. Clean, safe, well-lit. A car and an electric scooter in the frame. Infrastructure visualization, surprisingly elegant for a parking structure.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">16</span>
+      <span class="prompt-title">Бульвар зелёной оси</span>
+      Wide landscaped promenade (30 meters) running through the center of a modern urban district. Double row of mature plane trees, a shallow reflecting channel in the center, low granite seating walls. Joggers, a woman with a stroller, teenagers on bicycles. Residential buildings visible on both sides (8-12 stories, warm stone facades). Morning light, mountain views at the terminus. Landscape architecture visualization.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">17</span>
+      <span class="prompt-title">Технологический инновационный хаб</span>
+      Interior of a contemporary co-working and innovation space. Double-height volume with exposed concrete ceiling, timber acoustic panels, and large windows. Young Tajik professionals working at standing desks, a meeting room with glass walls, a presentation in progress. Green plants, coffee bar, casual but professional atmosphere. A screen showing code. Start-up energy meets Central Asian warmth.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">18</span>
+      <span class="prompt-title">Зимняя сцена</span>
+      The retail high street of Boghi Dushanbe in winter. Light snow on the ground and on building ledges. Warm light spilling from shop windows and cafes. People in winter coats walking, a child with a small sled. The mashrabiya screens on upper floors with snow collecting in the geometric patterns. The landmark tower visible in the background against a grey-white sky. Cozy, lively, beautiful in every season.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">19</span>
+      <span class="prompt-title">Паблик-арт инсталляция</span>
+      A large-scale public art sculpture in the central plaza of a modern Central Asian district. Abstract form inspired by suzani textile motifs, fabricated in polished stainless steel and colored glass, approximately 8 meters tall. People interacting with it, taking photos. Travertine paving, water channel in the background, residential towers behind. Daylight, clear sky. The artwork as a social gathering point and Instagram destination.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">20</span>
+      <span class="prompt-title">Медицинская клиника и центр здоровья</span>
+      A modern 4-story neighborhood health clinic and wellness center. Clean facade of white precast concrete with geometric perforations, ground-floor pharmacy, and a welcoming glass entrance. A small healing garden visible to the side with medicinal plants. Patients arriving, a doctor in a white coat greeting someone. Professional, reassuring, human-scaled healthcare architecture.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">21</span>
+      <span class="prompt-title">Аэрофотосъёмка этапа строительства</span>
+      Aerial view of a 30-hectare construction site in various stages of development. Completed residential towers in the north, steel structure rising for the landmark tower in the south, landscaped park already open in the center, cranes visible. The city of Dushanbe surrounding the site, mountains in the background. Progress, momentum, transformation in action. Realistic construction photography style.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">22</span>
+      <span class="prompt-title">Вид со смотровой площадки</span>
+      Interior of a glass-enclosed observation deck at the top of a 200m tower. Visitors looking out at a dramatic 360-degree panorama of Dushanbe, the Hissar Valley, and the snow-capped Fann Mountains. Sleek dark interior with minimal railings, informational screens identifying mountain peaks. Sunset light flooding in. A couple pointing at the mountains. Vertigo-inducing height, breathtaking views.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">23</span>
+      <span class="prompt-title">Представление в амфитеатре</span>
+      An outdoor amphitheater in a modern urban park, capacity 3,000. Tiered stone seating facing a contemporary stage with a fabric tensile canopy. A traditional Tajik music performance in progress, audience engaged. The landmark tower illuminated in the background. String lights and warm ground lighting. Evening atmosphere, community celebration, cultural vitality.
+    </div>
+
+    <div class="callout callout-gold mt-2">
+      <strong>Примечание о визуализации:</strong> Эти промпты откалиброваны для инструментов генерации изображений текущего поколения (Midjourney v6+, DALL-E 3, Stable Diffusion XL) и также могут служить словесными брифами для традиционных студий визуализации, таких как DBOX, Brick Visual или Mir. Для формального предложения мы рекомендуем заказать 8&ndash;10 ключевых изображений у профессиональной студии, дополнив их концептуальными видами, сгенерированными ИИ.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 9. DEVELOPMENT PROGRAM ════════════════════ -->
+<section id="program" class="light-section">
+  <div class="section-inner">
+    <span class="section-label">08 &mdash; Программа развития</span>
+    <h2>Ориентировочная программа развития</h2>
+    <div class="section-divider" style="background: var(--navy);"></div>
+
+    <div class="callout callout-note mb-2">
+      <strong>Отказ от ответственности:</strong> Все приведённые ниже цифры являются концептуальными и ориентировочными, основаны на сопоставимых международных проектах и скорректированы с учётом контекста Душанбе. Они подлежат уточнению по результатам детальных технико-экономических обоснований, рыночного анализа, оценки инфраструктуры и нормативной проверки.
+    </div>
+
+    <h3 class="mt-2">Распределение территории по функциям</h3>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Функция</th>
+            <th>% участка</th>
+            <th>Прибл. площадь земли</th>
+            <th>Диапазон общей площади</th>
+            <th>Примечания</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Жилая</strong></td>
+            <td>35&ndash;40%</td>
+            <td>103 000&ndash;120 000 м²</td>
+            <td>1 200 000&ndash;1 500 000 м²</td>
+            <td>Микс доступного, среднего и премиального сегмента. Башни (15&ndash;40 этажей) и среднеэтажные (6&ndash;12 этажей).</td>
+          </tr>
+          <tr>
+            <td><strong>Коммерческая / Офисная</strong></td>
+            <td>10&ndash;12%</td>
+            <td>30 000&ndash;36 000 м²</td>
+            <td>200 000&ndash;300 000 м²</td>
+            <td>Офисы класса А, технохаб, коворкинг. Высотный кластер на главном фронте.</td>
+          </tr>
+          <tr>
+            <td><strong>Торговля и общепит</strong></td>
+            <td>8&ndash;10%</td>
+            <td>24 000&ndash;30 000 м²</td>
+            <td>150 000&ndash;200 000 м²</td>
+            <td>Торговая улица, торгово-развлекательный центр, районная торговля.</td>
+          </tr>
+          <tr>
+            <td><strong>Гостиничная</strong></td>
+            <td>3&ndash;4%</td>
+            <td>9 000&ndash;12 000 м²</td>
+            <td>50 000&ndash;80 000 м²</td>
+            <td>5-звёздочный отель (300&ndash;400 номеров), бизнес-отель (200&ndash;250 номеров). Брендированные резиденции.</td>
+          </tr>
+          <tr>
+            <td><strong>Общественная и гражданская</strong></td>
+            <td>5&ndash;6%</td>
+            <td>15 000&ndash;18 000 м²</td>
+            <td>40 000&ndash;60 000 м²</td>
+            <td>Мечеть, школы (2&ndash;3), медицинская клиника, культурный центр, библиотека.</td>
+          </tr>
+          <tr>
+            <td><strong>Общественные пространства и парки</strong></td>
+            <td>18&ndash;22%</td>
+            <td>53 000&ndash;65 000 м²</td>
+            <td>&mdash;</td>
+            <td>Центральный парк, зелёная ось, площади, набережная, амфитеатр.</td>
+          </tr>
+          <tr>
+            <td><strong>Дороги и инфраструктура</strong></td>
+            <td>15&ndash;18%</td>
+            <td>44 000&ndash;53 000 м²</td>
+            <td>&mdash;</td>
+            <td>Внутренняя дорожная сеть, инженерные коммуникации, въезды в подземный паркинг.</td>
+          </tr>
+          <tr style="font-weight: 600; background: rgba(26,31,58,0.03);">
+            <td><strong>Итого</strong></td>
+            <td>100%</td>
+            <td>~295 000 м²</td>
+            <td>~1 800 000&ndash;2 500 000 м²</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="mt-3">Ключевые показатели</h3>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Показатель</th>
+            <th>Нижняя оценка</th>
+            <th>Верхняя оценка</th>
+            <th>Допущения</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Жилые квартиры</td>
+            <td>12 000</td>
+            <td>15 000</td>
+            <td>Средний размер квартиры 85&ndash;110 м²; микс 1-комн., 2-комн., 3-комн. и 4-комн.</td>
+          </tr>
+          <tr>
+            <td>Ёмкость населения</td>
+            <td>30 000</td>
+            <td>45 000</td>
+            <td>2,5&ndash;3,5 человек на квартиру; варьируется в зависимости от структуры квартир</td>
+          </tr>
+          <tr>
+            <td>Номера в отелях</td>
+            <td>400</td>
+            <td>600</td>
+            <td>Один 5-звёздочный (300&ndash;400 номеров), один бизнес-отель (100&ndash;200 номеров)</td>
+          </tr>
+          <tr>
+            <td>Офисные рабочие места</td>
+            <td>15 000</td>
+            <td>25 000</td>
+            <td>12&ndash;15 м² на рабочее место; микс традиционных и коворкинг</td>
+          </tr>
+          <tr>
+            <td>Торговые помещения</td>
+            <td>800</td>
+            <td>1 200</td>
+            <td>Средний размер 120&ndash;180 м²; включая общепит</td>
+          </tr>
+          <tr>
+            <td>Парковочные места</td>
+            <td>15 000</td>
+            <td>20 000</td>
+            <td>Преимущественно подземные; 1,0&ndash;1,3 места на жилую квартиру + коммерческая квота</td>
+          </tr>
+          <tr>
+            <td>Вместимость школ</td>
+            <td>2 500</td>
+            <td>4 000</td>
+            <td>2&ndash;3 школы (начальная и средняя); рассчитаны на население района</td>
+          </tr>
+          <tr>
+            <td>Парки / Открытые пространства</td>
+            <td>5,3 га</td>
+            <td>6,5 га</td>
+            <td>18&ndash;22% общей площади участка; превышает большинство международных стандартов</td>
+          </tr>
+          <tr>
+            <td>Культурный центр</td>
+            <td>12 000 м²</td>
+            <td>18 000 м²</td>
+            <td>Главный зал (1 500 мест), выставочная галерея, многофункциональные пространства</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-note mt-2">
+      <strong>Концептуально &mdash; Требуется технико-экономическое обоснование:</strong> Представленная программа отражает потенциал 30-гектарного участка при FAR 3,5&ndash;6,0 (в зависимости от зоны). Фактическая застраиваемая площадь будет определена геотехническими условиями, мощностью инфраструктуры, нормативными разрешениями и темпами рыночного поглощения. Детальное исследование спроса необходимо до финализации программы развития.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 10. ECONOMIC & STRATEGIC VALUE ════════════════════ -->
+<section id="economics" class="dark-section">
+  <div class="section-inner">
+    <span class="section-label">09 &mdash; Экономическая и стратегическая ценность</span>
+    <h2>Обоснование инвестиций</h2>
+    <div class="section-divider"></div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">&#9670;</div>
+        <h3>Создание рабочих мест</h3>
+        <p>Фаза строительства: 20 000+ прямых рабочих мест на протяжении 10&ndash;15 лет, включая квалифицированные строительные специальности, инженерию и управление проектами. Постоянная занятость: 15 000&ndash;20 000 рабочих мест в офисах, торговле, гостиничном бизнесе, образовании, здравоохранении и управлении объектами. Мультипликатор косвенной занятости 2,5&ndash;3x создаёт дополнительно 40 000&ndash;60 000 рабочих мест в экономике за счёт эффекта цепочки поставок.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#9670;</div>
+        <h3>Налоговые поступления</h3>
+        <p>Готовый район будет генерировать значительные муниципальные и национальные налоговые поступления за счёт налогов на недвижимость, налогов на предпринимательскую деятельность, НДС с торговли и гостиничного бизнеса, подоходного налога с работников и механизмов извлечения стоимости земли. По достижении зрелости район сможет вносить существенный вклад в годовой муниципальный бюджет Душанбе, снижая зависимость города от трансфертов центрального правительства.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#9670;</div>
+        <h3>Стоимость недвижимости</h3>
+        <p>При текущих рыночных ставках Душанбе и прогнозируемом росте (4,69% годовых) завершённый район Боги Душанбе может представлять $3&ndash;5 млрд стоимости недвижимости по достижении зрелости. Это сделает его самым ценным объектом недвижимости в Таджикистане и краеугольным камнем национального богатства. Доходность аренды около 10% на текущем рынке свидетельствует о сильной отдаче для инвесторов.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#9670;</div>
+        <h3>Туризм и привлекательность</h3>
+        <p>5-звёздочный отель, культурный центр, торгово-развлекательный комплекс и архитектурные достопримечательности позиционируют Боги Душанбе как региональный центр туристического притяжения. Душанбе всё больше признаётся как ворота к Памирскому тракту и захватывающим горным ландшафтам Таджикистана. Городской район мирового класса повышает привлекательность города для делового туризма, культурного туризма и транзитных путешественников.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#9670;</div>
+        <h3>Иностранные инвестиции</h3>
+        <p>Грамотно структурированное ГЧП (государственно-частное партнёрство) для Боги Душанбе способно привлечь инвестиции от международных институтов финансирования развития (ЕБРР, МФК, АБР), суверенных фондов благосостояния (особенно из стран Персидского залива, заинтересованных в Центральной Азии) и международных девелоперов. Масштаб проекта и государственная поддержка обеспечивают уровень надёжности, который требуют институциональные инвесторы.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#9670;</div>
+        <h3>Национальный престиж и городской бренд</h3>
+        <p>Боги Душанбе станет самым заметным проектом городского развития в Таджикистане, сопоставимым по амбициям с новым центром Астаны (Казахстан) или мраморной модернизацией Ашхабада (Туркменистан), но с более гуманным, комфортным для жизни и экономически устойчивым подходом. Международное медиаосвещение хорошо спроектированного центральноазиатского городского проекта укрепит глобальную репутацию Таджикистана.</p>
+      </div>
+    </div>
+
+    <h3 class="mt-3">Каталитические экономические эффекты</h3>
+    <div class="two-col">
+      <div>
+        <p>Масштабная городская реконструкция создаёт ценность далеко за пределами границ участка. Международный опыт (Лондонские доки, Барселона 22@, Сонгдо IBD) демонстрирует, что хорошо спланированные флагманские районы повышают стоимость недвижимости в прилегающих кварталах на 15&ndash;30% в течение первого десятилетия.</p>
+        <p>Для Душанбе Боги Душанбе:</p>
+        <ul class="styled-list">
+          <li>Стимулирует модернизацию прилегающих жилых и коммерческих территорий</li>
+          <li>Привлечёт дополнительные частные инвестиции в район Лучоб</li>
+          <li>Улучшит инфраструктуру (дороги, коммуникации, общественный транспорт), которая принесёт пользу всему городу</li>
+          <li>Создаст демонстрационный эффект для стандартов качественного проектирования и строительства</li>
+          <li>Развитие навыков местной рабочей силы в области современного строительства и управления городской средой</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Логика структуры ГЧП</h4>
+        <p>Оптимальный механизм реализации &mdash; государственно-частное партнёрство, в рамках которого:</p>
+        <ul class="styled-list">
+          <li><strong>Государство предоставляет:</strong> Землю (через долгосрочную аренду или передачу), содействие в нормативном регулировании, инвестиции в инфраструктуру и политическую поддержку</li>
+          <li><strong>Частный сектор обеспечивает:</strong> Инвестиционный капитал, строительную экспертизу, управленческие компетенции и принятие рыночных рисков</li>
+          <li><strong>ИФР участвуют:</strong> Льготное финансирование, техническое содействие, экологические и социальные гарантии и международный авторитет</li>
+          <li><strong>Распределение доходов:</strong> Государство получает арендные платежи за землю, налоговые поступления и сохраняемый капитал в ключевых активах (напр., культурный центр, общественные пространства)</li>
+        </ul>
+        <p class="mt-1">Эта структура соответствует заявленному предпочтению ЕБРР в отношении моделей ГЧП в Стратегии по Таджикистану на 2025&ndash;2030 годы и рамочной программе Проекта устойчивого городского развития Душанбе Всемирного банка.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 11. PHASING STRATEGY ════════════════════ -->
+<section id="phasing" class="light-section">
+  <div class="section-inner">
+    <span class="section-label">10 &mdash; Стратегия поэтапной реализации</span>
+    <h2>Десятилетие целенаправленной трансформации</h2>
+    <div class="section-divider" style="background: var(--navy);"></div>
+    <p class="subtitle" style="color: var(--stone);">Боги Душанбе не строится за один день. Стратегия поэтапной реализации отдаёт приоритет ранним видимым достижениям, последовательно укрепляет рыночное доверие и резервирует наиболее амбициозные элементы до тех пор, пока успех района не будет подтверждён.</p>
+
+    <div class="timeline mt-3">
+      <div class="timeline-item">
+        <div class="timeline-phase">Фаза 0 &mdash; Подготовка (Год 0&ndash;1)</div>
+        <h4 style="color: var(--navy);">Исследования, согласования и координация заинтересованных сторон</h4>
+        <p>Заказ комплексного технико-экономического обоснования (рыночного, финансового, технического). Проведение экологической оценки участка и планирование рекультивации. Завершение геотехнических и топографических изысканий. Привлечение международной фирмы мастер-планирования (через конкурс или прямое назначение). Проведение консультаций с заинтересованными сторонами: государственными органами, соседними общинами, потенциальными инвесторами. Получение одобрения на уровне кабинета министров и поддержки мэра. Создание органа управления проектом (специализированное ООО или государственное агентство). Начало международного маркетинга среди потенциальных инвесторов и партнёров по развитию.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-phase">Фаза 1 &mdash; Зарождение (Год 1&ndash;3)</div>
+        <h4 style="color: var(--navy);">Вывод из эксплуатации, инфраструктура и первые объекты</h4>
+        <p>Начало вывода промышленных объектов из эксплуатации и экологической рекультивации. Создание первичной инфраструктуры: дороги, коммуникации, дренаж, телекоммуникации. <strong>Быстрая победа №1:</strong> Открытие 3-гектарного общественного парка и зелёной оси (первый видимый знак трансформации; формирует общественную поддержку). <strong>Быстрая победа №2:</strong> Сдача первых 2 000 жилых квартир (среднеэтажных, семейных, по доступным ценам) для демонстрации качества жизни. <strong>Быстрая победа №3:</strong> Открытие первых 200 м торговой улицы с кафе, пекарнями и магазинами повседневного спроса. Начало строительства начальной школы и медицинской клиники.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-phase">Фаза 2 &mdash; Набор темпа (Год 3&ndash;6)</div>
+        <h4 style="color: var(--navy);">Офисы, отель, расширение жилья и культурный якорь</h4>
+        <p>Сдача первого офисного кластера (2&ndash;3 здания, 80 000&ndash;120 000 м²). Открытие бизнес-отеля (200&ndash;250 номеров). Расширение жилого фонда до 6 000&ndash;8 000 квартир нарастающим итогом, включая первые премиальные башни. Завершение торговой улицы (полные 600 м). Начало строительства культурного центра и амфитеатра. Открытие мечети и общественных объектов. Объявление международного архитектурного конкурса на проект знаковой башни. Население района достигает 15 000&ndash;20 000 человек.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-phase">Фаза 3 &mdash; Знаковая (Год 6&ndash;10)</div>
+        <h4 style="color: var(--navy);">Знаковая башня, торгово-развлекательный комплекс и полная идентичность района</h4>
+        <p>Строительство знаковой башни (200 м+), включая 5-звёздочный отель и смотровую площадку. Открытие торгово-развлекательного комплекса. Завершение технологического инновационного хаба. Сдача 10 000&ndash;12 000 жилых квартир нарастающим итогом. Открытие культурного центра с полной программой. Район достигает критической массы и самоокупаемости. Силуэт Душанбе необратимо преображён.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-phase">Фаза 4 &mdash; Созревание (Год 10&ndash;15)</div>
+        <h4 style="color: var(--navy);">Оставшиеся участки и долгосрочное создание стоимости</h4>
+        <p>Застройка оставшихся жилых и коммерческих участков на основе подтверждённого спроса. Доработка общественных пространств: дополнительное озеленение, программа паблик-арта, сезонные мероприятия. Введение брендированных резиденций и люксового сегмента при наличии рыночного спроса. Завершение всей инфраструктуры и паркинга. Район достигает полной проектной численности 30 000&ndash;45 000 человек. Боги Душанбе утверждается как самый престижный адрес в Таджикистане.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 12. GOVERNMENT APPROVAL ════════════════════ -->
+<section id="government" class="dark-section">
+  <div class="section-inner">
+    <span class="section-label">11 &mdash; Стратегия государственного согласования</span>
+    <h2>Обоснование общественного интереса</h2>
+    <div class="section-divider"></div>
+
+    <p class="subtitle">Успех Боги Душанбе зависит от сильной и устойчивой приверженности правительства. Проект должен быть представлен не как коммерческое предприятие в сфере недвижимости, а как национальная инициатива в интересах народа Таджикистана.</p>
+
+    <div class="card-grid mt-2">
+      <div class="card">
+        <h3>Модернизация столицы</h3>
+        <p>Душанбе &mdash; лицо Таджикистана перед миром. Как дипломатический, коммерческий и культурный центр страны, физическая среда столицы непосредственно отражает национальные амбиции и возможности. Боги Душанбе трансформирует наследие промышленной эпохи в актив XXI века, демонстрируя, что Таджикистан строит будущее, чтя своё прошлое.</p>
+      </div>
+      <div class="card">
+        <h3>Качество жизни</h3>
+        <p>Проект непосредственно решает жилищный кризис, затрагивающий сотни тысяч жителей Душанбе. Обеспечивая 12 000&ndash;15 000 современных квартир наряду со школами, клиниками, парками и торговлей, Боги Душанбе создаёт полноценный район, где семьи могут процветать. Это наиболее осязаемая форма служения государства своим гражданам.</p>
+      </div>
+      <div class="card">
+        <h3>Рабочие места и экономический рост</h3>
+        <p>С 20 000+ рабочих мест в строительстве и 15 000+ постоянных позиций Боги Душанбе представляет собой одну из крупнейших инициатив по созданию рабочих мест в современной истории Таджикистана. Проект обеспечивает занятость для всех уровней квалификации &mdash; от рабочих до инженеров, от продавцов до менеджеров отелей, &mdash; создавая широкий экономический эффект.</p>
+      </div>
+      <div class="card">
+        <h3>Экологическая модернизация</h3>
+        <p>Замена промышленной инфраструктуры зелёным урбанизмом &mdash; парками, аллеями, экологичными зданиями и современным управлением отходами &mdash; является экологической победой для Душанбе. Проект устраняет источник промышленного загрязнения и создаёт крупнейшее новое зелёное пространство города, способствуя улучшению качества воздуха, биоразнообразия и климатической устойчивости.</p>
+      </div>
+    </div>
+
+    <h3 class="mt-3">Необходимые исследования и согласования</h3>
+    <p class="text-muted text-small mb-2">Нижеперечисленные исследования и согласования являются обязательными до начала строительства. Этот дисциплинированный подход защищает интересы правительства и обеспечивает долгосрочную жизнеспособность проекта.</p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Исследование / Согласование</th>
+            <th>Цель</th>
+            <th>Ориентировочные сроки</th>
+            <th>Ответственный орган</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Маркетинговое исследование</td>
+            <td>Подтверждение спроса, ценообразования, темпов поглощения по всем функциям</td>
+            <td>3&ndash;4 месяца</td>
+            <td>Международная консалтинговая компания (JLL, CBRE, Colliers)</td>
+          </tr>
+          <tr>
+            <td>Оценка воздействия на окружающую среду</td>
+            <td>Оценка загрязнения, требований к рекультивации, экологического воздействия</td>
+            <td>4&ndash;6 месяцев</td>
+            <td>Комитет по охране окружающей среды</td>
+          </tr>
+          <tr>
+            <td>Оценка инфраструктурной ёмкости</td>
+            <td>Оценка пропускной способности дорог, водоснабжения, электроснабжения, канализации и потребностей в модернизации</td>
+            <td>3&ndash;4 месяца</td>
+            <td>Инженерное управление города Душанбе</td>
+          </tr>
+          <tr>
+            <td>Юридический анализ и права на землю</td>
+            <td>Уточнение собственности, условий концессии, нормативной базы</td>
+            <td>2&ndash;3 месяца</td>
+            <td>Государственный комитет по управлению землёй</td>
+          </tr>
+          <tr>
+            <td>Транспортное исследование</td>
+            <td>Моделирование транспортного воздействия, интеграция общественного транспорта, потребность в парковке</td>
+            <td>3&ndash;4 месяца</td>
+            <td>Транспортное управление Душанбе</td>
+          </tr>
+          <tr>
+            <td>Финансовое структурирование</td>
+            <td>Разработка модели ГЧП, плана финансирования, стратегии привлечения инвесторов</td>
+            <td>4&ndash;6 месяцев</td>
+            <td>Министерство финансов / Консультации МФК</td>
+          </tr>
+          <tr>
+            <td>Разработка мастер-плана</td>
+            <td>Детальное градостроительное проектирование, архитектурные регламенты, план поэтапной реализации</td>
+            <td>6&ndash;9 месяцев</td>
+            <td>Международная фирма мастер-планирования</td>
+          </tr>
+          <tr>
+            <td>Одобрение Кабинетом Министров</td>
+            <td>Формальное государственное утверждение проекта и рамки ГЧП</td>
+            <td>По завершении вышеуказанных исследований</td>
+            <td>Правительство Республики Таджикистан</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-gold mt-2">
+      <strong>Замечание о процессе:</strong> Настоящее предложение представлено с глубоким уважением к полномочиям и процессам принятия решений Правительства Республики Таджикистан. Мы признаём, что проект такого масштаба требует тщательного обсуждения, широких консультаций с заинтересованными сторонами и строгой технической валидации. Наша рекомендация &mdash; начать с технико-экономических обоснований, изложенных выше, позволив доказательной базе определить дальнейший путь.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 13. RISKS & MITIGATION ════════════════════ -->
+<section id="risks" class="light-section">
+  <div class="section-inner">
+    <span class="section-label">12 &mdash; Оценка рисков</span>
+    <h2>Риски и стратегии их снижения</h2>
+    <div class="section-divider" style="background: var(--navy);"></div>
+    <p class="subtitle" style="color: var(--stone);">Ответственное предложение должно открыто признавать риски. Нижеследующий анализ определяет ключевые риски и предлагает практические меры по их снижению.</p>
+
+    <div class="table-wrapper mt-2">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 18%;">Риск</th>
+            <th style="width: 8%;">Влияние</th>
+            <th style="width: 10%;">Вероятность</th>
+            <th style="width: 32%;">Описание</th>
+            <th style="width: 32%;">Стратегия снижения</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Права на землю и концессия</strong></td>
+            <td><span class="risk-high">Высокое</span></td>
+            <td><span class="risk-med">Среднее</span></td>
+            <td>Структура собственности участка, существующие концессии и правовая база для передачи или долгосрочной аренды могут быть сложными, включающими несколько государственных структур.</td>
+            <td>Заказать юридический анализ и обзор земельных прав в первоочередном порядке. Рано привлечь Государственный комитет по управлению землёй. Установить чёткие государственные полномочия над проектом. Рассмотреть статус особой экономической зоны или зоны развития.</td>
+          </tr>
+          <tr>
+            <td><strong>Перенос промышленных объектов</strong></td>
+            <td><span class="risk-high">Высокое</span></td>
+            <td><span class="risk-high">Высокое</span></td>
+            <td>Действующие теплоэнергетические и промышленные объекты не могут быть внезапно остановлены. Перенос или замена энергетической инфраструктуры требует тщательного планирования во избежание нарушения городских сервисов.</td>
+            <td>Поэтапное освоение с сохранением текущих операций в переходный период. Координация с «Барки Тоджик» (национальной энергетической компанией) по замещающим мощностям. Включение затрат на переход в бюджет проекта. Предусмотреть 2&ndash;3 года на вывод из эксплуатации.</td>
+          </tr>
+          <tr>
+            <td><strong>Экологическая рекультивация</strong></td>
+            <td><span class="risk-high">Высокое</span></td>
+            <td><span class="risk-high">Высокое</span></td>
+            <td>Десятилетия промышленной деятельности могли загрязнить почву и грунтовые воды. Затраты на рекультивацию могут быть значительными, а сроки — непредсказуемыми.</td>
+            <td>Провести экологические оценки Фазы I и Фазы II до принятия обязательств. Заложить консервативный бюджет на рекультивацию (5&ndash;10% общей стоимости проекта). Привлечь международную экологическую инжиниринговую фирму. Изучить возможности финансирования рекультивации ЕБРР/Всемирным банком.</td>
+          </tr>
+          <tr>
+            <td><strong>Сложность финансирования</strong></td>
+            <td><span class="risk-high">Высокое</span></td>
+            <td><span class="risk-med">Среднее</span></td>
+            <td>Проект стоимостью $3&ndash;5 млрд требует многоисточникового финансирования на протяжении 15 лет. Суверенный кредитный рейтинг Таджикистана и валютные риски могут отпугнуть некоторых инвесторов.</td>
+            <td>Поэтапное инвестирование в соответствии с рыночным поглощением. Структурирование ГЧП с адекватным распределением рисков. Привлечение ИФР (ЕБРР, МФК, АБР) для якорного финансирования и повышения доверия. Рассмотреть доходные потоки в сомони для жилого компонента. Диверсифицировать базу инвесторов (суверенные фонды Персидского залива, китайские инвесторы, турецкие девелоперы).</td>
+          </tr>
+          <tr>
+            <td><strong>Общественные опасения</strong></td>
+            <td><span class="risk-med">Среднее</span></td>
+            <td><span class="risk-med">Среднее</span></td>
+            <td>Жители могут выразить обеспокоенность относительно переселения, строительных неудобств, доступности нового жилья или утраты знакомых ориентиров.</td>
+            <td>Ранние и открытые общественные консультации. Обязательство по доступному жилью (не менее 30% жилых квартир по ценам ниже рыночных). Первоочередная сдача общественного парка и социальных объектов. Создание офиса по работе с населением. Приоритет в трудоустройстве для местных жителей.</td>
+          </tr>
+          <tr>
+            <td><strong>Транспортная и инфраструктурная нагрузка</strong></td>
+            <td><span class="risk-med">Среднее</span></td>
+            <td><span class="risk-med">Среднее</span></td>
+            <td>Появление 30 000&ndash;45 000 жителей и 15 000&ndash;20 000 работников значительно увеличит трафик на прилегающих дорогах и нагрузку на коммуникации.</td>
+            <td>Заказать транспортное исследование на раннем этапе. Проектировать внутреннюю дорожную сеть с распределением трафика по нескольким точкам доступа. Инвестировать в модернизацию дорог в рамках Фазы 1. Проектировать с учётом будущей интеграции общественного транспорта (BRT или легкорельсовый). Обязательная подземная парковка для сохранения пешеходного характера улиц.</td>
+          </tr>
+          <tr>
+            <td><strong>Политическая и нормативная координация</strong></td>
+            <td><span class="risk-med">Среднее</span></td>
+            <td><span class="risk-low">Низкое</span></td>
+            <td>Проект охватывает несколько государственных юрисдикций и требует устойчивой политической поддержки на протяжении электоральных циклов.</td>
+            <td>Закрепить проект на высшем уровне государственной власти. Создать специализированный орган управления проектом с чётким мандатом. Формировать межпартийную поддержку через акцент на общественных выгодах. Интегрировать проект в генеральный план города до 2040 года. Обеспечить ранние формальные согласования, создающие институциональную инерцию.</td>
+          </tr>
+          <tr>
+            <td><strong>Строительный потенциал</strong></td>
+            <td><span class="risk-med">Среднее</span></td>
+            <td><span class="risk-med">Среднее</span></td>
+            <td>Строительная отрасль Таджикистана может не обладать мощностями и техническими навыками для проекта такого масштаба и качества.</td>
+            <td>Привлечь международных подрядчиков для ключевых объектов (башня, отель, культурный центр). Инвестировать в программы подготовки кадров. Поэтапное строительство, позволяющее наращивать потенциал. Партнёрство с турецкими, китайскими или компаниями Персидского залива, имеющими опыт работы в Центральной Азии.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 14. CLOSING ════════════════════ -->
+<section id="closing" class="deep-section" style="padding: 8rem 2rem;">
+  <div class="section-inner" style="max-width: 900px; text-align: center;">
+    <span class="section-label">13 &mdash; Заключительное слово</span>
+    <h2 style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.3;">Города строят те, кто осмеливается их представить</h2>
+    <div class="section-divider" style="margin: 2rem auto;"></div>
+
+    <p style="font-size: 1.1rem; color: var(--stone-light); line-height: 1.9; margin-bottom: 1.5rem;">
+      У каждого великого города есть момент, когда он решает стать чем-то большим. Для Парижа это были бульвары Османа. Для Сингапура &mdash; преобразование болота в Марина-Бэй. Для Астаны &mdash; дерзкое решение возвести новую столицу в степи. Это не были неизбежные результаты &mdash; это были акты видения, мужества и неуклонной приверженности.
+    </p>
+
+    <p style="font-size: 1.1rem; color: var(--stone-light); line-height: 1.9; margin-bottom: 1.5rem;">
+      Душанбе стоит на пороге такого момента. 30 гектаров в сердце настоящего предложения &mdash; это не просто земля &mdash; это холст для национальных амбиций. Промышленная инфраструктура, занимающая участок, служила Таджикистану в прежнюю эпоху. То, что придёт ей на смену, может служить Таджикистану в течение следующего столетия: жильё для семей, школы для детей, парки для общин, рабочие места для нового поколения и архитектурные доминанты, которые скажут миру, что Таджикистан строит будущее, достойное его выдающегося народа и ландшафта.
+    </p>
+
+    <p style="font-size: 1.1rem; color: var(--stone-light); line-height: 1.9; margin-bottom: 1.5rem;">
+      Боги Душанбе &mdash; не фантазия. Это дисциплинированное, поэтапное, финансово структурированное предложение, вобравшее лучшие международные практики и укоренённое в таджикской культуре, климате и ценностях. Оно решает жилищный кризис. Создаёт десятки тысяч рабочих мест. Привлекает международные инвестиции. Преображает городской силуэт и качество жизни граждан.
+    </p>
+
+    <p style="font-size: 1.1rem; color: var(--stone-light); line-height: 1.9; margin-bottom: 2.5rem;">
+      Но всё начинается с решения. Решения заказать технико-экономические обоснования, которые превращают видение в доказательную базу. Решения привлечь международную экспертизу, которая превращает амбиции в архитектуру. Решения поверить, что Таджикистан заслуживает урбанистики мирового класса &mdash; и способен её создать.
+    </p>
+
+    <div style="border: 1px solid rgba(197,165,90,0.3); border-radius: 10px; padding: 2.5rem; background: rgba(197,165,90,0.04);">
+      <h3 style="color: var(--gold); font-size: 1.3rem; margin-bottom: 1rem;">Рекомендуемый следующий шаг</h3>
+      <p style="font-size: 1.05rem; color: var(--text-light); line-height: 1.8;">
+        Мы с уважением рекомендуем Правительству Республики Таджикистан и Мэру города Душанбе санкционировать проведение <strong>комплексного технико-экономического обоснования</strong> проекта Боги Душанбе, включающего рыночный анализ, экологическую оценку, оценку инфраструктуры, финансовое структурирование и предварительное мастер-планирование. Данное исследование, рассчитанное на 6&ndash;9 месяцев, обеспечит доказательную базу для принятия обоснованного инвестиционного решения.
+      </p>
+      <p style="font-size: 1.05rem; color: var(--text-light); line-height: 1.8; margin-bottom: 0;">
+        Сад готов к посадке. Вопрос не в том, заслуживает ли Душанбе этого, &mdash; а в том, хватит ли у этого поколения видения, чтобы его создать.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 15. PPTX GUIDANCE ════════════════════ -->
+<section id="pptx" class="dark-section">
+  <div class="section-inner">
+    <span class="section-label">14 &mdash; Руководство по PowerPoint</span>
+    <h2>Система дизайна презентации</h2>
+    <div class="section-divider"></div>
+    <p class="subtitle mb-2">Рекомендации по переводу данного предложения в формальную PowerPoint-презентацию для аудитории правительства и инвесторов.</p>
+
+    <div class="two-col">
+      <div>
+        <h3>Типографика</h3>
+        <ul class="styled-list">
+          <li><strong>Титульные слайды:</strong> 36pt жирный, системный шрифт без засечек (Segoe UI, Helvetica Neue или Arial). Цвет: белый на тёмном фоне, тёмно-синий на светлом.</li>
+          <li><strong>Заголовки разделов:</strong> 28pt тонкий/обычный. Цвет: золотой (#c5a55a) на тёмном, тёмно-синий (#1a1f3a) на светлом.</li>
+          <li><strong>Основной текст:</strong> 14pt обычный. Цвет: светло-серый (#b0b3b8) на тёмном, тёмно-серый (#3a3d42) на светлом.</li>
+          <li><strong>Подписи и метки:</strong> 10pt, прописные, межбуквенный интервал 0.1em. Цвет: приглушённый серый.</li>
+          <li><strong>Акцентные цифры:</strong> 48pt жирный для ключевых чисел. Цвет: золотой.</li>
+        </ul>
+
+        <h3 class="mt-2">Цветовая система</h3>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 1rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #1a1f3a;"></div><span class="text-small">Navy #1a1f3a</span></div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #c5a55a;"></div><span class="text-small">Gold #c5a55a</span></div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #f5f7fa;"></div><span class="text-small">Glacier #f5f7fa</span></div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #2d6a4f;"></div><span class="text-small">Emerald #2d6a4f</span></div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #5b9bd5;"></div><span class="text-small">Sky #5b9bd5</span></div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #c4784a;"></div><span class="text-small">Terracotta #c4784a</span></div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #8a8d93;"></div><span class="text-small">Stone #8a8d93</span></div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #111428;"></div><span class="text-small">Deep Navy #111428</span></div>
+        </div>
+      </div>
+      <div>
+        <h3>Принципы композиции слайдов</h3>
+        <ul class="styled-list">
+          <li><strong>Одна идея на слайд.</strong> Не перегружайте. Если тема требует больше места, добавьте слайд.</li>
+          <li><strong>Правило 60/40:</strong> 60% визуал (рендеры, графики, карты, диаграммы), максимум 40% текста.</li>
+          <li><strong>Единые поля:</strong> 1,5 см со всех сторон. Все элементы выравниваются по 12-колоночной сетке.</li>
+          <li><strong>Тёмные фоны</strong> для ключевых слайдов, акцентных данных и разделителей. <strong>Светлые фоны</strong> для таблиц, детального текста и технического содержания.</li>
+          <li><strong>Изображения на весь слайд</strong> для рендеров с полупрозрачным градиентным оверлеем и белым текстом.</li>
+          <li><strong>Минимальная анимация:</strong> Только плавное появление. Никаких стирок, вращений или отскоков. Допускается последовательное раскрытие данных.</li>
+          <li><strong>Номера страниц:</strong> Внизу справа, 8pt, серый. Формат: «07 / 25».</li>
+          <li><strong>Брендовая полоса:</strong> Тонкая золотая линия (2px) внизу каждого слайда. «БОГИ ДУШАНБЕ» — 8pt золотым, внизу слева.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="mt-3">Структура из 25 слайдов</h3>
+    <ol class="slide-list">
+      <li><strong>Титульный слайд</strong><br><span>«БОГИ ДУШАНБЕ &mdash; Видение нового городского сердца Душанбе.» Название проекта, дата, гриф, строка адресата. Тёмно-синий фон с деликатным геометрическим узором. Золотая типографика.</span></li>
+      <li><strong>Возможность</strong><br><span>Полноэкранный аэрофотоснимок/спутниковый снимок участка. Оверлей ключевых метрик: 30 га, центральное расположение, промышленное наследие. Одно предложение — тезис.</span></li>
+      <li><strong>Резюме проекта</strong><br><span>Шесть ключевых цифр крупным шрифтом (30 га, 2,5 млн м², 15 тыс. жителей, 20 тыс. рабочих мест, $3&ndash;5 млрд, 10&ndash;15 лет). Три предложения нарратива.</span></li>
+      <li><strong>Почему сейчас</strong><br><span>Четыре столпа: рост населения (2,73%/год), жилищный кризис, волна модернизации (башня RMJM, проект Всемирного банка), стратегия «зелёных городов» ЕБРР. Иконки и краткий текст.</span></li>
+      <li><strong>Название и идентичность проекта</strong><br><span>«Боги Душанбе» &mdash; значение, обоснование, рассмотренные альтернативы. Золотое каллиграфическое написание названия.</span></li>
+      <li><strong>Расположение участка</strong><br><span>Карта Душанбе с выделенным участком. Ключевые объекты окружения подписаны: ботанический сад, центр города, речной коридор, горы.</span></li>
+      <li><strong>Анализ участка</strong><br><span>План участка с размерами, периметром, точками доступа, границами. Аннотированный спутниковый снимок.</span></li>
+      <li><strong>SWOT-анализ</strong><br><span>Четырёхквадрантный SWOT в цветовых карточках. Чистый, наглядный, одна страница.</span></li>
+      <li><strong>Заявление о видении</strong><br><span>Полноэкранный концептуальный рендер (аэрофотосъёмка). Текст видения поверх: «От промышленного наследия к городскому сердцу.» Эмоционально, амбициозно.</span></li>
+      <li><strong>Мастер-план — Схема А: Сбалансированный город</strong><br><span>Аннотированная диаграмма мастер-плана. Процентное распределение функций в виде шкал. Описания ключевых зон.</span></li>
+      <li><strong>Мастер-план — Схема Б: Знаковый район</strong><br><span>Формат аналогичен Слайду 10. Акцент на знаковой башне, культурном центре, торгово-развлекательном комплексе.</span></li>
+      <li><strong>Архитектурный язык</strong><br><span>Палитра материалов (травертин, гранит, алюминий, стекло). Концепция фасадных машрабий. Интеграция наследия (сюзане, исламская геометрия). Референсные изображения.</span></li>
+      <li><strong>Архитектурные рендеры: Аэрофотосъёмка</strong><br><span>Полноэкранный ключевой рендер. Без текста, кроме мелкой подписи.</span></li>
+      <li><strong>Архитектурные рендеры: Уровень улицы</strong><br><span>Рендер торговой улицы. Человеческий масштаб, тепло, гостеприимство.</span></li>
+      <li><strong>Архитектурные рендеры: Знаковая башня</strong><br><span>Впечатляющий рендер башни на закате. Имидж национального престижа.</span></li>
+      <li><strong>Архитектурные рендеры: Общественная жизнь</strong><br><span>Сетка из 4 рендеров: площадь, парк, мечеть, школа. Сообщество и качество жизни.</span></li>
+      <li><strong>Программа развития</strong><br><span>Таблица распределения территории. Диапазоны общей площади. Ключевые показатели. Оговорка «Концептуально».</span></li>
+      <li><strong>Экономическое воздействие</strong><br><span>Рабочие места (20 тыс. в строительстве, 15 тыс. постоянных), налоговые поступления, стоимость недвижимости ($3&ndash;5 млрд). Диаграммы или инфографика.</span></li>
+      <li><strong>Инвестиционная структура</strong><br><span>Диаграмма модели ГЧП. Роль государства, частного сектора, ИФР. Логика распределения доходов.</span></li>
+      <li><strong>Стратегия поэтапной реализации</strong><br><span>Графическая шкала: Фазы 0&ndash;4 с ключевыми этапами. Быстрые победы выделены.</span></li>
+      <li><strong>Быстрые победы Фазы 1</strong><br><span>Рендеры: общественный парк, первые жилые башни, открытие торговой улицы. «Видимая трансформация за 3 года.»</span></li>
+      <li><strong>Выгоды для государства</strong><br><span>Четыре карточки: модернизация, качество жизни, рабочие места, экологическая модернизация. Фреймирование через общественный интерес.</span></li>
+      <li><strong>Оценка рисков</strong><br><span>Матрица рисков (влияние vs. вероятность). Топ-5 рисков с однострочными мерами снижения. Цветовая кодировка.</span></li>
+      <li><strong>Следующие шаги</strong><br><span>Рекомендуемые действия: ТЭО, экологическая оценка, конкурс мастер-планов, консультации с заинтересованными сторонами. Срок: 6&ndash;9 месяцев. Призыв к действию.</span></li>
+      <li><strong>Завершающий слайд</strong><br><span>«Сад готов к посадке.» Полноэкранный рендер на закате. Контактная информация. Золотая рамка. Деликатная интеграция цветов флага Таджикистана.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ════════════════════ 16. SOURCES ════════════════════ -->
+<section id="sources" class="light-section">
+  <div class="section-inner">
+    <span class="section-label">15 &mdash; Источники и ссылки</span>
+    <h2>Сопроводительная документация</h2>
+    <div class="section-divider" style="background: var(--navy);"></div>
+    <p class="subtitle" style="color: var(--stone);">Нижеперечисленные общедоступные источники легли в основу анализа, данных и допущений настоящего предложения. Все источники подлежат верификации в ходе этапа формального технико-экономического обоснования.</p>
+
+    <div class="table-wrapper mt-2">
+      <table>
+        <thead>
+          <tr>
+            <th>Источник</th>
+            <th>Ссылка</th>
+            <th>Использованные данные</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Всемирный банк</strong></td>
+            <td>Проект устойчивого городского развития Душанбе (P178187). Документы проекта доступны на worldbank.org/projects.</td>
+            <td>Стратегия городского развития Душанбе; институциональная основа для модернизации города; приоритеты инфраструктурных инвестиций.</td>
+          </tr>
+          <tr>
+            <td><strong>ЕБРР</strong></td>
+            <td>Страновая стратегия по Таджикистану на 2025&ndash;2030 годы. Опубликована на ebrd.com/tajikistan.</td>
+            <td>Инициатива «зелёных городов»; приоритеты развития частного сектора; руководство по структуре ГЧП; экономический прогноз по Таджикистану.</td>
+          </tr>
+          <tr>
+            <td><strong>Азиатский банк развития (АБР)</strong></td>
+            <td>Страновые операции по Таджикистану, проекты, связанные с Душанбе. Доступно на adb.org/countries/tajikistan.</td>
+            <td>Данные об инфраструктурных мощностях; оценки городского транспорта; анализ жилищного сектора.</td>
+          </tr>
+          <tr>
+            <td><strong>Global Economy &amp; Markets (GEM)</strong></td>
+            <td>Отчёт о рынке недвижимости Таджикистана и экономические индикаторы.</td>
+            <td>Темп роста рынка недвижимости (4,69% годовых); данные о доходности аренды (~10%); макроэкономические показатели.</td>
+          </tr>
+          <tr>
+            <td><strong>Asia-Plus Media Group</strong></td>
+            <td>Публикации о городском развитии Душанбе, башне RMJM, жилищном рынке. asiaplustj.info.</td>
+            <td>Анонс башни RMJM Dushanbe Tower; данные о спросе и предложении жилья; планы расширения города до 25 000 гектаров к 2040 году.</td>
+          </tr>
+          <tr>
+            <td><strong>Агентство по статистике Таджикистана</strong></td>
+            <td>Данные о населении и демографии. stat.tj.</td>
+            <td>Население Душанбе (~1,07 млн); темп роста населения (2,73%/год); тенденции урбанизации.</td>
+          </tr>
+          <tr>
+            <td><strong>RMJM Architects</strong></td>
+            <td>Анонс проекта Dushanbe Tower. rmjm.com.</td>
+            <td>Сверхвысотная башня, запланированная в Душанбе; готовность города к знаковой архитектуре; амбиции модернизации.</td>
+          </tr>
+          <tr>
+            <td><strong>Aga Khan Development Network</strong></td>
+            <td>Программы архитектуры и городского развития в Таджикистане. akdn.org.</td>
+            <td>Центральноазиатское архитектурное наследие; исмаилитские геометрические традиции; устойчивое развитие в Таджикистане.</td>
+          </tr>
+          <tr>
+            <td><strong>OpenStreetMap / Спутниковые снимки</strong></td>
+            <td>Идентификация и измерение участка по координатам 38.6088, 68.7732.</td>
+            <td>Оценка площади участка (~295 000 м²); измерение периметра (~2 792 м); анализ окружения; определение текущего землепользования.</td>
+          </tr>
+          <tr>
+            <td><strong>Международные прецеденты</strong></td>
+            <td>King's Cross (Лондон), 22@ (Барселона), Marina Bay (Сингапур), Новый центр Астаны (Казахстан), Songdo IBD (Южная Корея).</td>
+            <td>Сопоставимые проектные показатели; стратегии поэтапной реализации; структуры ГЧП; каталитические экономические эффекты.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-note mt-2">
+      <strong>Отказ от ответственности:</strong> Настоящее предложение является концептуальным документом, подготовленным для обсуждения. Все данные, прогнозы и дизайнерские концепции носят ориентировочный характер и должны быть подтверждены в ходе формальных технико-экономических обоснований, рыночных исследований, экологических оценок и юридической экспертизы до принятия каких-либо обязательств. Авторы не гарантируют точность данных из сторонних источников, указанных выше.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer>
+  <div class="footer-brand">БОГИ ДУШАНБЕ</div>
+  <p>Концептуальное предложение &mdash; Март 2026</p>
+  <p>Подготовлено для Правительства Республики Таджикистан</p>
+  <p style="margin-top: 1rem; color: rgba(255,255,255,0.2); font-size: 0.7rem;">Конфиденциально &mdash; Только для правительственного рассмотрения</p>
+</footer>
+
+<!-- ════════════════════ JAVASCRIPT ════════════════════ -->
+<script>
+// Intersection Observer for fade-in animations
+document.addEventListener('DOMContentLoaded', function() {
+  const sections = document.querySelectorAll('section:not(#cover)');
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -80px 0px',
+    threshold: 0.05
+  };
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(function(section) {
+    observer.observe(section);
+  });
+
+  // Nav scroll effect
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 100) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+
+  // Active nav link highlighting
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sectionElements = document.querySelectorAll('section[id]');
+
+  window.addEventListener('scroll', function() {
+    let current = '';
+    sectionElements.forEach(function(section) {
+      const sectionTop = section.offsetTop - 120;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(function(link) {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>

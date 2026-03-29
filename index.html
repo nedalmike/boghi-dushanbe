@@ -1,0 +1,2295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOGHI DUSHANBE — A Vision for Dushanbe's New Urban Heart</title>
+<style>
+:root {
+  --navy: #1a1f3a;
+  --navy-deep: #111428;
+  --navy-light: #242a4a;
+  --stone: #8a8d93;
+  --stone-light: #b0b3b8;
+  --glacier: #f5f7fa;
+  --glacier-warm: #eef1f5;
+  --gold: #c5a55a;
+  --gold-light: #d4bc7e;
+  --gold-dark: #a8893d;
+  --emerald: #2d6a4f;
+  --emerald-light: #40916c;
+  --sky: #5b9bd5;
+  --sky-light: #7db3e0;
+  --terracotta: #c4784a;
+  --terracotta-light: #d4956e;
+  --white: #ffffff;
+  --text-dark: #1a1f3a;
+  --text-light: #e8eaf0;
+  --text-muted: #9a9da3;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-dark);
+  background: var(--navy-deep);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAVIGATION ── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(17, 20, 40, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(197, 165, 90, 0.15);
+  transition: all 0.3s ease;
+}
+
+nav.scrolled {
+  background: rgba(17, 20, 40, 0.97);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+}
+
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 60px;
+}
+
+.nav-brand {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.25rem;
+  list-style: none;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.65rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold);
+  background: rgba(197, 165, 90, 0.1);
+}
+
+/* ── SECTIONS ── */
+section {
+  padding: 6rem 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Dark sections */
+.dark-section {
+  background: var(--navy);
+  color: var(--text-light);
+}
+
+.dark-section h2,
+.dark-section h3 {
+  color: var(--gold);
+}
+
+.dark-section .muted {
+  color: var(--text-muted);
+}
+
+/* Light sections */
+.light-section {
+  background: var(--glacier);
+  color: var(--text-dark);
+}
+
+.light-section h2,
+.light-section h3 {
+  color: var(--navy);
+}
+
+/* Deep sections */
+.deep-section {
+  background: var(--navy-deep);
+  color: var(--text-light);
+}
+
+.deep-section h2 {
+  color: var(--gold);
+}
+
+/* ── TYPOGRAPHY ── */
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.01em;
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.dark-section .section-label,
+.deep-section .section-label {
+  color: var(--gold);
+}
+
+.light-section .section-label {
+  color: var(--emerald);
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  max-width: 800px;
+}
+
+.dark-section .subtitle {
+  color: var(--stone-light);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+strong {
+  font-weight: 600;
+}
+
+/* ── HERO / COVER ── */
+#cover {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 40%, #1e2848 70%, var(--navy-deep) 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 2rem;
+}
+
+#cover::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 20%, rgba(197,165,90,0.06) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 80%, rgba(45,106,79,0.05) 0%, transparent 50%),
+              radial-gradient(ellipse at 50% 50%, rgba(91,155,213,0.03) 0%, transparent 40%);
+  animation: heroGlow 15s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlow {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(-2%, -1%) rotate(1deg); }
+}
+
+#cover .pattern-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: repeating-linear-gradient(
+    60deg,
+    transparent,
+    transparent 60px,
+    rgba(197,165,90,0.5) 60px,
+    rgba(197,165,90,0.5) 61px
+  ),
+  repeating-linear-gradient(
+    -60deg,
+    transparent,
+    transparent 60px,
+    rgba(197,165,90,0.5) 60px,
+    rgba(197,165,90,0.5) 61px
+  );
+}
+
+.cover-content {
+  position: relative;
+  z-index: 2;
+}
+
+.cover-content .pre-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.cover-content h1 {
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.cover-content h1 em {
+  font-style: normal;
+  color: var(--gold);
+  display: block;
+  font-size: 0.4em;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+}
+
+.cover-subtitle {
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  color: var(--stone-light);
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.cover-line {
+  width: 80px;
+  height: 1px;
+  background: var(--gold);
+  margin: 2rem auto;
+}
+
+.cover-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+
+.cover-meta strong {
+  color: var(--stone-light);
+}
+
+.cover-tagline {
+  font-size: 0.95rem;
+  color: var(--stone);
+  max-width: 680px;
+  margin: 0 auto 3rem;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+/* ── KEY METRICS BAR ── */
+.metrics-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.metric-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-radius: 8px;
+}
+
+.dark-section .metric-card,
+.deep-section .metric-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(197,165,90,0.12);
+}
+
+.light-section .metric-card {
+  background: var(--white);
+  border: 1px solid rgba(26,31,58,0.08);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.metric-card .metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.2;
+}
+
+.metric-card .metric-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.35rem;
+}
+
+.dark-section .metric-label,
+.deep-section .metric-label {
+  color: var(--stone-light);
+}
+
+/* ── CARDS ── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.card {
+  padding: 2rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.dark-section .card,
+.deep-section .card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.dark-section .card:hover,
+.deep-section .card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  border-color: rgba(197,165,90,0.2);
+}
+
+.light-section .card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.light-section .card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.card-icon {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+/* ── TABLES ── */
+.table-wrapper {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.dark-section table,
+.deep-section table {
+  background: rgba(255,255,255,0.02);
+}
+
+.light-section table {
+  background: var(--white);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+thead th {
+  text-align: left;
+  padding: 1rem 1.25rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--gold);
+}
+
+.dark-section thead th,
+.deep-section thead th {
+  background: rgba(197,165,90,0.08);
+  color: var(--gold);
+}
+
+.light-section thead th {
+  background: var(--navy);
+  color: var(--gold);
+}
+
+td {
+  padding: 0.85rem 1.25rem;
+  vertical-align: top;
+}
+
+.dark-section td,
+.deep-section td {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.light-section td {
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+tbody tr:hover td {
+  background: rgba(197,165,90,0.04);
+}
+
+/* ── BADGES ── */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.badge-gold {
+  background: rgba(197,165,90,0.15);
+  color: var(--gold);
+}
+
+.badge-emerald {
+  background: rgba(45,106,79,0.15);
+  color: var(--emerald-light);
+}
+
+.badge-sky {
+  background: rgba(91,155,213,0.15);
+  color: var(--sky);
+}
+
+.badge-terracotta {
+  background: rgba(196,120,74,0.15);
+  color: var(--terracotta);
+}
+
+.badge-recommended {
+  background: var(--gold);
+  color: var(--navy-deep);
+}
+
+/* ── PROGRESS BARS ── */
+.progress-row {
+  margin-bottom: 1.25rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.progress-bar {
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.dark-section .progress-bar,
+.deep-section .progress-bar {
+  background: rgba(255,255,255,0.08);
+}
+
+.light-section .progress-bar {
+  background: rgba(0,0,0,0.08);
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+  transition: width 1.2s ease;
+}
+
+.progress-fill.emerald {
+  background: linear-gradient(90deg, var(--emerald), var(--emerald-light));
+}
+
+.progress-fill.sky {
+  background: linear-gradient(90deg, var(--sky), var(--sky-light));
+}
+
+/* ── TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 3rem;
+  margin: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold), var(--emerald), var(--sky));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.6rem;
+  top: 0.35rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 3px solid var(--navy);
+}
+
+.timeline-item .timeline-phase {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+
+.timeline-item h4 {
+  margin-bottom: 0.5rem;
+}
+
+.timeline-item p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ── TWO COLUMN ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin: 2rem 0;
+}
+
+.three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* ── SCHEME CARDS ── */
+.scheme-card {
+  padding: 2.5rem;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-section .scheme-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.scheme-card .scheme-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.scheme-card.balanced .scheme-badge {
+  background: var(--emerald);
+  color: var(--white);
+}
+
+.scheme-card.landmark .scheme-badge {
+  background: var(--gold);
+  color: var(--navy-deep);
+}
+
+/* ── RENDER PROMPT ── */
+.render-prompt {
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  position: relative;
+  padding-left: 3rem;
+}
+
+.dark-section .render-prompt,
+.deep-section .render-prompt {
+  background: rgba(255,255,255,0.03);
+  border-left: 3px solid var(--gold);
+}
+
+.light-section .render-prompt {
+  background: var(--white);
+  border-left: 3px solid var(--navy);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+}
+
+.render-prompt .prompt-number {
+  position: absolute;
+  left: 0.75rem;
+  top: 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.render-prompt .prompt-title {
+  font-weight: 600;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── NAME TABLE ── */
+.name-highlight {
+  position: relative;
+}
+
+.dark-section tr.name-highlight td {
+  background: rgba(197,165,90,0.06);
+}
+
+/* ── SWOT ── */
+.swot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.swot-cell {
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.swot-cell h4 {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.swot-cell ul {
+  list-style: none;
+  padding: 0;
+}
+
+.swot-cell li {
+  padding: 0.4rem 0;
+  padding-left: 1.2rem;
+  position: relative;
+  font-size: 0.9rem;
+}
+
+.swot-cell li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.swot-s { background: rgba(45,106,79,0.08); border: 1px solid rgba(45,106,79,0.2); }
+.swot-s h4 { color: var(--emerald-light); }
+.swot-s li::before { background: var(--emerald-light); }
+
+.swot-w { background: rgba(196,120,74,0.08); border: 1px solid rgba(196,120,74,0.2); }
+.swot-w h4 { color: var(--terracotta); }
+.swot-w li::before { background: var(--terracotta); }
+
+.swot-o { background: rgba(91,155,213,0.08); border: 1px solid rgba(91,155,213,0.2); }
+.swot-o h4 { color: var(--sky); }
+.swot-o li::before { background: var(--sky); }
+
+.swot-t { background: rgba(197,165,90,0.08); border: 1px solid rgba(197,165,90,0.2); }
+.swot-t h4 { color: var(--gold); }
+.swot-t li::before { background: var(--gold); }
+
+/* ── RISK TABLE ── */
+.risk-high { color: #e05555; font-weight: 600; }
+.risk-med { color: var(--terracotta); font-weight: 600; }
+.risk-low { color: var(--emerald-light); font-weight: 600; }
+
+/* ── CALLOUT ── */
+.callout {
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.callout-gold {
+  background: rgba(197,165,90,0.08);
+  border: 1px solid rgba(197,165,90,0.2);
+  color: var(--gold-light);
+}
+
+.callout-note {
+  background: rgba(91,155,213,0.08);
+  border: 1px solid rgba(91,155,213,0.2);
+}
+
+.light-section .callout-note {
+  color: var(--navy);
+}
+
+/* ── DIVIDER ── */
+.section-divider {
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  margin: 2rem 0;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy-deep);
+  color: var(--text-muted);
+  padding: 3rem 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  border-top: 1px solid rgba(197,165,90,0.1);
+}
+
+footer .footer-brand {
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .two-col, .swot-grid { grid-template-columns: 1fr; }
+  .three-col { grid-template-columns: 1fr; }
+  section { padding: 4rem 1.25rem; }
+  .nav-links { display: none; }
+  .metrics-bar { grid-template-columns: repeat(2, 1fr); }
+  .card-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .metrics-bar { grid-template-columns: 1fr; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+}
+
+/* ── PRINT ── */
+@media print {
+  nav { display: none; }
+  section { opacity: 1 !important; transform: none !important; padding: 2rem 1rem; }
+  .dark-section, .deep-section { background: #fff !important; color: #000 !important; }
+  .dark-section h2, .dark-section h3, .deep-section h2 { color: #1a1f3a !important; }
+  .dark-section .section-label, .deep-section .section-label { color: #333 !important; }
+  .dark-section .card, .deep-section .card { border-color: #ddd !important; }
+  .metric-card .metric-value { color: #1a1f3a !important; }
+  body { background: #fff; }
+  #cover { min-height: auto; background: #fff !important; }
+  #cover h1, #cover .cover-subtitle { color: #1a1f3a !important; }
+  #cover .pre-title, .cover-content h1 em { color: #666 !important; }
+  .callout-gold { border-color: #ccc; color: #333; }
+}
+
+/* ── SLIDE OUTLINE ── */
+.slide-list {
+  counter-reset: slide;
+  list-style: none;
+  padding: 0;
+}
+
+.slide-list li {
+  counter-increment: slide;
+  padding: 0.8rem 0 0.8rem 3.5rem;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.9rem;
+}
+
+.slide-list li::before {
+  content: counter(slide, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold);
+  background: rgba(197,165,90,0.1);
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  top: 0.85rem;
+}
+
+.slide-list li strong {
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.slide-list li span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ── MISC ── */
+ul.styled-list {
+  list-style: none;
+  padding: 0;
+}
+
+ul.styled-list li {
+  padding: 0.35rem 0 0.35rem 1.5rem;
+  position: relative;
+  font-size: 0.92rem;
+}
+
+ul.styled-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.text-gold { color: var(--gold); }
+.text-emerald { color: var(--emerald-light); }
+.text-sky { color: var(--sky); }
+.text-terracotta { color: var(--terracotta); }
+.text-muted { color: var(--text-muted); }
+.text-small { font-size: 0.82rem; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mt-3 { margin-top: 3rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.fw-300 { font-weight: 300; }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════ NAVIGATION ════════════════════ -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <div class="nav-brand">Boghi Dushanbe</div>
+    <ul class="nav-links">
+      <li><a href="#cover">Cover</a></li>
+      <li><a href="#executive">Summary</a></li>
+      <li><a href="#names">Names</a></li>
+      <li><a href="#vision">Vision</a></li>
+      <li><a href="#site">Site</a></li>
+      <li><a href="#masterplan">Master Plan</a></li>
+      <li><a href="#design-language">Design</a></li>
+      <li><a href="#renders">Renders</a></li>
+      <li><a href="#program">Program</a></li>
+      <li><a href="#economics">Economics</a></li>
+      <li><a href="#phasing">Phasing</a></li>
+      <li><a href="#government">Approval</a></li>
+      <li><a href="#risks">Risks</a></li>
+      <li><a href="#closing">Closing</a></li>
+      <li><a href="#pptx">PPTX Guide</a></li>
+      <li><a href="#sources">Sources</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ════════════════════ 1. COVER ════════════════════ -->
+<section id="cover" class="visible">
+  <div class="pattern-overlay"></div>
+  <div class="cover-content">
+    <div class="pre-title">Concept Proposal &middot; March 2026</div>
+    <h1>BOGHI DUSHANBE<em>Garden of Dushanbe</em></h1>
+    <div class="cover-line"></div>
+    <div class="cover-subtitle">A Vision for Dushanbe's New Urban Heart</div>
+    <p class="cover-tagline">Transforming 30 hectares of industrial legacy into a world-class mixed-use district for Tajikistan's capital</p>
+    <div class="cover-meta">
+      <strong>Prepared for</strong><br>
+      The Government of the Republic of Tajikistan<br>
+      The Mayor of Dushanbe<br><br>
+      <strong>Date</strong><br>
+      March 2026<br><br>
+      <strong>Classification</strong><br>
+      Confidential &mdash; For Government Review Only
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 2. EXECUTIVE SUMMARY ════════════════════ -->
+<section id="executive" class="dark-section">
+  <div class="section-inner">
+    <span class="section-label">01 &mdash; Executive Summary</span>
+    <h2>The Opportunity of a Generation</h2>
+    <div class="section-divider"></div>
+    <p class="subtitle">In the heart of Dushanbe, 30 hectares of industrial land present a once-in-a-century opportunity to reshape the capital of Tajikistan. Boghi Dushanbe envisions the transformation of this underutilized site &mdash; currently occupied by aging thermal power and industrial infrastructure &mdash; into a vibrant, mixed-use district that serves as the new center of civic, commercial, and cultural life for a nation on the rise.</p>
+
+    <div class="metrics-bar">
+      <div class="metric-card">
+        <div class="metric-value">30 ha</div>
+        <div class="metric-label">Site Area</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">~2.5M</div>
+        <div class="metric-label">sqm GFA Potential</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">15,000+</div>
+        <div class="metric-label">Residents</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">20,000+</div>
+        <div class="metric-label">Jobs Created</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">$3&ndash;5B</div>
+        <div class="metric-label">Projected Value at Maturity</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">10&ndash;15</div>
+        <div class="metric-label">Year Phased Delivery</div>
+      </div>
+    </div>
+
+    <div class="two-col mt-3">
+      <div>
+        <h3>The Context</h3>
+        <p>Dushanbe's population of 1.07 million is growing at 2.73% annually, generating intense demand for housing, employment, and urban amenities that the current building stock cannot meet. The city is expanding its boundaries to 25,000 hectares by 2040, yet the most valuable intervention lies not at the periphery but in the center &mdash; where infrastructure already exists and where transformation carries the greatest symbolic and economic weight.</p>
+        <p>International institutions including the World Bank (Dushanbe Sustainable Urban Development Project) and the EBRD (Tajikistan Country Strategy 2025&ndash;2030, with green cities as a priority) are already investing in Dushanbe's modernization, creating a favorable environment for large-scale urban development.</p>
+      </div>
+      <div>
+        <h3>The Vision</h3>
+        <p>Boghi Dushanbe is not merely a real estate development. It is a statement of national ambition: that Tajikistan can build world-class urbanism rooted in its own culture, climate, and values. The project proposes a phased, public-private approach to delivering approximately 12,000&ndash;15,000 residential units, 200,000&ndash;300,000 sqm of commercial space, destination retail, a landmark cultural center, a luxury hotel, and extensive public parks &mdash; all within a walkable, green, and architecturally coherent district.</p>
+        <p>The name itself &mdash; "Boghi Dushanbe," meaning "Garden of Dushanbe" &mdash; signals the intent: to create an urban oasis where landscape, water, mountain views, and contemporary Tajik architecture converge to produce a place of enduring civic pride.</p>
+      </div>
+    </div>
+
+    <div class="callout callout-gold mt-2">
+      <strong>Approach:</strong> This document presents a conceptual framework for consideration. All figures, areas, and projections are indicative and subject to detailed feasibility studies, environmental assessments, infrastructure analysis, and legal review. The intent is to demonstrate the potential of the site and provide a foundation for informed government decision-making.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 3. PROJECT NAMES ════════════════════ -->
+<section id="names" class="light-section">
+  <div class="section-inner">
+    <span class="section-label">02 &mdash; Project Identity</span>
+    <h2>Alternative Project Names</h2>
+    <div class="section-divider" style="background: var(--navy);"></div>
+    <p class="subtitle" style="color: var(--stone);">A project of this significance requires a name that resonates with government officials, international investors, and Tajik citizens alike. Below are evaluated alternatives with our recommendation.</p>
+
+    <div class="table-wrapper mt-2">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Meaning</th>
+            <th>Tone</th>
+            <th>Rationale</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="name-highlight" style="background: rgba(197,165,90,0.06);">
+            <td><strong>Boghi Dushanbe</strong></td>
+            <td>Garden of Dushanbe</td>
+            <td><span class="badge badge-emerald">Civic</span> <span class="badge badge-gold">Premium</span> <span class="badge badge-sky">Family</span></td>
+            <td>Culturally profound &mdash; "bogh" (garden/paradise) is central to Persian-Tajik civilization. Evokes green urbanism, renewal, and beauty. Immediately understood by all Tajik speakers. Government-friendly and poetic.</td>
+            <td><span class="badge badge-recommended">Recommended</span></td>
+          </tr>
+          <tr class="name-highlight" style="background: rgba(91,155,213,0.04);">
+            <td><strong>Toji Dushanbe</strong></td>
+            <td>Crown of Dushanbe</td>
+            <td><span class="badge badge-gold">Premium</span> <span class="badge badge-emerald">Civic</span></td>
+            <td>Conveys primacy and prestige. Positions the district as the pinnacle of the city. Strong governmental appeal &mdash; connotes leadership and excellence.</td>
+            <td><span class="badge badge-gold">Top 3</span></td>
+          </tr>
+          <tr class="name-highlight" style="background: rgba(91,155,213,0.04);">
+            <td><strong>Darvoza-i-Nau</strong></td>
+            <td>New Gateway</td>
+            <td><span class="badge badge-emerald">Civic</span> <span class="badge badge-terracotta">International</span></td>
+            <td>Positions the development as an entry point to the new Dushanbe. "Darvoza" (gateway) is historically resonant in Central Asian urbanism &mdash; cities were defined by their gates.</td>
+            <td><span class="badge badge-gold">Top 3</span></td>
+          </tr>
+          <tr>
+            <td><strong>Navoi District</strong></td>
+            <td>New / Innovation</td>
+            <td><span class="badge badge-terracotta">International</span> <span class="badge badge-sky">Modern</span></td>
+            <td>Clean, modern, forward-looking. Also references the great poet Alisher Navoi. However, may feel generic without cultural specificity.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Sitora City</strong></td>
+            <td>Star City</td>
+            <td><span class="badge badge-gold">Premium</span> <span class="badge badge-terracotta">International</span></td>
+            <td>Aspirational and memorable. "Sitora" (star) appears in Tajik poetry and place names (Sitora-i-Mokhi Khosa palace in Bukhara). Slightly commercial in tone.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Samarkand Quarter</strong></td>
+            <td>Silk Road Heritage</td>
+            <td><span class="badge badge-terracotta">International</span> <span class="badge badge-gold">Premium</span></td>
+            <td>Evokes the grandeur of the Silk Road. Strong international recognition. Risk: Samarkand is in Uzbekistan, which may create political sensitivities despite shared heritage.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Ravshan Park</strong></td>
+            <td>Bright / Luminous Park</td>
+            <td><span class="badge badge-emerald">Civic</span> <span class="badge badge-sky">Family</span></td>
+            <td>Warm, optimistic, family-friendly. "Ravshan" is a beloved Tajik word meaning bright or radiant. Park-centric naming aligns with the green urbanism vision.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Istiqlol Heights</strong></td>
+            <td>Independence Heights</td>
+            <td><span class="badge badge-emerald">Civic</span> <span class="badge badge-gold">Premium</span></td>
+            <td>Patriotic and governmental. References national independence and elevation (both literal and metaphorical). Strong for official communications.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Poytoxt District</strong></td>
+            <td>Capital District</td>
+            <td><span class="badge badge-emerald">Civic</span> <span class="badge badge-terracotta">International</span></td>
+            <td>Direct and authoritative. Positions the development as quintessentially the capital's district. Functional but less poetic.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><strong>Varzob Terrace</strong></td>
+            <td>Named for Varzob River</td>
+            <td><span class="badge badge-sky">Family</span> <span class="badge badge-emerald">Civic</span></td>
+            <td>Geographic specificity. Connects to the Varzob River and the mountains. Landscape-forward naming. May undersell the ambition of the project.</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-note mt-2">
+      <strong>Recommendation:</strong> We strongly recommend <strong>Boghi Dushanbe</strong> as the project name. It carries deep cultural resonance, communicates the green and livable character of the development, is memorable in both Tajik and international contexts, and avoids the risks of overly commercial or politically sensitive alternatives. "Toji Dushanbe" and "Darvoza-i-Nau" are strong secondary options for consideration.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 4. VISION NARRATIVE ════════════════════ -->
+<section id="vision" class="dark-section">
+  <div class="section-inner">
+    <span class="section-label">03 &mdash; Vision</span>
+    <h2>Why This Site. Why Now. Why This Matters.</h2>
+    <div class="section-divider"></div>
+
+    <div class="two-col mt-2">
+      <div>
+        <h3>A Rare Asset</h3>
+        <p>Thirty hectares of contiguous land in central Dushanbe is an extraordinary asset. In most capital cities worldwide, sites of this scale simply do not become available. The Luchob-area industrial site &mdash; located near the city's botanical gardens, with potential proximity to the Varzob River corridor, and within reach of Dushanbe's institutional and commercial core &mdash; is a site of genuine strategic significance.</p>
+        <p>Its current use as aging industrial and thermal power infrastructure represents a legacy of Soviet-era planning that, while historically important, no longer reflects the needs or aspirations of modern Dushanbe. As power generation shifts to newer facilities and the city center demands higher and better uses, the rationale for transformation becomes compelling.</p>
+
+        <h3 class="mt-2">A City in Transformation</h3>
+        <p>Dushanbe is not standing still. The planned RMJM Dushanbe Tower &mdash; envisioned as a supertall landmark &mdash; signals the city's readiness to join the ranks of modern global capitals. The World Bank's Dushanbe Sustainable Urban Development Project and the EBRD's 2025&ndash;2030 country strategy (which explicitly includes green city development) demonstrate international confidence in Tajikistan's urban future.</p>
+        <p>The city's expansion plan to 25,000 hectares by 2040 acknowledges the demographic reality: a population growing at 2.73% annually, a real estate market appreciating at 4.69% per year, and a chronic housing shortage that affects families at every income level.</p>
+      </div>
+      <div>
+        <h3>A Symbol of National Progress</h3>
+        <p>The transformation of an industrial site into a world-class mixed-use district is more than an urban planning exercise. It is a statement about national identity and direction. It says that Tajikistan values its people's quality of life, that it embraces modern standards of sustainability and design, and that it can attract international expertise and investment while remaining rooted in its own cultural traditions.</p>
+        <p>Boghi Dushanbe would join a lineage of transformative urban projects &mdash; from London's King's Cross to Seoul's Cheonggyecheon, from Singapore's Marina Bay to Astana's new city center &mdash; where the deliberate reimagining of underused urban land catalyzed broader national progress.</p>
+
+        <h3 class="mt-2">The Human Case</h3>
+        <p>Behind every statistic is a Dushanbe family seeking a dignified home, a young professional searching for career opportunities close to home, a child who deserves safe parks and good schools. The housing crisis is not abstract &mdash; it is felt daily by hundreds of thousands of residents. Boghi Dushanbe addresses this directly: 12,000&ndash;15,000 new homes, modern schools, clinics, and parks, all within a 15-minute walkable neighborhood framework.</p>
+        <p>This is not development for its own sake. It is development in service of the people of Dushanbe and the Republic of Tajikistan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 5. SITE & CONTEXT ANALYSIS ════════════════════ -->
+<section id="site" class="light-section">
+  <div class="section-inner">
+    <span class="section-label">04 &mdash; Site &amp; Context Analysis</span>
+    <h2>Understanding the Land</h2>
+    <div class="section-divider" style="background: var(--navy);"></div>
+
+    <div class="metrics-bar">
+      <div class="metric-card">
+        <div class="metric-value" style="color: var(--navy);">295,000</div>
+        <div class="metric-label">sqm Site Area</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value" style="color: var(--navy);">~2,792</div>
+        <div class="metric-label">Meter Perimeter</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value" style="color: var(--navy);">38.6088</div>
+        <div class="metric-label">Latitude</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value" style="color: var(--navy);">68.7732</div>
+        <div class="metric-label">Longitude</div>
+      </div>
+    </div>
+
+    <div class="two-col mt-2">
+      <div>
+        <h3>Site Characteristics</h3>
+        <ul class="styled-list">
+          <li><strong>Size &amp; shape:</strong> Approximately 30 hectares (295,000&ndash;300,000 sqm) with a roughly rectangular configuration and a perimeter of approximately 2,792 meters, providing efficient buildable area with strong edge frontage.</li>
+          <li><strong>Current use:</strong> Industrial and thermal power infrastructure, likely associated with Dushanbe's CHP (combined heat and power) network. Active operations would need to be phased out or relocated as part of any redevelopment.</li>
+          <li><strong>Location:</strong> Luchob area, central Dushanbe. Proximate to the city's botanical gardens, within the urban core, and positioned along what may be a significant road or infrastructure corridor.</li>
+          <li><strong>Topography:</strong> Dushanbe sits in the Hissar Valley at approximately 800m elevation, with the Fann Mountains visible to the north. The site is likely gently sloped, following the valley floor gradient.</li>
+          <li><strong>River proximity:</strong> The Varzob River runs through central Dushanbe. Depending on exact site boundaries, there may be opportunity for waterfront development or at minimum visual connection to the river corridor.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Context &amp; Adjacency</h3>
+        <ul class="styled-list">
+          <li><strong>Botanical gardens:</strong> The proximity to Dushanbe's botanical gardens creates a landscape narrative &mdash; Boghi Dushanbe as an extension of the city's green infrastructure.</li>
+          <li><strong>Road access:</strong> Central Dushanbe has a grid of major arterials. The site likely fronts onto at least one primary road, with potential for multiple vehicular access points along its 2.8km perimeter.</li>
+          <li><strong>Institutional proximity:</strong> Central Dushanbe houses government ministries, embassies, universities, and the National Museum. This adjacency enhances commercial viability and civic significance.</li>
+          <li><strong>Mountain views:</strong> The Fann Mountains and surrounding ranges provide dramatic visual backdrops. Building orientation and height graduation should preserve view corridors.</li>
+          <li><strong>Gateway potential:</strong> A 30-hectare district in central Dushanbe would be visible and accessible from major city approaches, functioning as both a destination and a landmark.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="mt-3">SWOT Analysis</h3>
+    <div class="swot-grid">
+      <div class="swot-cell swot-s">
+        <h4>Strengths</h4>
+        <ul>
+          <li>Exceptionally large contiguous site in city center</li>
+          <li>Proximity to civic, cultural, and institutional uses</li>
+          <li>Strong mountain and potential river views</li>
+          <li>Adjacency to botanical gardens supports green branding</li>
+          <li>Existing road infrastructure on perimeter</li>
+          <li>Scale enables holistic master planning</li>
+          <li>Single-ownership (likely state) simplifies land assembly</li>
+        </ul>
+      </div>
+      <div class="swot-cell swot-w">
+        <h4>Weaknesses</h4>
+        <ul>
+          <li>Active industrial operations require relocation</li>
+          <li>Potential soil contamination from decades of industrial use</li>
+          <li>Infrastructure (power, water, sewage) may need wholesale replacement</li>
+          <li>Limited precedent for large-scale mixed-use development in Tajikistan</li>
+          <li>Decommissioning timeline uncertain</li>
+          <li>Existing structures may have limited adaptive reuse potential</li>
+        </ul>
+      </div>
+      <div class="swot-cell swot-o">
+        <h4>Opportunities</h4>
+        <ul>
+          <li>Addresses critical housing shortage directly</li>
+          <li>Aligns with World Bank and EBRD urban development strategies</li>
+          <li>City expansion plan to 2040 creates policy support</li>
+          <li>Real estate market growing at 4.69% annually</li>
+          <li>Rental yields of ~10% attract investor interest</li>
+          <li>National modernization narrative (RMJM Tower, infrastructure investment)</li>
+          <li>Potential for PPP structures with international developers</li>
+          <li>Tourism growth potential (Silk Road, mountain tourism)</li>
+        </ul>
+      </div>
+      <div class="swot-cell swot-t">
+        <h4>Threats</h4>
+        <ul>
+          <li>Environmental remediation costs may be significant</li>
+          <li>Political and regulatory complexity</li>
+          <li>Financing constraints in a developing economy</li>
+          <li>Construction capacity and supply chain limitations</li>
+          <li>Currency and macroeconomic risk</li>
+          <li>Public opposition to industrial facility relocation</li>
+          <li>Regional geopolitical uncertainty</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout callout-note mt-2">
+      <strong>Assumptions Requiring Validation:</strong> This analysis is based on publicly available data and satellite imagery interpretation. A formal feasibility study must validate: (1) exact site boundaries and ownership structure; (2) environmental contamination levels; (3) status and timeline of industrial operations; (4) utility infrastructure condition and capacity; (5) precise topographic and geotechnical conditions; (6) applicable zoning and planning regulations; (7) traffic and transportation capacity of surrounding roads; and (8) the Varzob River's exact relationship to the site.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 6. MASTER PLAN CONCEPT ════════════════════ -->
+<section id="masterplan" class="deep-section">
+  <div class="section-inner">
+    <span class="section-label">05 &mdash; Master Plan Concept</span>
+    <h2>Two Paths Forward</h2>
+    <div class="section-divider"></div>
+    <p class="subtitle" style="color: var(--stone-light);">We present two development schemes &mdash; one pragmatic, one aspirational &mdash; to illustrate the range of possibilities. Either can be refined, or elements combined, based on government priorities and market conditions.</p>
+
+    <div class="two-col mt-3">
+      <!-- SCHEME A -->
+      <div class="scheme-card balanced">
+        <div class="scheme-badge">Pragmatic</div>
+        <h3 style="color: var(--emerald-light); font-size: 1.4rem; margin-bottom: 0.3rem;">Scheme A</h3>
+        <h4 style="color: var(--text-light); font-weight: 300; font-size: 1.1rem; margin-bottom: 1.5rem;">"The Balanced City"</h4>
+
+        <p style="color: var(--stone-light);">A human-scale, livable district organized around a central green spine. This scheme prioritizes residential delivery, neighborhood completeness, and phased economic viability.</p>
+
+        <h4 class="mt-2" style="color: var(--emerald-light);">Land Use Allocation</h4>
+        <div class="progress-row">
+          <div class="progress-header"><span>Residential (towers + mid-rise)</span><span>60%</span></div>
+          <div class="progress-bar"><div class="progress-fill emerald" style="width: 60%;"></div></div>
+        </div>
+        <div class="progress-row">
+          <div class="progress-header"><span>Commercial / Office</span><span>15%</span></div>
+          <div class="progress-bar"><div class="progress-fill sky" style="width: 15%;"></div></div>
+        </div>
+        <div class="progress-row">
+          <div class="progress-header"><span>Retail &amp; Hospitality</span><span>10%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 10%;"></div></div>
+        </div>
+        <div class="progress-row">
+          <div class="progress-header"><span>Public Realm &amp; Green Space</span><span>15%</span></div>
+          <div class="progress-bar"><div class="progress-fill emerald" style="width: 15%;"></div></div>
+        </div>
+
+        <h4 class="mt-2" style="color: var(--emerald-light);">Character Zones</h4>
+        <ul class="styled-list" style="color: var(--stone-light);">
+          <li><strong>Northern Residential Quarter:</strong> 8&ndash;12 story residential towers with ground-floor retail, organized around shared courtyards with mature tree planting. Family-oriented units of 80&ndash;140 sqm.</li>
+          <li><strong>Central Green Spine:</strong> A 30-meter-wide landscaped promenade running east-west, connecting the botanical gardens edge to the district's commercial heart. Water channels, seating, and children's play areas.</li>
+          <li><strong>Retail High Street:</strong> A 600-meter pedestrian-priority avenue with ground-floor shops, cafes, and restaurants. Mid-rise apartments above (6&ndash;8 stories). Character inspired by European market streets adapted to Tajik climate.</li>
+          <li><strong>Office Cluster:</strong> Three to four 12&ndash;18 story Class A office buildings near the primary road frontage, providing modern commercial space for domestic and international firms.</li>
+          <li><strong>Community Core:</strong> Central mosque (capacity 2,000+), primary school, medical clinic, and public library grouped around a civic plaza.</li>
+          <li><strong>Southern Residential &amp; Park:</strong> Mid-rise residential (6&ndash;10 stories) surrounding a 3-hectare neighborhood park with sports facilities, amphitheater, and mountain-view terraces.</li>
+        </ul>
+
+        <h4 class="mt-2" style="color: var(--emerald-light);">Density &amp; Character</h4>
+        <p style="color: var(--stone-light);">Average FAR of 3.5&ndash;4.0 across the site. Maximum building height of 80 meters (office cluster). Predominantly a mid-rise, walkable neighborhood with generous public realm. Parking primarily below-grade.</p>
+      </div>
+
+      <!-- SCHEME B -->
+      <div class="scheme-card landmark">
+        <div class="scheme-badge">Ambitious</div>
+        <h3 style="color: var(--gold); font-size: 1.4rem; margin-bottom: 0.3rem;">Scheme B</h3>
+        <h4 style="color: var(--text-light); font-weight: 300; font-size: 1.1rem; margin-bottom: 1.5rem;">"The Landmark District"</h4>
+
+        <p style="color: var(--stone-light);">A signature urban destination that creates a new skyline for Dushanbe. This scheme concentrates density and ambition to produce iconic architecture and a nationally significant destination.</p>
+
+        <h4 class="mt-2" style="color: var(--gold);">Land Use Allocation</h4>
+        <div class="progress-row">
+          <div class="progress-header"><span>Residential (including luxury)</span><span>45%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 45%;"></div></div>
+        </div>
+        <div class="progress-row">
+          <div class="progress-header"><span>Commercial / Tech Hub</span><span>15%</span></div>
+          <div class="progress-bar"><div class="progress-fill sky" style="width: 15%;"></div></div>
+        </div>
+        <div class="progress-row">
+          <div class="progress-header"><span>Destination Retail &amp; Hotel</span><span>15%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 15%;"></div></div>
+        </div>
+        <div class="progress-row">
+          <div class="progress-header"><span>Cultural &amp; Civic</span><span>10%</span></div>
+          <div class="progress-bar"><div class="progress-fill emerald" style="width: 10%;"></div></div>
+        </div>
+        <div class="progress-row">
+          <div class="progress-header"><span>Public Realm &amp; Waterfront</span><span>15%</span></div>
+          <div class="progress-bar"><div class="progress-fill emerald" style="width: 15%;"></div></div>
+        </div>
+
+        <h4 class="mt-2" style="color: var(--gold);">Character Zones</h4>
+        <ul class="styled-list" style="color: var(--stone-light);">
+          <li><strong>Landmark Tower (200m+):</strong> A 50&ndash;60 story mixed-use tower at the district's apex, housing a 5-star hotel (upper floors), Grade A offices (mid-levels), and an observation deck with panoramic mountain views. Designed by an internationally renowned architect to become Dushanbe's defining silhouette.</li>
+          <li><strong>Cultural Center &amp; Amphitheater:</strong> A 15,000 sqm performing arts and exhibition center with a 1,500-seat main hall, exhibition galleries, and an outdoor amphitheater. Architecture that reinterprets the Tajik "chaikhona" (teahouse) tradition at monumental scale.</li>
+          <li><strong>Destination Mall &amp; Entertainment:</strong> A 120,000 sqm lifestyle mall with international and local retail, multiplex cinema, indoor ice rink, and food halls. Designed as an architectural attraction, not a box.</li>
+          <li><strong>Tech Innovation Hub:</strong> A cluster of flexible office and co-working buildings oriented toward technology, fintech, and creative industries, with a startup incubator and conference facilities.</li>
+          <li><strong>Waterfront Promenade:</strong> If river proximity allows, a 1.2km landscaped riverwalk with restaurants, pop-up markets, and recreational areas. If not river-adjacent, a linear water feature with fountains and canal-like elements.</li>
+          <li><strong>Luxury Residential Enclave:</strong> Premium tower residences (25&ndash;40 stories) with mountain views, private amenities, concierge services, and branded residences potential (Aman, Four Seasons, etc.).</li>
+        </ul>
+
+        <h4 class="mt-2" style="color: var(--gold);">Density &amp; Character</h4>
+        <p style="color: var(--stone-light);">Average FAR of 5.0&ndash;6.0 across the site, with peak FAR of 12+ at the tower cluster. Maximum height 200m+ (landmark tower). A dramatic, high-density skyline district. International architectural competition for key buildings.</p>
+      </div>
+    </div>
+
+    <div class="callout callout-gold mt-3">
+      <strong>Recommendation:</strong> We suggest beginning with Scheme A as the foundation &mdash; delivering the housing, schools, parks, and retail that Dushanbe needs most urgently &mdash; while reserving the southern or eastern portion of the site for Scheme B elements (landmark tower, cultural center, destination retail) to be phased in as market conditions and financing allow. This hybrid approach balances pragmatism with ambition.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 7. VISUAL CONCEPT LANGUAGE ════════════════════ -->
+<section id="design-language" class="light-section">
+  <div class="section-inner">
+    <span class="section-label">06 &mdash; Design Language</span>
+    <h2>Contemporary Central Asian Urbanism</h2>
+    <div class="section-divider" style="background: var(--navy);"></div>
+    <p class="subtitle" style="color: var(--stone);">The architectural identity of Boghi Dushanbe must honor Tajikistan's extraordinary artistic heritage while asserting a thoroughly contemporary vision. The design language bridges tradition and modernity without pastiche or kitsch.</p>
+
+    <div class="card-grid mt-2">
+      <div class="card">
+        <h3 style="color: var(--navy);">Facade Language</h3>
+        <p>Clean, geometric forms with depth and texture. Contemporary reinterpretations of mashrabiya screens &mdash; the perforated geometric screens of Islamic architecture &mdash; rendered in anodized aluminum, weathering steel, or precast concrete. These screens provide solar shading (critical in Dushanbe's continental climate with hot summers), visual privacy in residential buildings, and a rhythmic, human-scale pattern language that connects to centuries of Central Asian decorative art.</p>
+        <p>The geometric patterns draw specifically from Ismaili and broader Islamic geometric traditions prevalent in Tajikistan &mdash; interlocking stars, hexagonal tessellations, and arabesques &mdash; abstracted to contemporary precision rather than literal reproduction.</p>
+      </div>
+      <div class="card">
+        <h3 style="color: var(--navy);">Materials Palette</h3>
+        <p><strong>Travertine:</strong> Locally sourced from Tajikistan's extensive limestone deposits. Used for podium cladding, public realm paving, and feature walls. Warm cream and honey tones that glow in Dushanbe's clear mountain light.</p>
+        <p><strong>Local granite:</strong> Dark grey-black granite for base courses, plaza paving, and water feature edges. Provides gravitas and permanence.</p>
+        <p><strong>Anodized aluminum:</strong> Bronze and champagne-toned anodized aluminum for mashrabiya screens, balcony railings, and tower crowns. Low maintenance, corrosion-resistant, and capable of precision geometric fabrication.</p>
+        <p><strong>Glass curtain walls:</strong> High-performance glazing for office and tower buildings. Low-emissivity coatings for energy efficiency, with selective use of fritted or etched glass incorporating geometric patterns.</p>
+      </div>
+      <div class="card">
+        <h3 style="color: var(--navy);">Skyline Composition</h3>
+        <p>Heights graduated from the edges to the center or key node, creating a legible silhouette from multiple city viewpoints. The landmark tower anchors the composition, with surrounding buildings stepping down in deliberate increments. No building blocks the mountain view corridors identified in the master plan.</p>
+        <p>The skyline reads as a mountain range in miniature &mdash; peaks, ridges, and valleys &mdash; an architectural metaphor for the Fann Mountains that frame Dushanbe's horizon. This is achieved through varied tower heights (80m, 120m, 150m, 200m+) and articulated rooflines rather than flat-topped uniformity.</p>
+      </div>
+      <div class="card">
+        <h3 style="color: var(--navy);">Landscape &amp; Public Realm</h3>
+        <p><strong>Mature tree planting:</strong> London plane trees, walnuts, mulberries, and elms (all native or naturalized in Tajikistan) planted at semi-mature size to create immediate canopy. The "bogh" (garden) identity demands lush, generous planting from day one.</p>
+        <p><strong>Water features:</strong> Reflecting pools, channels (jui), and fountains referencing the Persian-Tajik garden tradition of flowing water as both cooling element and spiritual metaphor. Recycled water systems for sustainability.</p>
+        <p><strong>Mountain-view corridors:</strong> East-west visual axes maintained through building placement, ensuring residents and visitors always feel connected to the Fann Mountains and the dramatic topography that defines Dushanbe's identity.</p>
+      </div>
+      <div class="card">
+        <h3 style="color: var(--navy);">Night Identity</h3>
+        <p>Warm gold uplighting on key facade elements and public buildings, creating a cohesive nocturnal identity visible from across the city. The landmark tower's crown illuminated with a constellation-inspired LED pattern &mdash; referencing Tajikistan's crown and stars on the national flag.</p>
+        <p>Retail promenades lit with festoon-style warm white lighting. Landscape features with embedded ground lighting in pools and channels. The overall effect: warm, inviting, and distinctly "golden" &mdash; a district that glows rather than glares.</p>
+      </div>
+      <div class="card">
+        <h3 style="color: var(--navy);">Tajik Heritage Integration</h3>
+        <p><strong>Suzani motifs:</strong> The vibrant embroidered textiles of Tajikistan &mdash; suzani &mdash; abstracted into large-scale facade panels, public art installations, and paving patterns. Not literal reproduction, but the flowing botanical forms and radial symmetries of suzani translated into contemporary materials.</p>
+        <p><strong>Chaikhona tradition:</strong> The Tajik teahouse &mdash; a place of community gathering, elevated on a platform with carpets and low tables &mdash; inspires the design of public pavilions, rooftop terraces, and community spaces throughout the district. These are social infrastructure, not decoration.</p>
+        <p><strong>Islamic geometry:</strong> Girih tiles, muqarnas-inspired canopies, and geometric tessellations as functional architectural elements (shading, ventilation, wayfinding) rather than applied ornament.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 8. RENDER PROMPTS ════════════════════ -->
+<section id="renders" class="dark-section">
+  <div class="section-inner">
+    <span class="section-label">07 &mdash; Visualization Prompts</span>
+    <h2>Architectural Rendering Prompts</h2>
+    <div class="section-divider"></div>
+    <p class="subtitle mb-2">The following prompts are designed for use with AI image generation tools (Midjourney, DALL-E 3, Stable Diffusion) or as briefs for traditional architectural visualization studios. Each prompt describes a specific view of Boghi Dushanbe.</p>
+
+    <div class="render-prompt">
+      <span class="prompt-number">01</span>
+      <span class="prompt-title">Aerial Master Plan View</span>
+      Aerial photograph, 45-degree angle, of a 30-hectare mixed-use urban district in Dushanbe, Tajikistan. Central green spine running east-west. Residential towers of 8-15 stories in warm travertine and glass with geometric mashrabiya screens. Landmark tower of 200m+ in the southeast quadrant. Lush tree canopy, reflecting pools, pedestrian promenades. Fann Mountains visible in the background under clear blue sky. Warm afternoon light. Photorealistic architectural visualization, 8K resolution, Foster+Partners style.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">02</span>
+      <span class="prompt-title">Retail High Street at Golden Hour</span>
+      Eye-level street view of a 600-meter pedestrian retail promenade in a Central Asian city. 6-8 story buildings on both sides with ground-floor cafes and shops, bronze anodized aluminum balconies, travertine facades. Mature plane trees lining the street, festoon lighting strung between buildings. Families walking, outdoor dining. Mountains visible at the street's vanishing point. Golden hour light, warm tones. Photorealistic, cinematic composition.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">03</span>
+      <span class="prompt-title">Landmark Tower at Sunset</span>
+      Dramatic low-angle view of a 200-meter supertall tower in Dushanbe, Tajikistan. Slender, tapering form with faceted glass curtain wall and bronze aluminum crown inspired by Islamic geometric patterns. Sunset sky with dramatic orange and purple clouds, Fann Mountains silhouetted behind. Reflecting pool in foreground with gold uplighting beginning to glow. Contemporary Central Asian architecture, photorealistic rendering.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">04</span>
+      <span class="prompt-title">Central Plaza with Mountain Views</span>
+      Large public plaza in a modern Central Asian urban district. Granite paving with embedded geometric star patterns. Central fountain with low water jets. Groups of people gathering, children playing. Framed view of snow-capped mountains through a gap between contemporary buildings. Mature walnut trees providing shade. Warm travertine seating walls. Clear sky, midday light. Architectural visualization.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">05</span>
+      <span class="prompt-title">Residential Courtyard</span>
+      Intimate residential courtyard within a 10-story apartment complex. Central garden with mulberry trees, a narrow water channel (jui) running through, low benches. Mashrabiya-screen balconies overlooking the courtyard, casting geometric shadow patterns on the travertine paving. A mother and child walking, an elderly man reading in the shade. Warm, serene, human-scale. Photorealistic, Aga Khan Award-worthy architecture.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">06</span>
+      <span class="prompt-title">Destination Mall Interior Atrium</span>
+      Grand interior atrium of a contemporary shopping mall in Central Asia. 5-story height, with a muqarnas-inspired ceiling structure in white concrete and timber, allowing natural light to filter through geometric openings. Retail balconies on each level. Indoor trees and a central water feature. International and local brand stores visible. Warm lighting, clean lines, luxurious but not garish. Photorealistic interior visualization.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">07</span>
+      <span class="prompt-title">Waterfront Park at Dusk</span>
+      Linear waterfront park along a river or canal in a modern Central Asian city. Stepped terraces leading down to the water's edge. Joggers, families on picnic blankets, cyclists on a separated path. Warm-toned LED pathway lighting beginning to illuminate. Residential towers and the landmark tower visible in the background, reflecting gold light. Dusk sky, mountains in silhouette. Landscape architecture visualization.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">08</span>
+      <span class="prompt-title">Night Skyline</span>
+      Panoramic nighttime view of a new urban district skyline in Dushanbe, Tajikistan. Graduated tower heights from 8 stories to 200m landmark tower. Warm gold uplighting on facades, constellation-pattern LED crown on the tallest tower. Reflecting pool or river in foreground mirroring the lights. Dark mountain silhouettes behind. Clear night sky with stars. Long-exposure photography style, photorealistic.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">09</span>
+      <span class="prompt-title">Cultural Center Entrance</span>
+      Dramatic entrance of a contemporary performing arts and cultural center. Large cantilevered roof with muqarnas-inspired geometric underside in timber and concrete. Glass facade revealing a warmly lit lobby. Granite steps, reflecting pool, and a monumental bronze sculpture of a Tajik eagle. Evening event with well-dressed attendees arriving. Mountain backdrop. Photorealistic architectural rendering, Zaha Hadid or Snohetta aesthetic.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">10</span>
+      <span class="prompt-title">Primary School and Family Park</span>
+      Modern primary school building in warm brick and timber with large windows, set beside a children's adventure playground in a neighborhood park. 3-story school with rooftop garden. Parents picking up children, others playing in the park. Colorful but tasteful playground equipment. Mountain views. Safe, joyful, community-oriented atmosphere. Architectural visualization.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">11</span>
+      <span class="prompt-title">Contemporary Mosque</span>
+      A contemporary mosque in a modern Central Asian urban district. Capacity for 2,000 worshippers. Cubic main volume in local travertine with a geometric perforated screen allowing soft light to enter. Slender minaret of 45 meters in bronze-toned aluminum with subtle spiral form. Courtyard with ablution fountain and mature cypress trees. Modern Tajik Islamic architecture — dignified, geometric, luminous. NOT Ottoman, NOT Gulf-style. Photorealistic.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">12</span>
+      <span class="prompt-title">Grade A Office Lobby</span>
+      Double-height office building lobby with travertine floors, a feature wall of geometric Tajik patterns in bronze aluminum, and a large-format art piece depicting abstract mountain landscape. Reception desk in dark granite. Suited professionals, a coffee bar in the corner. Abundant natural light from full-height glazing. Premium, international, but culturally rooted. Interior visualization.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">13</span>
+      <span class="prompt-title">Hotel Arrival Experience</span>
+      Porte-cochere and arrival court of a 5-star hotel in the landmark tower. Double-height entrance with a dramatic geometric timber ceiling. Doormen in contemporary Tajik-inspired uniforms. Black SUVs arriving, luggage being unloaded. Water feature flanking the entrance. Warm gold lighting, evening atmosphere. Luxurious, understated, Central Asian hospitality. Photorealistic rendering.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">14</span>
+      <span class="prompt-title">Rooftop Chaikhona (Teahouse)</span>
+      Rooftop restaurant and teahouse on a 12-story residential building. Traditional Tajik-style elevated platform seating with modern low furniture and cushions, shaded by a contemporary tensile fabric canopy. Panoramic views of the Fann Mountains and the district below. Sunset light, tea being served, groups of friends and families. Fusion of traditional chaikhona culture with contemporary design. Photorealistic.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">15</span>
+      <span class="prompt-title">Underground Parking &amp; Mobility Hub</span>
+      Modern underground parking garage with clean concrete, LED wayfinding, electric vehicle charging stations, and a bright, well-signed elevator lobby connecting to the street above. Bicycle storage area visible. Clean, safe, well-lit. A car and an electric scooter in the frame. Infrastructure visualization, surprisingly elegant for a parking structure.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">16</span>
+      <span class="prompt-title">Green Spine Promenade</span>
+      Wide landscaped promenade (30 meters) running through the center of a modern urban district. Double row of mature plane trees, a shallow reflecting channel in the center, low granite seating walls. Joggers, a woman with a stroller, teenagers on bicycles. Residential buildings visible on both sides (8-12 stories, warm stone facades). Morning light, mountain views at the terminus. Landscape architecture visualization.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">17</span>
+      <span class="prompt-title">Tech Innovation Hub</span>
+      Interior of a contemporary co-working and innovation space. Double-height volume with exposed concrete ceiling, timber acoustic panels, and large windows. Young Tajik professionals working at standing desks, a meeting room with glass walls, a presentation in progress. Green plants, coffee bar, casual but professional atmosphere. A screen showing code. Start-up energy meets Central Asian warmth.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">18</span>
+      <span class="prompt-title">Winter Scene</span>
+      The retail high street of Boghi Dushanbe in winter. Light snow on the ground and on building ledges. Warm light spilling from shop windows and cafes. People in winter coats walking, a child with a small sled. The mashrabiya screens on upper floors with snow collecting in the geometric patterns. The landmark tower visible in the background against a grey-white sky. Cozy, lively, beautiful in every season.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">19</span>
+      <span class="prompt-title">Public Art Installation</span>
+      A large-scale public art sculpture in the central plaza of a modern Central Asian district. Abstract form inspired by suzani textile motifs, fabricated in polished stainless steel and colored glass, approximately 8 meters tall. People interacting with it, taking photos. Travertine paving, water channel in the background, residential towers behind. Daylight, clear sky. The artwork as a social gathering point and Instagram destination.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">20</span>
+      <span class="prompt-title">Medical Clinic and Wellness Center</span>
+      A modern 4-story neighborhood health clinic and wellness center. Clean facade of white precast concrete with geometric perforations, ground-floor pharmacy, and a welcoming glass entrance. A small healing garden visible to the side with medicinal plants. Patients arriving, a doctor in a white coat greeting someone. Professional, reassuring, human-scaled healthcare architecture.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">21</span>
+      <span class="prompt-title">Bird's Eye Construction Phase</span>
+      Aerial view of a 30-hectare construction site in various stages of development. Completed residential towers in the north, steel structure rising for the landmark tower in the south, landscaped park already open in the center, cranes visible. The city of Dushanbe surrounding the site, mountains in the background. Progress, momentum, transformation in action. Realistic construction photography style.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">22</span>
+      <span class="prompt-title">Observation Deck View</span>
+      Interior of a glass-enclosed observation deck at the top of a 200m tower. Visitors looking out at a dramatic 360-degree panorama of Dushanbe, the Hissar Valley, and the snow-capped Fann Mountains. Sleek dark interior with minimal railings, informational screens identifying mountain peaks. Sunset light flooding in. A couple pointing at the mountains. Vertigo-inducing height, breathtaking views.
+    </div>
+
+    <div class="render-prompt">
+      <span class="prompt-number">23</span>
+      <span class="prompt-title">Amphitheater Performance</span>
+      An outdoor amphitheater in a modern urban park, capacity 3,000. Tiered stone seating facing a contemporary stage with a fabric tensile canopy. A traditional Tajik music performance in progress, audience engaged. The landmark tower illuminated in the background. String lights and warm ground lighting. Evening atmosphere, community celebration, cultural vitality.
+    </div>
+
+    <div class="callout callout-gold mt-2">
+      <strong>Note on Visualization:</strong> These prompts are calibrated for current-generation AI image tools (Midjourney v6+, DALL-E 3, Stable Diffusion XL) and can also serve as verbal briefs for traditional visualization studios such as DBOX, Brick Visual, or Mir. For the formal proposal, we recommend commissioning 8&ndash;10 hero images from a professional studio, supplemented by AI-generated concept views.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 9. DEVELOPMENT PROGRAM ════════════════════ -->
+<section id="program" class="light-section">
+  <div class="section-inner">
+    <span class="section-label">08 &mdash; Development Program</span>
+    <h2>Indicative Development Program</h2>
+    <div class="section-divider" style="background: var(--navy);"></div>
+
+    <div class="callout callout-note mb-2">
+      <strong>Disclaimer:</strong> All figures below are conceptual and indicative, derived from comparable international projects and adjusted for Dushanbe's context. They are subject to detailed feasibility studies, market analysis, infrastructure assessment, and regulatory review.
+    </div>
+
+    <h3 class="mt-2">Land Use Allocation</h3>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Use</th>
+            <th>% of Site</th>
+            <th>Approx. Land Area</th>
+            <th>GFA Range</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Residential</strong></td>
+            <td>35&ndash;40%</td>
+            <td>103,000&ndash;120,000 sqm</td>
+            <td>1,200,000&ndash;1,500,000 sqm</td>
+            <td>Mix of affordable, mid-market, and premium. Towers (15&ndash;40 floors) and mid-rise (6&ndash;12 floors).</td>
+          </tr>
+          <tr>
+            <td><strong>Commercial / Office</strong></td>
+            <td>10&ndash;12%</td>
+            <td>30,000&ndash;36,000 sqm</td>
+            <td>200,000&ndash;300,000 sqm</td>
+            <td>Class A offices, tech hub, co-working. High-rise cluster at primary frontage.</td>
+          </tr>
+          <tr>
+            <td><strong>Retail &amp; F&B</strong></td>
+            <td>8&ndash;10%</td>
+            <td>24,000&ndash;30,000 sqm</td>
+            <td>150,000&ndash;200,000 sqm</td>
+            <td>High street retail, destination mall, neighborhood convenience.</td>
+          </tr>
+          <tr>
+            <td><strong>Hospitality</strong></td>
+            <td>3&ndash;4%</td>
+            <td>9,000&ndash;12,000 sqm</td>
+            <td>50,000&ndash;80,000 sqm</td>
+            <td>5-star hotel (300&ndash;400 keys), business hotel (200&ndash;250 keys). Branded residences.</td>
+          </tr>
+          <tr>
+            <td><strong>Community &amp; Civic</strong></td>
+            <td>5&ndash;6%</td>
+            <td>15,000&ndash;18,000 sqm</td>
+            <td>40,000&ndash;60,000 sqm</td>
+            <td>Mosque, schools (2&ndash;3), medical clinic, cultural center, library.</td>
+          </tr>
+          <tr>
+            <td><strong>Public Realm &amp; Parks</strong></td>
+            <td>18&ndash;22%</td>
+            <td>53,000&ndash;65,000 sqm</td>
+            <td>&mdash;</td>
+            <td>Central park, green spine, plazas, waterfront, amphitheater.</td>
+          </tr>
+          <tr>
+            <td><strong>Roads &amp; Infrastructure</strong></td>
+            <td>15&ndash;18%</td>
+            <td>44,000&ndash;53,000 sqm</td>
+            <td>&mdash;</td>
+            <td>Internal road network, utilities, below-grade parking access.</td>
+          </tr>
+          <tr style="font-weight: 600; background: rgba(26,31,58,0.03);">
+            <td><strong>Total</strong></td>
+            <td>100%</td>
+            <td>~295,000 sqm</td>
+            <td>~1,800,000&ndash;2,500,000 sqm</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="mt-3">Key Quantities</h3>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Low Estimate</th>
+            <th>High Estimate</th>
+            <th>Assumptions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Residential Units</td>
+            <td>12,000</td>
+            <td>15,000</td>
+            <td>Average unit size 85&ndash;110 sqm GFA; mix of 1BR, 2BR, 3BR, and 4BR</td>
+          </tr>
+          <tr>
+            <td>Population Capacity</td>
+            <td>30,000</td>
+            <td>45,000</td>
+            <td>2.5&ndash;3.5 persons per unit; varies by unit mix</td>
+          </tr>
+          <tr>
+            <td>Hotel Keys</td>
+            <td>400</td>
+            <td>600</td>
+            <td>One 5-star (300&ndash;400 keys), one business hotel (100&ndash;200 keys)</td>
+          </tr>
+          <tr>
+            <td>Office Workstations</td>
+            <td>15,000</td>
+            <td>25,000</td>
+            <td>12&ndash;15 sqm per workstation; mix of traditional and co-working</td>
+          </tr>
+          <tr>
+            <td>Retail Units</td>
+            <td>800</td>
+            <td>1,200</td>
+            <td>Average 120&ndash;180 sqm per unit; includes F&B</td>
+          </tr>
+          <tr>
+            <td>Parking Spaces</td>
+            <td>15,000</td>
+            <td>20,000</td>
+            <td>Primarily below-grade; 1.0&ndash;1.3 spaces per residential unit + commercial allocation</td>
+          </tr>
+          <tr>
+            <td>School Capacity</td>
+            <td>2,500</td>
+            <td>4,000</td>
+            <td>2&ndash;3 schools (primary and secondary); sized for district population</td>
+          </tr>
+          <tr>
+            <td>Park / Open Space</td>
+            <td>5.3 ha</td>
+            <td>6.5 ha</td>
+            <td>18&ndash;22% of total site area; exceeds most international benchmarks</td>
+          </tr>
+          <tr>
+            <td>Cultural Center</td>
+            <td>12,000 sqm</td>
+            <td>18,000 sqm</td>
+            <td>Main hall (1,500 seats), exhibition gallery, multipurpose spaces</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-note mt-2">
+      <strong>Conceptual &mdash; Subject to Feasibility Studies:</strong> The above program reflects the potential of a 30-hectare site at FAR 3.5&ndash;6.0 (varying by zone). Actual buildable area will be determined by geotechnical conditions, infrastructure capacity, regulatory approvals, and market absorption rates. A detailed demand study is essential before finalizing any development program.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 10. ECONOMIC & STRATEGIC VALUE ════════════════════ -->
+<section id="economics" class="dark-section">
+  <div class="section-inner">
+    <span class="section-label">09 &mdash; Economic &amp; Strategic Value</span>
+    <h2>The Case for Investment</h2>
+    <div class="section-divider"></div>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">&#9670;</div>
+        <h3>Job Creation</h3>
+        <p>Construction phase: 20,000+ direct jobs over 10&ndash;15 years, including skilled trades, engineering, and project management. Permanent employment: 15,000&ndash;20,000 jobs in offices, retail, hospitality, education, healthcare, and facility management. Indirect employment multiplier of 2.5&ndash;3x creates an additional 40,000&ndash;60,000 jobs in the broader economy through supply chain effects.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#9670;</div>
+        <h3>Tax Revenue</h3>
+        <p>The completed district would generate significant municipal and national tax revenue through property taxes, business taxes, VAT on retail and hospitality, income taxes from employees, and land value capture mechanisms. At maturity, the district could contribute meaningfully to Dushanbe's annual municipal budget, reducing the city's dependence on central government transfers.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#9670;</div>
+        <h3>Real Estate Value</h3>
+        <p>At current Dushanbe market rates and projected appreciation (4.69% annual growth), the completed Boghi Dushanbe district could represent $3&ndash;5 billion in real estate value at maturity. This would make it the single most valuable real estate asset in Tajikistan and a cornerstone of national wealth. Rental yields of approximately 10% in the current market suggest strong investor returns.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#9670;</div>
+        <h3>Tourism &amp; Destination Appeal</h3>
+        <p>The 5-star hotel, cultural center, destination retail, and architectural landmarks would position Boghi Dushanbe as a regional tourist destination. Dushanbe is increasingly recognized as a gateway to the Pamir Highway and Tajikistan's spectacular mountain landscapes. A world-class urban district enhances the city's appeal for business tourism, cultural tourism, and stopover visitors.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#9670;</div>
+        <h3>Foreign Investment</h3>
+        <p>A well-structured PPP (public-private partnership) for Boghi Dushanbe could attract investment from international development finance institutions (EBRD, IFC, ADB), sovereign wealth funds (particularly Gulf-based funds with interest in Central Asia), and international real estate developers. The project's scale and government backing provide the credibility that institutional investors require.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#9670;</div>
+        <h3>National Prestige &amp; City Branding</h3>
+        <p>Boghi Dushanbe would become Tajikistan's most visible urban development project, comparable in ambition to Astana's new city center (Kazakhstan) or Ashgabat's marble-clad modernization (Turkmenistan), but with a more humane, livable, and economically sustainable approach. International media coverage of a well-designed Central Asian district project would enhance Tajikistan's global reputation.</p>
+      </div>
+    </div>
+
+    <h3 class="mt-3">Catalytic Economic Effects</h3>
+    <div class="two-col">
+      <div>
+        <p>Large-scale urban redevelopment generates value far beyond the site boundary. International experience (London Docklands, Barcelona 22@, Songdo IBD) demonstrates that well-planned flagship districts increase property values in surrounding neighborhoods by 15&ndash;30% within the first decade.</p>
+        <p>For Dushanbe, Boghi Dushanbe would:</p>
+        <ul class="styled-list">
+          <li>Stimulate upgrading of adjacent residential and commercial areas</li>
+          <li>Attract additional private investment to the Luchob area</li>
+          <li>Improve infrastructure (roads, utilities, public transport) that benefits the entire city</li>
+          <li>Create a demonstration effect for quality design and construction standards</li>
+          <li>Develop local workforce skills in modern construction and urban management</li>
+        </ul>
+      </div>
+      <div>
+        <h4>PPP Structure Logic</h4>
+        <p>The optimal delivery mechanism is a public-private partnership where:</p>
+        <ul class="styled-list">
+          <li><strong>Government contributes:</strong> Land (via long-term lease or transfer), regulatory facilitation, infrastructure investment, and political commitment</li>
+          <li><strong>Private sector provides:</strong> Development capital, construction expertise, management capability, and market risk absorption</li>
+          <li><strong>DFIs participate:</strong> Concessional financing, technical assistance, environmental and social safeguards, and international credibility</li>
+          <li><strong>Revenue sharing:</strong> Government receives land lease payments, tax revenue, and retained equity in key assets (e.g., cultural center, public realm)</li>
+        </ul>
+        <p class="mt-1">This structure aligns with EBRD's stated preference for PPP models in its 2025&ndash;2030 Tajikistan strategy and with the World Bank's Dushanbe Sustainable Urban Development Project framework.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 11. PHASING STRATEGY ════════════════════ -->
+<section id="phasing" class="light-section">
+  <div class="section-inner">
+    <span class="section-label">10 &mdash; Phasing Strategy</span>
+    <h2>A Decade of Deliberate Transformation</h2>
+    <div class="section-divider" style="background: var(--navy);"></div>
+    <p class="subtitle" style="color: var(--stone);">Boghi Dushanbe is not built in a day. The phasing strategy prioritizes early visible wins, builds market confidence progressively, and reserves the most ambitious elements for when the district's success is proven.</p>
+
+    <div class="timeline mt-3">
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 0 &mdash; Foundation (Year 0&ndash;1)</div>
+        <h4 style="color: var(--navy);">Studies, Approvals &amp; Stakeholder Alignment</h4>
+        <p>Commission comprehensive feasibility study (market, financial, technical). Conduct environmental site assessment and remediation planning. Complete geotechnical and topographic surveys. Engage international master planning firm (competition or direct appointment). Initiate stakeholder consultation: government agencies, neighboring communities, potential investors. Secure cabinet-level approval and mayoral endorsement. Establish project delivery authority (dedicated SPV or government agency). Begin international marketing to potential investors and development partners.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 1 &mdash; Genesis (Year 1&ndash;3)</div>
+        <h4 style="color: var(--navy);">Decommissioning, Infrastructure &amp; First Deliveries</h4>
+        <p>Commence industrial facility decommissioning and environmental remediation. Install primary infrastructure: roads, utilities, drainage, telecommunications. <strong>Quick Win #1:</strong> Open 3-hectare public park and green spine (first visible sign of transformation; generates community goodwill). <strong>Quick Win #2:</strong> Deliver first 2,000 residential units (mid-rise, family-oriented, affordably priced) to demonstrate livability. <strong>Quick Win #3:</strong> Open first 200m of retail high street with ground-floor cafes, bakeries, and convenience retail. Begin construction of primary school and medical clinic.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 2 &mdash; Momentum (Year 3&ndash;6)</div>
+        <h4 style="color: var(--navy);">Office, Hotel, Expanded Residential &amp; Cultural Anchor</h4>
+        <p>Deliver first office cluster (2&ndash;3 buildings, 80,000&ndash;120,000 sqm). Open business hotel (200&ndash;250 keys). Expand residential to 6,000&ndash;8,000 cumulative units, including first premium towers. Complete retail high street (full 600m). Begin construction of cultural center and amphitheater. Open mosque and community facilities. Launch international architectural competition for landmark tower. District population reaches 15,000&ndash;20,000 residents.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 3 &mdash; Landmark (Year 6&ndash;10)</div>
+        <h4 style="color: var(--navy);">Landmark Tower, Destination Retail &amp; Full District Identity</h4>
+        <p>Construct landmark tower (200m+) including 5-star hotel and observation deck. Open destination mall and entertainment complex. Complete tech innovation hub. Deliver cumulative 10,000&ndash;12,000 residential units. Open cultural center for full programming. The district achieves critical mass and self-sustaining commercial viability. Dushanbe's skyline is permanently transformed.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 4 &mdash; Maturation (Year 10&ndash;15)</div>
+        <h4 style="color: var(--navy);">Remaining Parcels &amp; Long-Term Value Creation</h4>
+        <p>Develop remaining residential and commercial parcels based on demonstrated demand. Fine-tune public realm: additional landscaping, public art program, seasonal programming. Introduce branded residences and luxury segment if market supports. Complete all infrastructure and parking. District reaches full population capacity of 30,000&ndash;45,000. Boghi Dushanbe is established as the premier address in Tajikistan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 12. GOVERNMENT APPROVAL ════════════════════ -->
+<section id="government" class="dark-section">
+  <div class="section-inner">
+    <span class="section-label">11 &mdash; Government Approval Strategy</span>
+    <h2>Framing the Public Interest</h2>
+    <div class="section-divider"></div>
+
+    <p class="subtitle">The success of Boghi Dushanbe depends on strong, sustained government commitment. The project must be framed not as a commercial real estate venture but as a national initiative that serves the people of Tajikistan.</p>
+
+    <div class="card-grid mt-2">
+      <div class="card">
+        <h3>Modernization of the Capital</h3>
+        <p>Dushanbe is the face of Tajikistan to the world. As the nation's diplomatic, commercial, and cultural center, the capital's physical environment directly reflects national ambition and capability. Boghi Dushanbe transforms an industrial-era liability into a 21st-century asset, demonstrating that Tajikistan is building for the future while honoring its past.</p>
+      </div>
+      <div class="card">
+        <h3>Livability &amp; Quality of Life</h3>
+        <p>The project directly addresses the housing crisis that affects hundreds of thousands of Dushanbe residents. By delivering 12,000&ndash;15,000 modern homes alongside schools, clinics, parks, and retail, Boghi Dushanbe creates a complete neighborhood where families can thrive. This is government serving its citizens in the most tangible way possible.</p>
+      </div>
+      <div class="card">
+        <h3>Jobs &amp; Economic Growth</h3>
+        <p>With 20,000+ construction jobs and 15,000+ permanent positions, Boghi Dushanbe represents one of the largest job creation initiatives in Tajikistan's modern history. The project provides employment across skill levels, from laborers to engineers, from shop assistants to hotel managers, creating a broad-based economic benefit.</p>
+      </div>
+      <div class="card">
+        <h3>Environmental Upgrade</h3>
+        <p>Replacing industrial infrastructure with green urbanism &mdash; parks, tree-lined streets, clean buildings, and modern waste management &mdash; is an environmental win for Dushanbe. The project eliminates a source of industrial pollution and creates the city's largest new green space, contributing to air quality, biodiversity, and climate resilience.</p>
+      </div>
+    </div>
+
+    <h3 class="mt-3">Required Studies &amp; Approvals</h3>
+    <p class="text-muted text-small mb-2">The following studies and approvals are essential before any construction begins. This disciplined approach protects the government's interests and ensures the project's long-term viability.</p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Study / Approval</th>
+            <th>Purpose</th>
+            <th>Indicative Timeline</th>
+            <th>Lead Agency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Market Feasibility Study</td>
+            <td>Validate demand, pricing, absorption rates for all uses</td>
+            <td>3&ndash;4 months</td>
+            <td>International consultancy (JLL, CBRE, Colliers)</td>
+          </tr>
+          <tr>
+            <td>Environmental Impact Assessment</td>
+            <td>Assess contamination, remediation requirements, ecological impact</td>
+            <td>4&ndash;6 months</td>
+            <td>Committee for Environmental Protection</td>
+          </tr>
+          <tr>
+            <td>Infrastructure Capacity Study</td>
+            <td>Evaluate roads, water, power, sewage capacity and upgrade needs</td>
+            <td>3&ndash;4 months</td>
+            <td>Dushanbe City Engineering Department</td>
+          </tr>
+          <tr>
+            <td>Legal &amp; Land Tenure Review</td>
+            <td>Clarify ownership, concession terms, regulatory framework</td>
+            <td>2&ndash;3 months</td>
+            <td>State Committee on Land Management</td>
+          </tr>
+          <tr>
+            <td>Traffic &amp; Transportation Study</td>
+            <td>Model traffic impacts, public transport integration, parking demand</td>
+            <td>3&ndash;4 months</td>
+            <td>Dushanbe Transport Authority</td>
+          </tr>
+          <tr>
+            <td>Financial Structuring</td>
+            <td>Develop PPP model, financing plan, investor outreach strategy</td>
+            <td>4&ndash;6 months</td>
+            <td>Ministry of Finance / IFC Advisory</td>
+          </tr>
+          <tr>
+            <td>Master Plan Development</td>
+            <td>Detailed urban design, architectural guidelines, phasing plan</td>
+            <td>6&ndash;9 months</td>
+            <td>International master planning firm</td>
+          </tr>
+          <tr>
+            <td>Cabinet Approval</td>
+            <td>Formal government endorsement of project and PPP framework</td>
+            <td>Following completion of above studies</td>
+            <td>Government of the Republic of Tajikistan</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-gold mt-2">
+      <strong>A Note on Process:</strong> This proposal is presented with deep respect for the Government of the Republic of Tajikistan's authority and decision-making processes. We recognize that a project of this significance requires careful deliberation, broad stakeholder consultation, and rigorous technical validation. Our recommendation is to begin with the feasibility studies outlined above, allowing the evidence to guide the path forward.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 13. RISKS & MITIGATION ════════════════════ -->
+<section id="risks" class="light-section">
+  <div class="section-inner">
+    <span class="section-label">12 &mdash; Risk Assessment</span>
+    <h2>Risks &amp; Mitigation Strategies</h2>
+    <div class="section-divider" style="background: var(--navy);"></div>
+    <p class="subtitle" style="color: var(--stone);">A responsible proposal must acknowledge risks transparently. The following analysis identifies key risks and proposes practical mitigation measures.</p>
+
+    <div class="table-wrapper mt-2">
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 18%;">Risk</th>
+            <th style="width: 8%;">Impact</th>
+            <th style="width: 10%;">Likelihood</th>
+            <th style="width: 32%;">Description</th>
+            <th style="width: 32%;">Mitigation Strategy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Land Ownership &amp; Concession</strong></td>
+            <td><span class="risk-high">High</span></td>
+            <td><span class="risk-med">Medium</span></td>
+            <td>The site's ownership structure, existing concessions, and legal framework for transfer or long-term lease may be complex, involving multiple state entities.</td>
+            <td>Commission legal and land tenure review as first priority. Engage the State Committee on Land Management early. Establish clear governmental authority over the project. Consider special economic zone or development zone designation.</td>
+          </tr>
+          <tr>
+            <td><strong>Industrial Operations Relocation</strong></td>
+            <td><span class="risk-high">High</span></td>
+            <td><span class="risk-high">High</span></td>
+            <td>Active thermal power and industrial operations cannot be abruptly terminated. Relocation or replacement of energy infrastructure requires careful planning to avoid disruption to city services.</td>
+            <td>Phase development to allow continued operations during transition. Coordinate with Barqi Tojik (national energy company) on replacement facilities. Incorporate transition costs into project budget. Allow 2&ndash;3 year decommissioning timeline.</td>
+          </tr>
+          <tr>
+            <td><strong>Environmental Remediation</strong></td>
+            <td><span class="risk-high">High</span></td>
+            <td><span class="risk-high">High</span></td>
+            <td>Decades of industrial activity may have contaminated soil and groundwater. Remediation costs can be significant and timelines unpredictable.</td>
+            <td>Conduct Phase I and Phase II environmental assessments before any commitment. Budget conservatively for remediation (5&ndash;10% of total project cost). Engage international environmental engineering firm. Explore EBRD/World Bank environmental remediation funding.</td>
+          </tr>
+          <tr>
+            <td><strong>Financing Complexity</strong></td>
+            <td><span class="risk-high">High</span></td>
+            <td><span class="risk-med">Medium</span></td>
+            <td>A $3&ndash;5B project requires multi-source financing over 15 years. Tajikistan's sovereign credit rating and currency risk may deter some investors.</td>
+            <td>Phase investment to match market absorption. Structure PPP to share risk appropriately. Engage DFIs (EBRD, IFC, ADB) for anchor financing and credibility. Consider Somoni-denominated revenue streams for residential components. Diversify investor base (Gulf SWFs, Chinese investors, Turkish developers).</td>
+          </tr>
+          <tr>
+            <td><strong>Public Concerns</strong></td>
+            <td><span class="risk-med">Medium</span></td>
+            <td><span class="risk-med">Medium</span></td>
+            <td>Residents may have concerns about displacement, construction disruption, affordability of new housing, or loss of familiar landmarks.</td>
+            <td>Early and transparent public consultation. Commit to affordable housing component (minimum 30% of residential units at below-market rates). Deliver public park and community facilities first. Establish community liaison office. Provide employment priority to local residents.</td>
+          </tr>
+          <tr>
+            <td><strong>Traffic &amp; Infrastructure Strain</strong></td>
+            <td><span class="risk-med">Medium</span></td>
+            <td><span class="risk-med">Medium</span></td>
+            <td>Adding 30,000&ndash;45,000 residents and 15,000&ndash;20,000 workers will significantly increase traffic on surrounding roads and demand on utilities.</td>
+            <td>Commission traffic impact study early. Design internal road network to distribute traffic to multiple access points. Invest in road upgrades as part of Phase 1 infrastructure. Design for future public transport integration (BRT or light rail). Mandate below-grade parking to keep streets pedestrian-friendly.</td>
+          </tr>
+          <tr>
+            <td><strong>Political &amp; Regulatory Coordination</strong></td>
+            <td><span class="risk-med">Medium</span></td>
+            <td><span class="risk-low">Low</span></td>
+            <td>The project spans multiple government jurisdictions and requires sustained political commitment across electoral cycles.</td>
+            <td>Establish project at the highest level of government authority. Create dedicated project delivery authority with clear mandate. Develop cross-party support by emphasizing public benefits. Embed the project in the city's 2040 master plan. Secure early, formal approvals that create institutional momentum.</td>
+          </tr>
+          <tr>
+            <td><strong>Construction Capacity</strong></td>
+            <td><span class="risk-med">Medium</span></td>
+            <td><span class="risk-med">Medium</span></td>
+            <td>Tajikistan's construction industry may lack the capacity and technical skills for a project of this scale and quality.</td>
+            <td>Engage international contractors for key buildings (tower, hotel, cultural center). Invest in workforce training programs. Phase construction to allow capacity building. Partner with Turkish, Chinese, or Gulf construction firms with Central Asian experience.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 14. CLOSING ════════════════════ -->
+<section id="closing" class="deep-section" style="padding: 8rem 2rem;">
+  <div class="section-inner" style="max-width: 900px; text-align: center;">
+    <span class="section-label">13 &mdash; Closing Argument</span>
+    <h2 style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.3;">Cities Are Built by Those Who Dare to Imagine Them</h2>
+    <div class="section-divider" style="margin: 2rem auto;"></div>
+
+    <p style="font-size: 1.1rem; color: var(--stone-light); line-height: 1.9; margin-bottom: 1.5rem;">
+      Every great city has a moment when it decides to become something more. For Paris, it was Haussmann's boulevards. For Singapore, it was the transformation of a swamp into Marina Bay. For Astana, it was the audacious decision to build a new capital on the steppe. These were not inevitable outcomes &mdash; they were acts of vision, courage, and sustained commitment.
+    </p>
+
+    <p style="font-size: 1.1rem; color: var(--stone-light); line-height: 1.9; margin-bottom: 1.5rem;">
+      Dushanbe stands at such a moment. The 30 hectares at the heart of this proposal are not merely land &mdash; they are a canvas for national ambition. The industrial infrastructure that occupies the site served Tajikistan in an earlier era. What replaces it can serve Tajikistan for the next century: homes for families, schools for children, parks for communities, workplaces for a new generation, and landmarks that tell the world Tajikistan is building a future worthy of its extraordinary people and landscape.
+    </p>
+
+    <p style="font-size: 1.1rem; color: var(--stone-light); line-height: 1.9; margin-bottom: 1.5rem;">
+      Boghi Dushanbe is not a fantasy. It is a disciplined, phased, financially structured proposal that learns from international best practice while remaining rooted in Tajik culture, climate, and values. It addresses the housing crisis. It creates tens of thousands of jobs. It attracts international investment. It transforms the city's skyline and its citizens' quality of life.
+    </p>
+
+    <p style="font-size: 1.1rem; color: var(--stone-light); line-height: 1.9; margin-bottom: 2.5rem;">
+      But it begins with a decision. A decision to commission the feasibility studies that turn vision into evidence. A decision to engage the international expertise that turns ambition into architecture. A decision to trust that Tajikistan deserves world-class urbanism &mdash; and can deliver it.
+    </p>
+
+    <div style="border: 1px solid rgba(197,165,90,0.3); border-radius: 10px; padding: 2.5rem; background: rgba(197,165,90,0.04);">
+      <h3 style="color: var(--gold); font-size: 1.3rem; margin-bottom: 1rem;">Recommended Next Step</h3>
+      <p style="font-size: 1.05rem; color: var(--text-light); line-height: 1.8;">
+        We respectfully recommend that the Government of the Republic of Tajikistan and the Mayor of Dushanbe authorize a <strong>comprehensive feasibility study</strong> for the Boghi Dushanbe project, encompassing market analysis, environmental assessment, infrastructure evaluation, financial structuring, and preliminary master planning. This study, estimated at 6&ndash;9 months duration, will provide the evidence base for an informed investment decision.
+      </p>
+      <p style="font-size: 1.05rem; color: var(--text-light); line-height: 1.8; margin-bottom: 0;">
+        The garden is ready to be planted. The question is not whether Dushanbe deserves this &mdash; it is whether this generation will have the vision to build it.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ 15. PPTX GUIDANCE ════════════════════ -->
+<section id="pptx" class="dark-section">
+  <div class="section-inner">
+    <span class="section-label">14 &mdash; PowerPoint Guidance</span>
+    <h2>Presentation Design System</h2>
+    <div class="section-divider"></div>
+    <p class="subtitle mb-2">Guidelines for translating this proposal into a formal PowerPoint presentation for government and investor audiences.</p>
+
+    <div class="two-col">
+      <div>
+        <h3>Typography</h3>
+        <ul class="styled-list">
+          <li><strong>Title slides:</strong> 36pt bold, system sans-serif (Segoe UI, Helvetica Neue, or Arial). Color: white on dark backgrounds, navy on light.</li>
+          <li><strong>Section headers:</strong> 28pt light/regular weight. Color: gold (#c5a55a) on dark, navy (#1a1f3a) on light.</li>
+          <li><strong>Body text:</strong> 14pt regular. Color: light grey (#b0b3b8) on dark, dark grey (#3a3d42) on light.</li>
+          <li><strong>Captions &amp; labels:</strong> 10pt, uppercase, letter-spacing 0.1em. Color: muted grey.</li>
+          <li><strong>Data callouts:</strong> 48pt bold for key numbers. Color: gold.</li>
+        </ul>
+
+        <h3 class="mt-2">Color System</h3>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 1rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #1a1f3a;"></div><span class="text-small">Navy #1a1f3a</span></div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #c5a55a;"></div><span class="text-small">Gold #c5a55a</span></div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #f5f7fa;"></div><span class="text-small">Glacier #f5f7fa</span></div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #2d6a4f;"></div><span class="text-small">Emerald #2d6a4f</span></div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #5b9bd5;"></div><span class="text-small">Sky #5b9bd5</span></div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #c4784a;"></div><span class="text-small">Terracotta #c4784a</span></div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #8a8d93;"></div><span class="text-small">Stone #8a8d93</span></div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #111428;"></div><span class="text-small">Deep Navy #111428</span></div>
+        </div>
+      </div>
+      <div>
+        <h3>Slide Composition Principles</h3>
+        <ul class="styled-list">
+          <li><strong>One idea per slide.</strong> Do not crowd. If a topic needs more space, add a slide.</li>
+          <li><strong>60/40 rule:</strong> 60% visual (renders, charts, maps, diagrams), 40% text maximum.</li>
+          <li><strong>Consistent margins:</strong> 1.5cm on all sides. Align all elements to a 12-column grid.</li>
+          <li><strong>Dark backgrounds</strong> for hero slides, data callouts, and section dividers. <strong>Light backgrounds</strong> for tables, detailed text, and technical content.</li>
+          <li><strong>Full-bleed images</strong> for render slides with a semi-transparent gradient overlay and white text.</li>
+          <li><strong>Minimal animation:</strong> Fade-in only. No wipes, spins, or bounces. Builds allowed for sequential data reveals.</li>
+          <li><strong>Page numbers:</strong> Bottom-right, 8pt, grey. Slide count format: "07 / 25".</li>
+          <li><strong>Branding strip:</strong> Thin gold line (2px) at the bottom of every slide. "BOGHI DUSHANBE" in 8pt gold text, bottom-left.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="mt-3">25-Slide Outline</h3>
+    <ol class="slide-list">
+      <li><strong>Title Slide</strong><br><span>"BOGHI DUSHANBE &mdash; A Vision for Dushanbe's New Urban Heart." Project name, date, classification, prepared-for line. Dark navy background with subtle geometric pattern. Gold typography.</span></li>
+      <li><strong>The Opportunity</strong><br><span>Full-bleed aerial/satellite image of the site. Key metrics overlay: 30ha, central location, industrial legacy. One-sentence thesis.</span></li>
+      <li><strong>Executive Summary</strong><br><span>Six key numbers in large format (30ha, 2.5M sqm, 15K residents, 20K jobs, $3&ndash;5B value, 10&ndash;15 year delivery). Three-sentence narrative.</span></li>
+      <li><strong>Why Now</strong><br><span>Four pillars: population growth (2.73%/yr), housing crisis, modernization wave (RMJM Tower, World Bank project), EBRD green city strategy. Icons and brief text.</span></li>
+      <li><strong>Project Name &amp; Identity</strong><br><span>"Boghi Dushanbe" &mdash; meaning, rationale, alternatives considered. Gold calligraphic rendering of the name.</span></li>
+      <li><strong>Site Location</strong><br><span>City map of Dushanbe with the site highlighted. Key adjacencies labeled: botanical gardens, city center, river corridor, mountains.</span></li>
+      <li><strong>Site Analysis</strong><br><span>Site plan with dimensions, perimeter, access points, edges. Annotated satellite image.</span></li>
+      <li><strong>SWOT Analysis</strong><br><span>Four-quadrant SWOT in color-coded cards. Clean, visual, one page.</span></li>
+      <li><strong>Vision Statement</strong><br><span>Full-bleed conceptual render (aerial). Vision text overlay: "From industrial legacy to urban heart." Emotional, aspirational.</span></li>
+      <li><strong>Master Plan &mdash; Scheme A: The Balanced City</strong><br><span>Annotated master plan diagram. Land use percentages as progress bars. Key zone descriptions.</span></li>
+      <li><strong>Master Plan &mdash; Scheme B: The Landmark District</strong><br><span>Same format as Slide 10. Emphasis on landmark tower, cultural center, destination retail.</span></li>
+      <li><strong>Design Language</strong><br><span>Materials palette (travertine, granite, aluminum, glass). Facade mashrabiya concept. Heritage integration (suzani, Islamic geometry). Reference images.</span></li>
+      <li><strong>Architectural Renders: Aerial View</strong><br><span>Full-bleed hero render. No text except small caption.</span></li>
+      <li><strong>Architectural Renders: Street Level</strong><br><span>Retail promenade render. Human-scale, warm, inviting.</span></li>
+      <li><strong>Architectural Renders: Landmark Tower</strong><br><span>Dramatic tower render at sunset. National prestige image.</span></li>
+      <li><strong>Architectural Renders: Public Life</strong><br><span>Grid of 4 renders: plaza, park, mosque, school. Community and quality of life.</span></li>
+      <li><strong>Development Program</strong><br><span>Land use allocation table. GFA ranges. Key quantities. "Conceptual" disclaimer.</span></li>
+      <li><strong>Economic Impact</strong><br><span>Jobs (20K construction, 15K permanent), tax revenue, real estate value ($3&ndash;5B). Bar charts or icon arrays.</span></li>
+      <li><strong>Investment Structure</strong><br><span>PPP model diagram. Government role, private sector role, DFI role. Revenue sharing logic.</span></li>
+      <li><strong>Phasing Strategy</strong><br><span>Timeline graphic: Phase 0&ndash;4 with key milestones. Quick wins highlighted.</span></li>
+      <li><strong>Phase 1 Quick Wins</strong><br><span>Renders of: public park, first residential towers, retail street opening. "Visible transformation within 3 years."</span></li>
+      <li><strong>Government Benefits</strong><br><span>Four-card layout: modernization, livability, jobs, environmental upgrade. Public interest framing.</span></li>
+      <li><strong>Risk Assessment</strong><br><span>Risk matrix (impact vs. likelihood). Top 5 risks with one-line mitigations. Color-coded.</span></li>
+      <li><strong>Next Steps</strong><br><span>Recommended actions: feasibility study, environmental assessment, master plan competition, stakeholder consultation. Timeline: 6&ndash;9 months. Call to action.</span></li>
+      <li><strong>Closing Slide</strong><br><span>"The garden is ready to be planted." Full-bleed sunset render. Contact information. Gold border. Tajik flag colors subtly integrated.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ════════════════════ 16. SOURCES ════════════════════ -->
+<section id="sources" class="light-section">
+  <div class="section-inner">
+    <span class="section-label">15 &mdash; Sources &amp; References</span>
+    <h2>Supporting Documentation</h2>
+    <div class="section-divider" style="background: var(--navy);"></div>
+    <p class="subtitle" style="color: var(--stone);">The following publicly available sources informed the analysis, data, and assumptions in this proposal. All sources should be verified during the formal feasibility study phase.</p>
+
+    <div class="table-wrapper mt-2">
+      <table>
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>Reference</th>
+            <th>Data Used</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>World Bank</strong></td>
+            <td>Dushanbe Sustainable Urban Development Project (P178187). Project documents available at worldbank.org/projects.</td>
+            <td>Urban development strategy for Dushanbe; institutional framework for city modernization; infrastructure investment priorities.</td>
+          </tr>
+          <tr>
+            <td><strong>EBRD</strong></td>
+            <td>Tajikistan Country Strategy 2025&ndash;2030. Published at ebrd.com/tajikistan.</td>
+            <td>Green cities initiative; private sector development priorities; PPP framework guidance; Tajikistan economic outlook.</td>
+          </tr>
+          <tr>
+            <td><strong>Asian Development Bank (ADB)</strong></td>
+            <td>Tajikistan Country Operations, Dushanbe-related projects. Available at adb.org/countries/tajikistan.</td>
+            <td>Infrastructure capacity data; urban transport assessments; housing sector analysis.</td>
+          </tr>
+          <tr>
+            <td><strong>Global Economy &amp; Markets (GEM)</strong></td>
+            <td>Tajikistan Real Estate Market Report and Economic Indicators.</td>
+            <td>Real estate growth rate (4.69% annual); rental yield data (~10%); macroeconomic indicators.</td>
+          </tr>
+          <tr>
+            <td><strong>Asia-Plus Media Group</strong></td>
+            <td>Reporting on Dushanbe urban development, RMJM Tower, housing market. asiaplustj.info.</td>
+            <td>RMJM Dushanbe Tower announcement; housing demand and supply data; city expansion plans to 25,000 hectares by 2040.</td>
+          </tr>
+          <tr>
+            <td><strong>Statistical Agency of Tajikistan</strong></td>
+            <td>Population and demographic data. stat.tj.</td>
+            <td>Dushanbe population (~1.07M); population growth rate (2.73%/yr); urbanization trends.</td>
+          </tr>
+          <tr>
+            <td><strong>RMJM Architects</strong></td>
+            <td>Dushanbe Tower project announcement. rmjm.com.</td>
+            <td>Supertall tower planned for Dushanbe; city's openness to landmark architecture; modernization ambitions.</td>
+          </tr>
+          <tr>
+            <td><strong>Aga Khan Development Network</strong></td>
+            <td>Architecture and urban development programs in Tajikistan. akdn.org.</td>
+            <td>Central Asian architectural heritage; Ismaili geometric traditions; sustainable development in Tajikistan.</td>
+          </tr>
+          <tr>
+            <td><strong>OpenStreetMap / Satellite Imagery</strong></td>
+            <td>Site identification and measurement at coordinates 38.6088, 68.7732.</td>
+            <td>Site area estimation (~295,000 sqm); perimeter measurement (~2,792m); adjacency analysis; current land use identification.</td>
+          </tr>
+          <tr>
+            <td><strong>International Precedents</strong></td>
+            <td>King's Cross (London), 22@ (Barcelona), Marina Bay (Singapore), Astana New City (Kazakhstan), Songdo IBD (South Korea).</td>
+            <td>Comparable project benchmarks; phasing strategies; PPP structures; catalytic economic effects.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-note mt-2">
+      <strong>Disclaimer:</strong> This proposal is a conceptual document prepared for discussion purposes. All data, projections, and design concepts are indicative and must be validated through formal feasibility studies, market research, environmental assessments, and legal review before any commitments are made. The authors do not guarantee the accuracy of third-party data sources referenced above.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer>
+  <div class="footer-brand">BOGHI DUSHANBE</div>
+  <p>Concept Proposal &mdash; March 2026</p>
+  <p>Prepared for the Government of the Republic of Tajikistan</p>
+  <p style="margin-top: 1rem; color: rgba(255,255,255,0.2); font-size: 0.7rem;">Confidential &mdash; For Government Review Only</p>
+</footer>
+
+<!-- ════════════════════ JAVASCRIPT ════════════════════ -->
+<script>
+// Intersection Observer for fade-in animations
+document.addEventListener('DOMContentLoaded', function() {
+  const sections = document.querySelectorAll('section:not(#cover)');
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -80px 0px',
+    threshold: 0.05
+  };
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(function(section) {
+    observer.observe(section);
+  });
+
+  // Nav scroll effect
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 100) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+
+  // Active nav link highlighting
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sectionElements = document.querySelectorAll('section[id]');
+
+  window.addEventListener('scroll', function() {
+    let current = '';
+    sectionElements.forEach(function(section) {
+      const sectionTop = section.offsetTop - 120;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(function(link) {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>
