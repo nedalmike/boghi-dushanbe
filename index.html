@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BOGHI DUSHANBE — A Vision for Dushanbe's New Urban Heart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
   --navy: #1a1f3a;
@@ -36,11 +39,15 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   color: var(--text-dark);
   background: var(--navy-deep);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
 }
 
 /* ── NAVIGATION ── */
@@ -73,11 +80,16 @@ nav.scrolled {
 }
 
 .nav-brand {
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  color: var(--gold);
-  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav-brand svg {
+  height: 20px;
+  width: auto;
 }
 
 .nav-links {
@@ -107,6 +119,47 @@ nav.scrolled {
 .nav-links a.active {
   color: var(--gold);
   background: rgba(197, 165, 90, 0.1);
+}
+
+.nav-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--gold);
+  color: var(--navy-deep);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.45rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-download:hover {
+  background: var(--gold-light);
+}
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px;
+  z-index: 1001;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  transition: all 0.3s;
 }
 
 /* ── SECTIONS ── */
@@ -180,6 +233,7 @@ h2 {
 }
 
 h3 {
+  font-family: 'Inter', sans-serif;
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
@@ -187,12 +241,14 @@ h3 {
 }
 
 h4 {
+  font-family: 'Inter', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .section-label {
+  font-family: 'Inter', sans-serif;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -235,34 +291,31 @@ strong {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 40%, #1e2848 70%, var(--navy-deep) 100%);
   position: relative;
   overflow: hidden;
   padding: 4rem 2rem;
+  background: var(--navy-deep);
 }
 
-#cover::before {
-  content: '';
+#cover .hero-bg {
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(ellipse at 30% 20%, rgba(197,165,90,0.06) 0%, transparent 50%),
-              radial-gradient(ellipse at 70% 80%, rgba(45,106,79,0.05) 0%, transparent 50%),
-              radial-gradient(ellipse at 50% 50%, rgba(91,155,213,0.03) 0%, transparent 40%);
-  animation: heroGlow 15s ease-in-out infinite alternate;
+  inset: 0;
+  background: url('images/hero-aerial.png') center center / cover no-repeat;
+  z-index: 0;
 }
 
-@keyframes heroGlow {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(-2%, -1%) rotate(1deg); }
+#cover .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(17,20,40,0.88) 0%, rgba(26,31,58,0.82) 40%, rgba(30,40,72,0.78) 70%, rgba(17,20,40,0.90) 100%);
+  z-index: 1;
 }
 
 #cover .pattern-overlay {
   position: absolute;
   inset: 0;
   opacity: 0.03;
+  z-index: 2;
   background-image: repeating-linear-gradient(
     60deg,
     transparent,
@@ -281,7 +334,7 @@ strong {
 
 .cover-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .cover-content .pre-title {
@@ -370,6 +423,7 @@ strong {
 }
 
 .metric-card .metric-value {
+  font-family: 'Playfair Display', serif;
   font-size: 2rem;
   font-weight: 700;
   color: var(--gold);
@@ -573,59 +627,6 @@ tbody tr:hover td {
   background: linear-gradient(90deg, var(--sky), var(--sky-light));
 }
 
-/* ── TIMELINE ── */
-.timeline {
-  position: relative;
-  padding-left: 3rem;
-  margin: 2rem 0;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 0.5rem;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--gold), var(--emerald), var(--sky));
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 2.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -2.6rem;
-  top: 0.35rem;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--gold);
-  border: 3px solid var(--navy);
-}
-
-.timeline-item .timeline-phase {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.3rem;
-}
-
-.timeline-item h4 {
-  margin-bottom: 0.5rem;
-}
-
-.timeline-item p {
-  font-size: 0.9rem;
-  line-height: 1.7;
-}
-
 /* ── TWO COLUMN ── */
 .two-col {
   display: grid;
@@ -649,7 +650,8 @@ tbody tr:hover td {
   overflow: hidden;
 }
 
-.dark-section .scheme-card {
+.dark-section .scheme-card,
+.deep-section .scheme-card {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
 }
@@ -745,6 +747,20 @@ tbody tr:hover td {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.swot-cell h4 .swot-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  flex-shrink: 0;
 }
 
 .swot-cell ul {
@@ -769,20 +785,24 @@ tbody tr:hover td {
   border-radius: 50%;
 }
 
-.swot-s { background: rgba(45,106,79,0.08); border: 1px solid rgba(45,106,79,0.2); }
+.swot-s { background: rgba(45,106,79,0.1); border: 1px solid rgba(45,106,79,0.25); }
 .swot-s h4 { color: var(--emerald-light); }
+.swot-s h4 .swot-icon { background: rgba(45,106,79,0.2); color: var(--emerald-light); }
 .swot-s li::before { background: var(--emerald-light); }
 
-.swot-w { background: rgba(196,120,74,0.08); border: 1px solid rgba(196,120,74,0.2); }
+.swot-w { background: rgba(196,120,74,0.1); border: 1px solid rgba(196,120,74,0.25); }
 .swot-w h4 { color: var(--terracotta); }
+.swot-w h4 .swot-icon { background: rgba(196,120,74,0.2); color: var(--terracotta); }
 .swot-w li::before { background: var(--terracotta); }
 
-.swot-o { background: rgba(91,155,213,0.08); border: 1px solid rgba(91,155,213,0.2); }
+.swot-o { background: rgba(91,155,213,0.1); border: 1px solid rgba(91,155,213,0.25); }
 .swot-o h4 { color: var(--sky); }
+.swot-o h4 .swot-icon { background: rgba(91,155,213,0.2); color: var(--sky); }
 .swot-o li::before { background: var(--sky); }
 
-.swot-t { background: rgba(197,165,90,0.08); border: 1px solid rgba(197,165,90,0.2); }
+.swot-t { background: rgba(197,165,90,0.1); border: 1px solid rgba(197,165,90,0.25); }
 .swot-t h4 { color: var(--gold); }
+.swot-t h4 .swot-icon { background: rgba(197,165,90,0.2); color: var(--gold); }
 .swot-t li::before { background: var(--gold); }
 
 /* ── RISK TABLE ── */
@@ -822,54 +842,372 @@ tbody tr:hover td {
   margin: 2rem 0;
 }
 
+/* ── IMAGES ── */
+.showcase-img {
+  width: 100%;
+  border-radius: 12px;
+  margin: 2rem 0;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+}
+
+.showcase-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.showcase-img:hover img {
+  transform: scale(1.03);
+}
+
+.img-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.img-grid-item {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.img-grid-item img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.img-grid-item:hover img {
+  transform: scale(1.05);
+}
+
+.img-grid-item .img-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1rem 0.8rem;
+  background: linear-gradient(to top, rgba(17,20,40,0.85), transparent);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.img-grid-item:hover .img-caption {
+  opacity: 1;
+}
+
+.materials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.materials-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.4s ease;
+}
+
+.materials-grid img:hover {
+  transform: scale(1.03);
+}
+
+/* ── LIGHTBOX ── */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 2rem;
+}
+
+.lightbox-overlay.active {
+  display: flex;
+}
+
+.lightbox-overlay img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 60px rgba(0,0,0,0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.lightbox-close:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* ── HORIZONTAL TIMELINE ── */
+.h-timeline {
+  margin: 3rem 0 2rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.h-timeline-track {
+  display: flex;
+  position: relative;
+  min-width: max-content;
+  padding-top: 2rem;
+}
+
+.h-timeline-line {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  right: 2rem;
+  height: 4px;
+  background: linear-gradient(90deg, #8a8d93, var(--emerald), var(--sky), var(--gold), var(--terracotta));
+  border-radius: 2px;
+  transform: translateY(14px);
+}
+
+.h-timeline-node {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.h-timeline-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--white);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+}
+
+.h-timeline-node.phase-0 .h-timeline-dot { background: var(--stone); }
+.h-timeline-node.phase-1 .h-timeline-dot { background: var(--emerald); }
+.h-timeline-node.phase-2 .h-timeline-dot { background: var(--sky); }
+.h-timeline-node.phase-3 .h-timeline-dot { background: var(--gold); }
+.h-timeline-node.phase-4 .h-timeline-dot { background: var(--terracotta); }
+
+.h-timeline-year {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.h-timeline-node.phase-0 .h-timeline-year { color: var(--stone-light); }
+.h-timeline-node.phase-1 .h-timeline-year { color: var(--emerald-light); }
+.h-timeline-node.phase-2 .h-timeline-year { color: var(--sky-light); }
+.h-timeline-node.phase-3 .h-timeline-year { color: var(--gold-light); }
+.h-timeline-node.phase-4 .h-timeline-year { color: var(--terracotta-light); }
+
+.h-timeline-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--navy);
+}
+
+.h-timeline-detail {
+  text-align: left;
+  background: var(--white);
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+  margin-top: 0.5rem;
+  border-top: 3px solid transparent;
+}
+
+.h-timeline-node.phase-0 .h-timeline-detail { border-top-color: var(--stone); }
+.h-timeline-node.phase-1 .h-timeline-detail { border-top-color: var(--emerald); }
+.h-timeline-node.phase-2 .h-timeline-detail { border-top-color: var(--sky); }
+.h-timeline-node.phase-3 .h-timeline-detail { border-top-color: var(--gold); }
+.h-timeline-node.phase-4 .h-timeline-detail { border-top-color: var(--terracotta); }
+
+/* ── DONUT CHART ── */
+.donut-chart-container {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.donut-legend {
+  list-style: none;
+  padding: 0;
+}
+
+.donut-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0;
+  font-size: 0.9rem;
+}
+
+.donut-legend-color {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* ── MAP ── */
+.map-container {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 400px;
+  border: 0;
+}
+
 /* ── FOOTER ── */
 footer {
   background: var(--navy-deep);
   color: var(--text-muted);
-  padding: 3rem 2rem;
-  text-align: center;
-  font-size: 0.8rem;
-  border-top: 1px solid rgba(197,165,90,0.1);
+  padding: 0;
+  border-top: 3px solid var(--gold);
 }
 
-footer .footer-brand {
-  color: var(--gold);
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand-section svg {
+  height: 22px;
+  width: auto;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.footer-tagline {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--stone-light);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.footer-heading {
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.footer-contact p {
   font-size: 0.85rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
+  color: var(--stone-light);
 }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  .two-col, .swot-grid { grid-template-columns: 1fr; }
-  .three-col { grid-template-columns: 1fr; }
-  section { padding: 4rem 1.25rem; }
-  .nav-links { display: none; }
-  .metrics-bar { grid-template-columns: repeat(2, 1fr); }
-  .card-grid { grid-template-columns: 1fr; }
+.footer-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--gold);
+  color: var(--navy-deep);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s;
+  margin-top: 0.5rem;
 }
 
-@media (max-width: 600px) {
-  .metrics-bar { grid-template-columns: 1fr; }
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
+.footer-download-btn:hover {
+  background: var(--gold-light);
 }
 
-/* ── PRINT ── */
-@media print {
-  nav { display: none; }
-  section { opacity: 1 !important; transform: none !important; padding: 2rem 1rem; }
-  .dark-section, .deep-section { background: #fff !important; color: #000 !important; }
-  .dark-section h2, .dark-section h3, .deep-section h2 { color: #1a1f3a !important; }
-  .dark-section .section-label, .deep-section .section-label { color: #333 !important; }
-  .dark-section .card, .deep-section .card { border-color: #ddd !important; }
-  .metric-card .metric-value { color: #1a1f3a !important; }
-  body { background: #fff; }
-  #cover { min-height: auto; background: #fff !important; }
-  #cover h1, #cover .cover-subtitle { color: #1a1f3a !important; }
-  #cover .pre-title, .cover-content h1 em { color: #666 !important; }
-  .callout-gold { border-color: #ccc; color: #333; }
+.footer-bottom {
+  border-top: 1px solid rgba(197,165,90,0.1);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.75rem;
+}
+
+.footer-credits {
+  color: var(--text-muted);
+}
+
+.footer-confidential {
+  color: rgba(255,255,255,0.2);
+  font-size: 0.7rem;
 }
 
 /* ── SLIDE OUTLINE ── */
@@ -945,37 +1283,130 @@ ul.styled-list li::before {
 .mb-1 { margin-bottom: 1rem; }
 .mb-2 { margin-bottom: 2rem; }
 .fw-300 { font-weight: 300; }
+
+/* ── NAMES COLLAPSIBLE ── */
+.collapsible-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  background: none;
+  border: 1px solid rgba(197,165,90,0.2);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-top: 2rem;
+  transition: all 0.2s;
+  width: 100%;
+  text-align: left;
+}
+
+.collapsible-toggle:hover {
+  background: rgba(197,165,90,0.06);
+}
+
+.collapsible-toggle .arrow {
+  transition: transform 0.3s;
+  font-size: 0.7rem;
+}
+
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.collapsible-content.open {
+  max-height: 3000px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .two-col, .swot-grid { grid-template-columns: 1fr; }
+  .three-col { grid-template-columns: 1fr; }
+  section { padding: 4rem 1.25rem; }
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: rgba(17,20,40,0.98); padding: 1rem; gap: 0.2rem; border-bottom: 1px solid rgba(197,165,90,0.15); }
+  .nav-download { display: none; }
+  .hamburger { display: flex; }
+  .metrics-bar { grid-template-columns: repeat(2, 1fr); }
+  .card-grid { grid-template-columns: 1fr; }
+  .materials-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .h-timeline-track { flex-direction: column; align-items: stretch; }
+  .h-timeline-line { display: none; }
+  .h-timeline-node { min-width: unset; padding: 0; margin-bottom: 1.5rem; }
+  .donut-chart-container { flex-direction: column; }
+}
+
+@media (max-width: 600px) {
+  .metrics-bar { grid-template-columns: 1fr; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  .img-grid { grid-template-columns: 1fr; }
+}
+
+/* ── PRINT ── */
+@media print {
+  nav { display: none; }
+  section { opacity: 1 !important; transform: none !important; padding: 2rem 1rem; }
+  .dark-section, .deep-section { background: #fff !important; color: #000 !important; }
+  .dark-section h2, .dark-section h3, .deep-section h2 { color: #1a1f3a !important; }
+  .dark-section .section-label, .deep-section .section-label { color: #333 !important; }
+  .dark-section .card, .deep-section .card { border-color: #ddd !important; }
+  .metric-card .metric-value { color: #1a1f3a !important; }
+  body { background: #fff; }
+  #cover { min-height: auto; background: #fff !important; }
+  #cover h1, #cover .cover-subtitle { color: #1a1f3a !important; }
+  #cover .pre-title, .cover-content h1 em { color: #666 !important; }
+  .callout-gold { border-color: #ccc; color: #333; }
+  .lightbox-overlay { display: none !important; }
+}
 </style>
 </head>
 <body>
 
+<!-- ════════════════════ LIGHTBOX ════════════════════ -->
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+  <img id="lightbox-img" src="" alt="Enlarged view">
+</div>
+
 <!-- ════════════════════ NAVIGATION ════════════════════ -->
 <nav id="mainNav">
   <div class="nav-inner">
-    <div class="nav-brand">Boghi Dushanbe</div>
-    <ul class="nav-links">
-      <li><a href="#cover">Cover</a></li>
-      <li><a href="#executive">Summary</a></li>
-      <li><a href="#names">Names</a></li>
+    <a href="#cover" class="nav-brand">
+      <svg viewBox="0 0 280 24" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="17" font-family="'Playfair Display', Georgia, serif" font-size="14" font-weight="700" fill="#c5a55a" letter-spacing="4">BOGHI</text>
+        <polygon points="88,12 92,8 96,12 92,16" fill="#c5a55a" opacity="0.7"/>
+        <text x="104" y="17" font-family="'Playfair Display', Georgia, serif" font-size="14" font-weight="700" fill="#c5a55a" letter-spacing="4">DUSHANBE</text>
+      </svg>
+    </a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#cover">Home</a></li>
       <li><a href="#vision">Vision</a></li>
-      <li><a href="#site">Site</a></li>
-      <li><a href="#masterplan">Master Plan</a></li>
+      <li><a href="#site">Site & Plan</a></li>
       <li><a href="#design-language">Design</a></li>
-      <li><a href="#renders">Renders</a></li>
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#program">Program</a></li>
       <li><a href="#economics">Economics</a></li>
-      <li><a href="#phasing">Phasing</a></li>
-      <li><a href="#government">Approval</a></li>
-      <li><a href="#risks">Risks</a></li>
-      <li><a href="#closing">Closing</a></li>
-      <li><a href="#pptx">PPTX Guide</a></li>
-      <li><a href="#sources">Sources</a></li>
+      <li><a href="#phasing">Timeline</a></li>
+      <li><a href="#government">Strategy</a></li>
     </ul>
+    <a href="#" class="nav-download" onclick="window.print(); return false;">Download PDF</a>
   </div>
 </nav>
 
 <!-- ════════════════════ 1. COVER ════════════════════ -->
 <section id="cover" class="visible">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
   <div class="pattern-overlay"></div>
   <div class="cover-content">
     <div class="pre-title">Concept Proposal &middot; March 2026</div>
@@ -996,36 +1427,36 @@ ul.styled-list li::before {
 </section>
 
 <!-- ════════════════════ 2. EXECUTIVE SUMMARY ════════════════════ -->
-<section id="executive" class="dark-section">
+<section id="executive" class="light-section">
   <div class="section-inner">
     <span class="section-label">01 &mdash; Executive Summary</span>
     <h2>The Opportunity of a Generation</h2>
-    <div class="section-divider"></div>
-    <p class="subtitle">In the heart of Dushanbe, 30 hectares of industrial land present a once-in-a-century opportunity to reshape the capital of Tajikistan. Boghi Dushanbe envisions the transformation of this underutilized site &mdash; currently occupied by aging thermal power and industrial infrastructure &mdash; into a vibrant, mixed-use district that serves as the new center of civic, commercial, and cultural life for a nation on the rise.</p>
+    <div class="section-divider" style="background: var(--navy);"></div>
+    <p class="subtitle" style="color: var(--stone);">In the heart of Dushanbe, 30 hectares of industrial land present a once-in-a-century opportunity to reshape the capital of Tajikistan. Boghi Dushanbe envisions the transformation of this underutilized site &mdash; currently occupied by aging thermal power and industrial infrastructure &mdash; into a vibrant, mixed-use district that serves as the new center of civic, commercial, and cultural life for a nation on the rise.</p>
 
     <div class="metrics-bar">
       <div class="metric-card">
-        <div class="metric-value">30 ha</div>
+        <div class="metric-value" style="color: var(--navy);">30 ha</div>
         <div class="metric-label">Site Area</div>
       </div>
       <div class="metric-card">
-        <div class="metric-value">~2.5M</div>
+        <div class="metric-value" style="color: var(--navy);">~2.5M</div>
         <div class="metric-label">sqm GFA Potential</div>
       </div>
       <div class="metric-card">
-        <div class="metric-value">15,000+</div>
+        <div class="metric-value" style="color: var(--navy);">15,000+</div>
         <div class="metric-label">Residents</div>
       </div>
       <div class="metric-card">
-        <div class="metric-value">20,000+</div>
+        <div class="metric-value" style="color: var(--navy);">20,000+</div>
         <div class="metric-label">Jobs Created</div>
       </div>
       <div class="metric-card">
-        <div class="metric-value">$3&ndash;5B</div>
+        <div class="metric-value" style="color: var(--navy);">$3&ndash;5B</div>
         <div class="metric-label">Projected Value at Maturity</div>
       </div>
       <div class="metric-card">
-        <div class="metric-value">10&ndash;15</div>
+        <div class="metric-value" style="color: var(--navy);">10&ndash;15</div>
         <div class="metric-label">Year Phased Delivery</div>
       </div>
     </div>
@@ -1043,118 +1474,120 @@ ul.styled-list li::before {
       </div>
     </div>
 
-    <div class="callout callout-gold mt-2">
+    <div class="callout callout-note mt-2">
       <strong>Approach:</strong> This document presents a conceptual framework for consideration. All figures, areas, and projections are indicative and subject to detailed feasibility studies, environmental assessments, infrastructure analysis, and legal review. The intent is to demonstrate the potential of the site and provide a foundation for informed government decision-making.
     </div>
-  </div>
-</section>
 
-<!-- ════════════════════ 3. PROJECT NAMES ════════════════════ -->
-<section id="names" class="light-section">
-  <div class="section-inner">
-    <span class="section-label">02 &mdash; Project Identity</span>
-    <h2>Alternative Project Names</h2>
-    <div class="section-divider" style="background: var(--navy);"></div>
-    <p class="subtitle" style="color: var(--stone);">A project of this significance requires a name that resonates with government officials, international investors, and Tajik citizens alike. Below are evaluated alternatives with our recommendation.</p>
+    <!-- Project Names (collapsed) -->
+    <button class="collapsible-toggle" onclick="toggleCollapsible(this)" style="border-color: rgba(26,31,58,0.15); color: var(--navy);">
+      <span class="arrow">&#9654;</span> Project Identity &mdash; Alternative Names Considered
+    </button>
+    <div class="collapsible-content">
+      <p class="mt-2 subtitle" style="color: var(--stone);">A project of this significance requires a name that resonates with government officials, international investors, and Tajik citizens alike. Below are evaluated alternatives with our recommendation.</p>
 
-    <div class="table-wrapper mt-2">
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Meaning</th>
-            <th>Tone</th>
-            <th>Rationale</th>
-            <th>Rating</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="name-highlight" style="background: rgba(197,165,90,0.06);">
-            <td><strong>Boghi Dushanbe</strong></td>
-            <td>Garden of Dushanbe</td>
-            <td><span class="badge badge-emerald">Civic</span> <span class="badge badge-gold">Premium</span> <span class="badge badge-sky">Family</span></td>
-            <td>Culturally profound &mdash; "bogh" (garden/paradise) is central to Persian-Tajik civilization. Evokes green urbanism, renewal, and beauty. Immediately understood by all Tajik speakers. Government-friendly and poetic.</td>
-            <td><span class="badge badge-recommended">Recommended</span></td>
-          </tr>
-          <tr class="name-highlight" style="background: rgba(91,155,213,0.04);">
-            <td><strong>Toji Dushanbe</strong></td>
-            <td>Crown of Dushanbe</td>
-            <td><span class="badge badge-gold">Premium</span> <span class="badge badge-emerald">Civic</span></td>
-            <td>Conveys primacy and prestige. Positions the district as the pinnacle of the city. Strong governmental appeal &mdash; connotes leadership and excellence.</td>
-            <td><span class="badge badge-gold">Top 3</span></td>
-          </tr>
-          <tr class="name-highlight" style="background: rgba(91,155,213,0.04);">
-            <td><strong>Darvoza-i-Nau</strong></td>
-            <td>New Gateway</td>
-            <td><span class="badge badge-emerald">Civic</span> <span class="badge badge-terracotta">International</span></td>
-            <td>Positions the development as an entry point to the new Dushanbe. "Darvoza" (gateway) is historically resonant in Central Asian urbanism &mdash; cities were defined by their gates.</td>
-            <td><span class="badge badge-gold">Top 3</span></td>
-          </tr>
-          <tr>
-            <td><strong>Navoi District</strong></td>
-            <td>New / Innovation</td>
-            <td><span class="badge badge-terracotta">International</span> <span class="badge badge-sky">Modern</span></td>
-            <td>Clean, modern, forward-looking. Also references the great poet Alisher Navoi. However, may feel generic without cultural specificity.</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><strong>Sitora City</strong></td>
-            <td>Star City</td>
-            <td><span class="badge badge-gold">Premium</span> <span class="badge badge-terracotta">International</span></td>
-            <td>Aspirational and memorable. "Sitora" (star) appears in Tajik poetry and place names (Sitora-i-Mokhi Khosa palace in Bukhara). Slightly commercial in tone.</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><strong>Samarkand Quarter</strong></td>
-            <td>Silk Road Heritage</td>
-            <td><span class="badge badge-terracotta">International</span> <span class="badge badge-gold">Premium</span></td>
-            <td>Evokes the grandeur of the Silk Road. Strong international recognition. Risk: Samarkand is in Uzbekistan, which may create political sensitivities despite shared heritage.</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><strong>Ravshan Park</strong></td>
-            <td>Bright / Luminous Park</td>
-            <td><span class="badge badge-emerald">Civic</span> <span class="badge badge-sky">Family</span></td>
-            <td>Warm, optimistic, family-friendly. "Ravshan" is a beloved Tajik word meaning bright or radiant. Park-centric naming aligns with the green urbanism vision.</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><strong>Istiqlol Heights</strong></td>
-            <td>Independence Heights</td>
-            <td><span class="badge badge-emerald">Civic</span> <span class="badge badge-gold">Premium</span></td>
-            <td>Patriotic and governmental. References national independence and elevation (both literal and metaphorical). Strong for official communications.</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><strong>Poytoxt District</strong></td>
-            <td>Capital District</td>
-            <td><span class="badge badge-emerald">Civic</span> <span class="badge badge-terracotta">International</span></td>
-            <td>Direct and authoritative. Positions the development as quintessentially the capital's district. Functional but less poetic.</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><strong>Varzob Terrace</strong></td>
-            <td>Named for Varzob River</td>
-            <td><span class="badge badge-sky">Family</span> <span class="badge badge-emerald">Civic</span></td>
-            <td>Geographic specificity. Connects to the Varzob River and the mountains. Landscape-forward naming. May undersell the ambition of the project.</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+      <div class="table-wrapper mt-2">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Meaning</th>
+              <th>Tone</th>
+              <th>Rationale</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="name-highlight" style="background: rgba(197,165,90,0.06);">
+              <td><strong>Boghi Dushanbe</strong></td>
+              <td>Garden of Dushanbe</td>
+              <td><span class="badge badge-emerald">Civic</span> <span class="badge badge-gold">Premium</span> <span class="badge badge-sky">Family</span></td>
+              <td>Culturally profound &mdash; "bogh" (garden/paradise) is central to Persian-Tajik civilization. Evokes green urbanism, renewal, and beauty. Immediately understood by all Tajik speakers. Government-friendly and poetic.</td>
+              <td><span class="badge badge-recommended">Recommended</span></td>
+            </tr>
+            <tr class="name-highlight" style="background: rgba(91,155,213,0.04);">
+              <td><strong>Toji Dushanbe</strong></td>
+              <td>Crown of Dushanbe</td>
+              <td><span class="badge badge-gold">Premium</span> <span class="badge badge-emerald">Civic</span></td>
+              <td>Conveys primacy and prestige. Positions the district as the pinnacle of the city. Strong governmental appeal &mdash; connotes leadership and excellence.</td>
+              <td><span class="badge badge-gold">Top 3</span></td>
+            </tr>
+            <tr class="name-highlight" style="background: rgba(91,155,213,0.04);">
+              <td><strong>Darvoza-i-Nau</strong></td>
+              <td>New Gateway</td>
+              <td><span class="badge badge-emerald">Civic</span> <span class="badge badge-terracotta">International</span></td>
+              <td>Positions the development as an entry point to the new Dushanbe. "Darvoza" (gateway) is historically resonant in Central Asian urbanism &mdash; cities were defined by their gates.</td>
+              <td><span class="badge badge-gold">Top 3</span></td>
+            </tr>
+            <tr>
+              <td><strong>Navoi District</strong></td>
+              <td>New / Innovation</td>
+              <td><span class="badge badge-terracotta">International</span> <span class="badge badge-sky">Modern</span></td>
+              <td>Clean, modern, forward-looking. Also references the great poet Alisher Navoi. However, may feel generic without cultural specificity.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>Sitora City</strong></td>
+              <td>Star City</td>
+              <td><span class="badge badge-gold">Premium</span> <span class="badge badge-terracotta">International</span></td>
+              <td>Aspirational and memorable. "Sitora" (star) appears in Tajik poetry and place names (Sitora-i-Mokhi Khosa palace in Bukhara). Slightly commercial in tone.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>Samarkand Quarter</strong></td>
+              <td>Silk Road Heritage</td>
+              <td><span class="badge badge-terracotta">International</span> <span class="badge badge-gold">Premium</span></td>
+              <td>Evokes the grandeur of the Silk Road. Strong international recognition. Risk: Samarkand is in Uzbekistan, which may create political sensitivities despite shared heritage.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>Ravshan Park</strong></td>
+              <td>Bright / Luminous Park</td>
+              <td><span class="badge badge-emerald">Civic</span> <span class="badge badge-sky">Family</span></td>
+              <td>Warm, optimistic, family-friendly. "Ravshan" is a beloved Tajik word meaning bright or radiant. Park-centric naming aligns with the green urbanism vision.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>Istiqlol Heights</strong></td>
+              <td>Independence Heights</td>
+              <td><span class="badge badge-emerald">Civic</span> <span class="badge badge-gold">Premium</span></td>
+              <td>Patriotic and governmental. References national independence and elevation (both literal and metaphorical). Strong for official communications.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>Poytoxt District</strong></td>
+              <td>Capital District</td>
+              <td><span class="badge badge-emerald">Civic</span> <span class="badge badge-terracotta">International</span></td>
+              <td>Direct and authoritative. Positions the development as quintessentially the capital's district. Functional but less poetic.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>Varzob Terrace</strong></td>
+              <td>Named for Varzob River</td>
+              <td><span class="badge badge-sky">Family</span> <span class="badge badge-emerald">Civic</span></td>
+              <td>Geographic specificity. Connects to the Varzob River and the mountains. Landscape-forward naming. May undersell the ambition of the project.</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-    <div class="callout callout-note mt-2">
-      <strong>Recommendation:</strong> We strongly recommend <strong>Boghi Dushanbe</strong> as the project name. It carries deep cultural resonance, communicates the green and livable character of the development, is memorable in both Tajik and international contexts, and avoids the risks of overly commercial or politically sensitive alternatives. "Toji Dushanbe" and "Darvoza-i-Nau" are strong secondary options for consideration.
+      <div class="callout callout-note mt-2">
+        <strong>Recommendation:</strong> We strongly recommend <strong>Boghi Dushanbe</strong> as the project name. It carries deep cultural resonance, communicates the green and livable character of the development, is memorable in both Tajik and international contexts, and avoids the risks of overly commercial or politically sensitive alternatives. "Toji Dushanbe" and "Darvoza-i-Nau" are strong secondary options for consideration.
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════ 4. VISION NARRATIVE ════════════════════ -->
+<!-- ════════════════════ 3. VISION NARRATIVE ════════════════════ -->
 <section id="vision" class="dark-section">
   <div class="section-inner">
-    <span class="section-label">03 &mdash; Vision</span>
+    <span class="section-label">02 &mdash; Vision</span>
     <h2>Why This Site. Why Now. Why This Matters.</h2>
     <div class="section-divider"></div>
+
+    <div class="showcase-img">
+      <img src="images/tower-sunset.png" alt="Boghi Dushanbe landmark tower reflected in lake at sunset" loading="lazy">
+    </div>
 
     <div class="two-col mt-2">
       <div>
@@ -1179,10 +1612,10 @@ ul.styled-list li::before {
   </div>
 </section>
 
-<!-- ════════════════════ 5. SITE & CONTEXT ANALYSIS ════════════════════ -->
+<!-- ════════════════════ 4. SITE & CONTEXT ANALYSIS ════════════════════ -->
 <section id="site" class="light-section">
   <div class="section-inner">
-    <span class="section-label">04 &mdash; Site &amp; Context Analysis</span>
+    <span class="section-label">03 &mdash; Site &amp; Context Analysis</span>
     <h2>Understanding the Land</h2>
     <div class="section-divider" style="background: var(--navy);"></div>
 
@@ -1203,6 +1636,12 @@ ul.styled-list li::before {
         <div class="metric-value" style="color: var(--navy);">68.7732</div>
         <div class="metric-label">Longitude</div>
       </div>
+    </div>
+
+    <!-- OpenStreetMap -->
+    <h3 class="mt-2">Site Location</h3>
+    <div class="map-container">
+      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=68.755%2C38.598%2C68.792%2C38.619&layer=mapnik&marker=38.6088%2C68.7732" allowfullscreen loading="lazy"></iframe>
     </div>
 
     <div class="two-col mt-2">
@@ -1231,7 +1670,7 @@ ul.styled-list li::before {
     <h3 class="mt-3">SWOT Analysis</h3>
     <div class="swot-grid">
       <div class="swot-cell swot-s">
-        <h4>Strengths</h4>
+        <h4><span class="swot-icon">&#9650;</span> Strengths</h4>
         <ul>
           <li>Exceptionally large contiguous site in city center</li>
           <li>Proximity to civic, cultural, and institutional uses</li>
@@ -1243,7 +1682,7 @@ ul.styled-list li::before {
         </ul>
       </div>
       <div class="swot-cell swot-w">
-        <h4>Weaknesses</h4>
+        <h4><span class="swot-icon">&#9660;</span> Weaknesses</h4>
         <ul>
           <li>Active industrial operations require relocation</li>
           <li>Potential soil contamination from decades of industrial use</li>
@@ -1254,7 +1693,7 @@ ul.styled-list li::before {
         </ul>
       </div>
       <div class="swot-cell swot-o">
-        <h4>Opportunities</h4>
+        <h4><span class="swot-icon">&#9733;</span> Opportunities</h4>
         <ul>
           <li>Addresses critical housing shortage directly</li>
           <li>Aligns with World Bank and EBRD urban development strategies</li>
@@ -1267,7 +1706,7 @@ ul.styled-list li::before {
         </ul>
       </div>
       <div class="swot-cell swot-t">
-        <h4>Threats</h4>
+        <h4><span class="swot-icon">&#9888;</span> Threats</h4>
         <ul>
           <li>Environmental remediation costs may be significant</li>
           <li>Political and regulatory complexity</li>
@@ -1286,13 +1725,17 @@ ul.styled-list li::before {
   </div>
 </section>
 
-<!-- ════════════════════ 6. MASTER PLAN CONCEPT ════════════════════ -->
+<!-- ════════════════════ 5. MASTER PLAN CONCEPT ════════════════════ -->
 <section id="masterplan" class="deep-section">
   <div class="section-inner">
-    <span class="section-label">05 &mdash; Master Plan Concept</span>
+    <span class="section-label">04 &mdash; Master Plan Concept</span>
     <h2>Two Paths Forward</h2>
     <div class="section-divider"></div>
     <p class="subtitle" style="color: var(--stone-light);">We present two development schemes &mdash; one pragmatic, one aspirational &mdash; to illustrate the range of possibilities. Either can be refined, or elements combined, based on government priorities and market conditions.</p>
+
+    <div class="showcase-img mt-2">
+      <img src="images/hero-aerial.png" alt="Aerial view of the Boghi Dushanbe development" loading="lazy">
+    </div>
 
     <div class="two-col mt-3">
       <!-- SCHEME A -->
@@ -1386,13 +1829,19 @@ ul.styled-list li::before {
   </div>
 </section>
 
-<!-- ════════════════════ 7. VISUAL CONCEPT LANGUAGE ════════════════════ -->
+<!-- ════════════════════ 6. VISUAL CONCEPT LANGUAGE ════════════════════ -->
 <section id="design-language" class="light-section">
   <div class="section-inner">
-    <span class="section-label">06 &mdash; Design Language</span>
+    <span class="section-label">05 &mdash; Design Language</span>
     <h2>Contemporary Central Asian Urbanism</h2>
     <div class="section-divider" style="background: var(--navy);"></div>
     <p class="subtitle" style="color: var(--stone);">The architectural identity of Boghi Dushanbe must honor Tajikistan's extraordinary artistic heritage while asserting a thoroughly contemporary vision. The design language bridges tradition and modernity without pastiche or kitsch.</p>
+
+    <h3 class="mt-3">Material Palette</h3>
+    <div class="materials-grid">
+      <img src="images/materials-1.png" alt="Material palette: travertine, brass, and walnut" loading="lazy">
+      <img src="images/materials-2.png" alt="Material palette: onyx, marble, and velvet" loading="lazy">
+    </div>
 
     <div class="card-grid mt-2">
       <div class="card">
@@ -1430,13 +1879,43 @@ ul.styled-list li::before {
         <p><strong>Islamic geometry:</strong> Girih tiles, muqarnas-inspired canopies, and geometric tessellations as functional architectural elements (shading, ventilation, wayfinding) rather than applied ornament.</p>
       </div>
     </div>
+
+    <!-- Interior Showcase -->
+    <h3 class="mt-3">Interior Design Vision</h3>
+    <p class="subtitle mb-2" style="color: var(--stone);">From luxury lobbies to penthouse living, every interior space reflects the fusion of Central Asian craft and contemporary sophistication.</p>
+    <div class="img-grid">
+      <div class="img-grid-item" onclick="openLightbox('images/interior-lobby.png')">
+        <img src="images/interior-lobby.png" alt="Luxury lobby with golden Islamic panels" loading="lazy">
+        <div class="img-caption">Grand Lobby</div>
+      </div>
+      <div class="img-grid-item" onclick="openLightbox('images/interior-living.png')">
+        <img src="images/interior-living.png" alt="Penthouse living room with mountain views" loading="lazy">
+        <div class="img-caption">Penthouse Living</div>
+      </div>
+      <div class="img-grid-item" onclick="openLightbox('images/interior-bedroom.png')">
+        <img src="images/interior-bedroom.png" alt="Master bedroom with carved walnut headboard" loading="lazy">
+        <div class="img-caption">Master Bedroom</div>
+      </div>
+      <div class="img-grid-item" onclick="openLightbox('images/interior-kitchen.png')">
+        <img src="images/interior-kitchen.png" alt="High-end kitchen with marble island" loading="lazy">
+        <div class="img-caption">Gourmet Kitchen</div>
+      </div>
+      <div class="img-grid-item" onclick="openLightbox('images/interior-bathroom.png')">
+        <img src="images/interior-bathroom.png" alt="Luxury bathroom with freestanding tub" loading="lazy">
+        <div class="img-caption">Spa Bathroom</div>
+      </div>
+      <div class="img-grid-item" onclick="openLightbox('images/interior-office.png')">
+        <img src="images/interior-office.png" alt="Modern co-working space with green wall" loading="lazy">
+        <div class="img-caption">Co-Working Space</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ════════════════════ 8. RENDER PROMPTS ════════════════════ -->
+<!-- ════════════════════ 7. RENDER PROMPTS ════════════════════ -->
 <section id="renders" class="dark-section">
   <div class="section-inner">
-    <span class="section-label">07 &mdash; Visualization Prompts</span>
+    <span class="section-label">06 &mdash; Visualization Prompts</span>
     <h2>Architectural Rendering Prompts</h2>
     <div class="section-divider"></div>
     <p class="subtitle mb-2">The following prompts are designed for use with AI image generation tools (Midjourney, DALL-E 3, Stable Diffusion) or as briefs for traditional architectural visualization studios. Each prompt describes a specific view of Boghi Dushanbe.</p>
@@ -1585,6 +2064,43 @@ ul.styled-list li::before {
   </div>
 </section>
 
+<!-- ════════════════════ 8. GALLERY ════════════════════ -->
+<section id="gallery" class="deep-section">
+  <div class="section-inner">
+    <span class="section-label">07 &mdash; Gallery</span>
+    <h2>Envisioning the District</h2>
+    <div class="section-divider"></div>
+    <p class="subtitle mb-2" style="color: var(--stone-light);">A curated selection of architectural renderings capturing the character, scale, and ambition of Boghi Dushanbe across different settings and times of day.</p>
+
+    <div class="img-grid">
+      <div class="img-grid-item" onclick="openLightbox('images/retail-street.png')">
+        <img src="images/retail-street.png" alt="Luxury retail high-street at golden hour" loading="lazy">
+        <div class="img-caption">Retail High Street</div>
+      </div>
+      <div class="img-grid-item" onclick="openLightbox('images/green-spine.png')">
+        <img src="images/green-spine.png" alt="Central boulevard and linear park with water channel" loading="lazy">
+        <div class="img-caption">Green Spine Boulevard</div>
+      </div>
+      <div class="img-grid-item" onclick="openLightbox('images/courtyard.png')">
+        <img src="images/courtyard.png" alt="Residential courtyard with Islamic fountain" loading="lazy">
+        <div class="img-caption">Residential Courtyard</div>
+      </div>
+      <div class="img-grid-item" onclick="openLightbox('images/cultural-building.png')">
+        <img src="images/cultural-building.png" alt="Grand civic building with arch entrance" loading="lazy">
+        <div class="img-caption">Cultural Center</div>
+      </div>
+      <div class="img-grid-item" onclick="openLightbox('images/tower-day.png')">
+        <img src="images/tower-day.png" alt="Landmark tower from ground level, daytime" loading="lazy">
+        <div class="img-caption">Landmark Tower &mdash; Day</div>
+      </div>
+      <div class="img-grid-item" onclick="openLightbox('images/tower-night.png')">
+        <img src="images/tower-night.png" alt="Landmark tower at night with illuminated fountains" loading="lazy">
+        <div class="img-caption">Landmark Tower &mdash; Night</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ════════════════════ 9. DEVELOPMENT PROGRAM ════════════════════ -->
 <section id="program" class="light-section">
   <div class="section-inner">
@@ -1597,6 +2113,48 @@ ul.styled-list li::before {
     </div>
 
     <h3 class="mt-2">Land Use Allocation</h3>
+
+    <!-- Donut Chart -->
+    <div class="donut-chart-container">
+      <svg viewBox="0 0 200 200" width="220" height="220">
+        <!-- Donut segments. Using stroke-dasharray and stroke-dashoffset to create segments -->
+        <!-- Total circumference = 2 * PI * 70 = 439.82 -->
+        <!-- Residential 37.5% = 164.93 -->
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#2d6a4f" stroke-width="35"
+          stroke-dasharray="164.93 274.89" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+        <!-- Commercial 11% = 48.38 -->
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#5b9bd5" stroke-width="35"
+          stroke-dasharray="48.38 391.44" stroke-dashoffset="-164.93" transform="rotate(-90 100 100)"/>
+        <!-- Retail 9% = 39.58 -->
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#c5a55a" stroke-width="35"
+          stroke-dasharray="39.58 400.24" stroke-dashoffset="-213.31" transform="rotate(-90 100 100)"/>
+        <!-- Hospitality 3.5% = 15.39 -->
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#c4784a" stroke-width="35"
+          stroke-dasharray="15.39 424.43" stroke-dashoffset="-252.89" transform="rotate(-90 100 100)"/>
+        <!-- Community 5.5% = 24.19 -->
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#7db3e0" stroke-width="35"
+          stroke-dasharray="24.19 415.63" stroke-dashoffset="-268.28" transform="rotate(-90 100 100)"/>
+        <!-- Parks 20% = 87.96 -->
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#40916c" stroke-width="35"
+          stroke-dasharray="87.96 351.86" stroke-dashoffset="-292.47" transform="rotate(-90 100 100)"/>
+        <!-- Roads 16.5% = 72.57 -->
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#8a8d93" stroke-width="35"
+          stroke-dasharray="72.57 367.25" stroke-dashoffset="-380.43" transform="rotate(-90 100 100)"/>
+        <!-- Center text -->
+        <text x="100" y="95" text-anchor="middle" font-family="'Playfair Display', serif" font-size="18" font-weight="700" fill="#1a1f3a">30 ha</text>
+        <text x="100" y="115" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" fill="#8a8d93" letter-spacing="0.1em">TOTAL SITE</text>
+      </svg>
+      <ul class="donut-legend">
+        <li><span class="donut-legend-color" style="background: #2d6a4f;"></span> Residential &mdash; 37.5%</li>
+        <li><span class="donut-legend-color" style="background: #5b9bd5;"></span> Commercial &mdash; 11%</li>
+        <li><span class="donut-legend-color" style="background: #c5a55a;"></span> Retail &amp; F&B &mdash; 9%</li>
+        <li><span class="donut-legend-color" style="background: #c4784a;"></span> Hospitality &mdash; 3.5%</li>
+        <li><span class="donut-legend-color" style="background: #7db3e0;"></span> Community &amp; Civic &mdash; 5.5%</li>
+        <li><span class="donut-legend-color" style="background: #40916c;"></span> Parks &amp; Open Space &mdash; 20%</li>
+        <li><span class="donut-legend-color" style="background: #8a8d93;"></span> Roads &amp; Infrastructure &mdash; 16.5%</li>
+      </ul>
+    </div>
+
     <div class="table-wrapper">
       <table>
         <thead>
@@ -1667,6 +2225,11 @@ ul.styled-list li::before {
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <h3 class="mt-3">Penthouse Floor Plan (280 sqm)</h3>
+    <div class="showcase-img">
+      <img src="images/floor-plan.png" alt="280 sqm penthouse floor plan" loading="lazy">
     </div>
 
     <h3 class="mt-3">Key Quantities</h3>
@@ -1821,35 +2384,61 @@ ul.styled-list li::before {
     <div class="section-divider" style="background: var(--navy);"></div>
     <p class="subtitle" style="color: var(--stone);">Boghi Dushanbe is not built in a day. The phasing strategy prioritizes early visible wins, builds market confidence progressively, and reserves the most ambitious elements for when the district's success is proven.</p>
 
-    <div class="timeline mt-3">
-      <div class="timeline-item">
-        <div class="timeline-phase">Phase 0 &mdash; Foundation (Year 0&ndash;1)</div>
-        <h4 style="color: var(--navy);">Studies, Approvals &amp; Stakeholder Alignment</h4>
-        <p>Commission comprehensive feasibility study (market, financial, technical). Conduct environmental site assessment and remediation planning. Complete geotechnical and topographic surveys. Engage international master planning firm (competition or direct appointment). Initiate stakeholder consultation: government agencies, neighboring communities, potential investors. Secure cabinet-level approval and mayoral endorsement. Establish project delivery authority (dedicated SPV or government agency). Begin international marketing to potential investors and development partners.</p>
-      </div>
+    <!-- Horizontal Timeline -->
+    <div class="h-timeline">
+      <div class="h-timeline-track">
+        <div class="h-timeline-line"></div>
 
-      <div class="timeline-item">
-        <div class="timeline-phase">Phase 1 &mdash; Genesis (Year 1&ndash;3)</div>
-        <h4 style="color: var(--navy);">Decommissioning, Infrastructure &amp; First Deliveries</h4>
-        <p>Commence industrial facility decommissioning and environmental remediation. Install primary infrastructure: roads, utilities, drainage, telecommunications. <strong>Quick Win #1:</strong> Open 3-hectare public park and green spine (first visible sign of transformation; generates community goodwill). <strong>Quick Win #2:</strong> Deliver first 2,000 residential units (mid-rise, family-oriented, affordably priced) to demonstrate livability. <strong>Quick Win #3:</strong> Open first 200m of retail high street with ground-floor cafes, bakeries, and convenience retail. Begin construction of primary school and medical clinic.</p>
-      </div>
+        <div class="h-timeline-node phase-0">
+          <div class="h-timeline-dot">0</div>
+          <div class="h-timeline-year">Year 0&ndash;1</div>
+          <div class="h-timeline-title">Foundation</div>
+          <div class="h-timeline-detail">
+            <strong>Studies, Approvals &amp; Stakeholder Alignment</strong><br>
+            Commission comprehensive feasibility study (market, financial, technical). Conduct environmental site assessment and remediation planning. Complete geotechnical and topographic surveys. Engage international master planning firm. Initiate stakeholder consultation. Secure cabinet-level approval and mayoral endorsement. Establish project delivery authority. Begin international marketing to potential investors.
+          </div>
+        </div>
 
-      <div class="timeline-item">
-        <div class="timeline-phase">Phase 2 &mdash; Momentum (Year 3&ndash;6)</div>
-        <h4 style="color: var(--navy);">Office, Hotel, Expanded Residential &amp; Cultural Anchor</h4>
-        <p>Deliver first office cluster (2&ndash;3 buildings, 80,000&ndash;120,000 sqm). Open business hotel (200&ndash;250 keys). Expand residential to 6,000&ndash;8,000 cumulative units, including first premium towers. Complete retail high street (full 600m). Begin construction of cultural center and amphitheater. Open mosque and community facilities. Launch international architectural competition for landmark tower. District population reaches 15,000&ndash;20,000 residents.</p>
-      </div>
+        <div class="h-timeline-node phase-1">
+          <div class="h-timeline-dot">1</div>
+          <div class="h-timeline-year">Year 1&ndash;3</div>
+          <div class="h-timeline-title">Genesis</div>
+          <div class="h-timeline-detail">
+            <strong>Decommissioning, Infrastructure &amp; First Deliveries</strong><br>
+            Commence industrial facility decommissioning and environmental remediation. Install primary infrastructure. <strong>Quick Win #1:</strong> Open 3-hectare public park and green spine. <strong>Quick Win #2:</strong> Deliver first 2,000 residential units. <strong>Quick Win #3:</strong> Open first 200m of retail high street. Begin construction of primary school and medical clinic.
+          </div>
+        </div>
 
-      <div class="timeline-item">
-        <div class="timeline-phase">Phase 3 &mdash; Landmark (Year 6&ndash;10)</div>
-        <h4 style="color: var(--navy);">Landmark Tower, Destination Retail &amp; Full District Identity</h4>
-        <p>Construct landmark tower (200m+) including 5-star hotel and observation deck. Open destination mall and entertainment complex. Complete tech innovation hub. Deliver cumulative 10,000&ndash;12,000 residential units. Open cultural center for full programming. The district achieves critical mass and self-sustaining commercial viability. Dushanbe's skyline is permanently transformed.</p>
-      </div>
+        <div class="h-timeline-node phase-2">
+          <div class="h-timeline-dot">2</div>
+          <div class="h-timeline-year">Year 3&ndash;6</div>
+          <div class="h-timeline-title">Momentum</div>
+          <div class="h-timeline-detail">
+            <strong>Office, Hotel, Expanded Residential &amp; Cultural Anchor</strong><br>
+            Deliver first office cluster (2&ndash;3 buildings, 80,000&ndash;120,000 sqm). Open business hotel (200&ndash;250 keys). Expand residential to 6,000&ndash;8,000 cumulative units. Complete retail high street. Begin cultural center and amphitheater. Open mosque and community facilities. Launch landmark tower competition. Population reaches 15,000&ndash;20,000.
+          </div>
+        </div>
 
-      <div class="timeline-item">
-        <div class="timeline-phase">Phase 4 &mdash; Maturation (Year 10&ndash;15)</div>
-        <h4 style="color: var(--navy);">Remaining Parcels &amp; Long-Term Value Creation</h4>
-        <p>Develop remaining residential and commercial parcels based on demonstrated demand. Fine-tune public realm: additional landscaping, public art program, seasonal programming. Introduce branded residences and luxury segment if market supports. Complete all infrastructure and parking. District reaches full population capacity of 30,000&ndash;45,000. Boghi Dushanbe is established as the premier address in Tajikistan.</p>
+        <div class="h-timeline-node phase-3">
+          <div class="h-timeline-dot">3</div>
+          <div class="h-timeline-year">Year 6&ndash;10</div>
+          <div class="h-timeline-title">Landmark</div>
+          <div class="h-timeline-detail">
+            <strong>Landmark Tower, Destination Retail &amp; Full District Identity</strong><br>
+            Construct landmark tower (200m+) including 5-star hotel and observation deck. Open destination mall and entertainment complex. Complete tech innovation hub. Deliver 10,000&ndash;12,000 cumulative residential units. Open cultural center. District achieves critical mass and self-sustaining viability. Dushanbe's skyline is permanently transformed.
+          </div>
+        </div>
+
+        <div class="h-timeline-node phase-4">
+          <div class="h-timeline-dot">4</div>
+          <div class="h-timeline-year">Year 10&ndash;15</div>
+          <div class="h-timeline-title">Maturation</div>
+          <div class="h-timeline-detail">
+            <strong>Remaining Parcels &amp; Long-Term Value Creation</strong><br>
+            Develop remaining residential and commercial parcels based on demonstrated demand. Fine-tune public realm: additional landscaping, public art program, seasonal programming. Introduce branded residences and luxury segment. Complete all infrastructure and parking. District reaches full population capacity of 30,000&ndash;45,000. Boghi Dushanbe is established as the premier address in Tajikistan.
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -2229,25 +2818,57 @@ ul.styled-list li::before {
 
 <!-- ════════════════════ FOOTER ════════════════════ -->
 <footer>
-  <div class="footer-brand">BOGHI DUSHANBE</div>
-  <p>Concept Proposal &mdash; March 2026</p>
-  <p>Prepared for the Government of the Republic of Tajikistan</p>
-  <p style="margin-top: 1rem; color: rgba(255,255,255,0.2); font-size: 0.7rem;">Confidential &mdash; For Government Review Only</p>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand-section">
+        <svg viewBox="0 0 280 24" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="17" font-family="'Playfair Display', Georgia, serif" font-size="14" font-weight="700" fill="#c5a55a" letter-spacing="4">BOGHI</text>
+          <polygon points="88,12 92,8 96,12 92,16" fill="#c5a55a" opacity="0.7"/>
+          <text x="104" y="17" font-family="'Playfair Display', Georgia, serif" font-size="14" font-weight="700" fill="#c5a55a" letter-spacing="4">DUSHANBE</text>
+        </svg>
+        <p class="footer-tagline">A Vision for Dushanbe's New Urban Heart</p>
+        <a href="#" class="footer-download-btn" onclick="window.print(); return false;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download Full Proposal
+        </a>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <div class="footer-contact">
+          <p>Project Development Office</p>
+          <p>Dushanbe, Republic of Tajikistan</p>
+          <p style="margin-top: 0.5rem; color: var(--text-muted);">info@boghidushanbe.tj</p>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Document</div>
+        <div class="footer-contact">
+          <p>Concept Proposal</p>
+          <p>March 2026</p>
+          <p style="margin-top: 0.5rem; color: var(--text-muted);">Prepared for the Government of the Republic of Tajikistan</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-credits">Concept and Design &mdash; Boghi Dushanbe Development Initiative</span>
+      <span class="footer-confidential">Confidential &mdash; For Government Review Only</span>
+    </div>
+  </div>
 </footer>
 
 <!-- ════════════════════ JAVASCRIPT ════════════════════ -->
 <script>
 // Intersection Observer for fade-in animations
 document.addEventListener('DOMContentLoaded', function() {
-  const sections = document.querySelectorAll('section:not(#cover)');
+  var sections = document.querySelectorAll('section:not(#cover)');
 
-  const observerOptions = {
+  var observerOptions = {
     root: null,
-    rootMargin: '0px 0px -80px 0px',
-    threshold: 0.05
+    rootMargin: '0px 0px -60px 0px',
+    threshold: 0.03
   };
 
-  const observer = new IntersectionObserver(function(entries) {
+  var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
@@ -2260,7 +2881,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Nav scroll effect
-  const nav = document.getElementById('mainNav');
+  var nav = document.getElementById('mainNav');
   window.addEventListener('scroll', function() {
     if (window.scrollY > 100) {
       nav.classList.add('scrolled');
@@ -2270,13 +2891,13 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Active nav link highlighting
-  const navLinks = document.querySelectorAll('.nav-links a');
-  const sectionElements = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.nav-links a');
+  var sectionElements = document.querySelectorAll('section[id]');
 
   window.addEventListener('scroll', function() {
-    let current = '';
+    var current = '';
     sectionElements.forEach(function(section) {
-      const sectionTop = section.offsetTop - 120;
+      var sectionTop = section.offsetTop - 120;
       if (window.scrollY >= sectionTop) {
         current = section.getAttribute('id');
       }
@@ -2288,7 +2909,60 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  // Hamburger menu
+  var hamburgerBtn = document.getElementById('hamburgerBtn');
+  var navLinksEl = document.getElementById('navLinks');
+  hamburgerBtn.addEventListener('click', function() {
+    navLinksEl.classList.toggle('open');
+  });
+
+  // Close mobile menu when clicking a link
+  navLinksEl.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      navLinksEl.classList.remove('open');
+    });
+  });
 });
+
+// Lightbox
+function openLightbox(src) {
+  var overlay = document.getElementById('lightbox');
+  var img = document.getElementById('lightbox-img');
+  img.src = src;
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  var overlay = document.getElementById('lightbox');
+  overlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeLightbox();
+  }
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeLightbox();
+  }
+});
+
+// Collapsible toggle
+function toggleCollapsible(btn) {
+  var content = btn.nextElementSibling;
+  var arrow = btn.querySelector('.arrow');
+  content.classList.toggle('open');
+  if (content.classList.contains('open')) {
+    arrow.style.transform = 'rotate(90deg)';
+  } else {
+    arrow.style.transform = 'rotate(0deg)';
+  }
+}
 </script>
 
 </body>
