@@ -847,29 +847,29 @@ tbody tr:hover td {
   border-radius: 50%;
 }
 
-.swot-s { background: rgba(45,106,79,0.15); border: 1px solid rgba(45,106,79,0.3); }
+.swot-s { background: rgba(45,106,79,0.12); border: 1px solid rgba(45,106,79,0.2); border-left: 3px solid #2d6a4f; }
 .swot-s h4 { color: var(--emerald-light); }
 .swot-s h4 .swot-icon { background: rgba(45,106,79,0.25); color: var(--emerald-light); }
 .swot-s li::before { background: var(--emerald-light); }
 .swot-s li { color: #1a3a2a; }
 
-.swot-w { background: rgba(196,120,74,0.15); border: 1px solid rgba(196,120,74,0.3); }
+.swot-w { background: rgba(196,120,74,0.12); border: 1px solid rgba(196,120,74,0.2); border-left: 3px solid #c4784a; }
 .swot-w h4 { color: var(--terracotta); }
 .swot-w h4 .swot-icon { background: rgba(196,120,74,0.25); color: var(--terracotta); }
 .swot-w li::before { background: var(--terracotta); }
 .swot-w li { color: #3a2a1a; }
 
-.swot-o { background: rgba(91,155,213,0.15); border: 1px solid rgba(91,155,213,0.3); }
+.swot-o { background: rgba(91,155,213,0.12); border: 1px solid rgba(91,155,213,0.2); border-left: 3px solid #5b9bd5; }
 .swot-o h4 { color: var(--sky); }
 .swot-o h4 .swot-icon { background: rgba(91,155,213,0.25); color: var(--sky); }
 .swot-o li::before { background: var(--sky); }
 .swot-o li { color: #1a2a3a; }
 
-.swot-t { background: rgba(197,60,60,0.1); border: 1px solid rgba(197,60,60,0.25); }
-.swot-t h4 { color: #c53c3c; }
-.swot-t h4 .swot-icon { background: rgba(197,60,60,0.2); color: #c53c3c; }
-.swot-t li::before { background: #c53c3c; }
-.swot-t li { color: #3a1a1a; }
+.swot-t { background: rgba(197,165,90,0.12); border: 1px solid rgba(197,165,90,0.2); border-left: 3px solid #c5a55a; }
+.swot-t h4 { color: #c5a55a; }
+.swot-t h4 .swot-icon { background: rgba(197,165,90,0.2); color: #c5a55a; }
+.swot-t li::before { background: #c5a55a; }
+.swot-t li { color: #3a3020; }
 
 /* ── RISK TABLE ── */
 .risk-high { color: #e05555; font-weight: 600; }
@@ -1406,6 +1406,21 @@ ul.styled-list li::before {
   background: var(--gold);
 }
 
+/* ── IMAGE FADE-IN ── */
+img {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+img.loaded {
+  opacity: 1;
+}
+/* Exclude SVG inline and lightbox images from fade-in */
+.lightbox-overlay img,
+.page-loader svg,
+nav svg {
+  opacity: 1;
+}
+
 .text-gold { color: var(--gold); }
 .text-emerald { color: var(--emerald-light); }
 .text-sky { color: var(--sky); }
@@ -1460,54 +1475,70 @@ ul.styled-list li::before {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  .two-col, .swot-grid { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
   .three-col { grid-template-columns: 1fr; }
   section { padding: 4rem 1.25rem; }
   .nav-links { display: none; }
   .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 60px; left: 0; right: 0; background: rgba(17,20,40,0.98); padding: 1rem; gap: 0.2rem; border-bottom: 1px solid rgba(197,165,90,0.15); }
   .nav-download { display: none; }
   .hamburger { display: flex; }
-  .metrics-bar { grid-template-columns: repeat(2, 1fr); }
-  .card-grid { grid-template-columns: 1fr; }
-  .materials-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
-  .h-timeline-track { flex-direction: column; align-items: stretch; }
-  .h-timeline-line { display: none; }
-  .h-timeline-node { min-width: unset; padding: 0; margin-bottom: 1.5rem; }
   .donut-chart-container { flex-direction: column; }
-  .kpi-row { grid-template-columns: 1fr; }
+  .kpi-row { grid-template-columns: repeat(2, 1fr); }
   .bar-chart-label { width: 80px; font-size: 0.75rem; }
 }
 
 @media (max-width: 768px) {
-  .img-grid { grid-template-columns: repeat(2, 1fr); }
-  h1 { font-size: 2.2rem; }
-  h2 { font-size: 1.6rem; }
   section { padding: 3rem 1rem; }
+  h1 { font-size: clamp(1.8rem, 5vw, 3rem); }
+  h2 { font-size: clamp(1.4rem, 3vw, 2rem); }
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .swot-grid { grid-template-columns: repeat(2, 1fr); }
+  .img-grid { grid-template-columns: repeat(2, 1fr); }
+  .materials-grid { grid-template-columns: 1fr; }
+  .metrics-bar { grid-template-columns: repeat(2, 1fr); }
   .kpi-value { font-size: 2.2rem; }
+  /* Timeline: vertical on mobile */
+  .h-timeline-track { flex-direction: column; align-items: stretch; }
+  .h-timeline-line { display: none; }
+  .h-timeline-node { min-width: unset; padding: 0; margin-bottom: 1.5rem; }
 }
 
-@media (max-width: 600px) {
-  .metrics-bar { grid-template-columns: 1fr; }
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
+@media (max-width: 480px) {
+  section { padding: 3rem 1rem; }
+  h1 { font-size: clamp(1.6rem, 5vw, 2rem); }
+  h2 { font-size: clamp(1.3rem, 3vw, 1.6rem); }
+  .card-grid { grid-template-columns: 1fr; }
+  .swot-grid { grid-template-columns: 1fr; }
   .img-grid { grid-template-columns: 1fr; }
+  .metrics-bar { grid-template-columns: 1fr; }
+  .kpi-row { grid-template-columns: 1fr; }
   .cover-logo svg { max-width: 280px; }
 }
 
 /* ── PRINT ── */
 @media print {
+  /* Hide non-printable elements */
   .page-loader { display: none !important; }
   nav { display: none !important; }
   .hamburger { display: none !important; }
   .lightbox-overlay { display: none !important; }
-  .nav-download, .footer-download-btn { display: none !important; }
+  .nav-download, .footer-download-btn, .download-btn { display: none !important; }
   .collapsible-toggle { display: none !important; }
   .collapsible-content { max-height: none !important; overflow: visible !important; }
+  .map-container iframe { display: none !important; }
 
-  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
 
   body { background: #fff !important; color: #000 !important; font-size: 11pt; }
+
+  /* Force images visible (override lazy loading opacity) */
+  img { opacity: 1 !important; }
 
   section {
     opacity: 1 !important;
@@ -1515,6 +1546,8 @@ ul.styled-list li::before {
     padding: 2rem 1rem;
     page-break-before: always;
     break-before: page;
+    background: #fff !important;
+    color: #222 !important;
   }
 
   #cover { page-break-before: avoid; break-before: avoid; min-height: auto; }
@@ -1565,16 +1598,19 @@ ul.styled-list li::before {
   .kpi-value { color: #1a1f3a !important; }
   .kpi-label { color: #555 !important; }
 
+  /* Page break control */
   .swot-cell { page-break-inside: avoid; break-inside: avoid; }
   .card { page-break-inside: avoid; break-inside: avoid; }
+  .metric-card { page-break-inside: avoid; break-inside: avoid; }
+  .h-timeline-node { page-break-inside: avoid; break-inside: avoid; }
 
   table { page-break-inside: auto; }
   tr { page-break-inside: avoid; break-inside: avoid; }
 
   footer { page-break-before: always; break-before: page; }
+  footer button { display: none !important; }
 
-  .map-container iframe { display: none; }
-  .map-container::after { content: 'Map: OpenStreetMap — Dushanbe, 38.6088, 68.7732'; font-style: italic; padding: 1rem; display: block; color: #666; }
+  .map-container::after { content: 'Map: OpenStreetMap -- Dushanbe, 38.6088, 68.7732'; font-style: italic; padding: 1rem; display: block; color: #666; }
 
   /* AOS resets */
   [data-aos] { opacity: 1 !important; transform: none !important; transition: none !important; }
@@ -1687,25 +1723,25 @@ ul.styled-list li::before {
     <div class="section-divider" style="background: var(--navy);"></div>
     <p class="subtitle" style="color: var(--stone);">In the heart of Dushanbe, 30 hectares of industrial land present a once-in-a-century opportunity to reshape the capital of Tajikistan. Boghi Dushanbe envisions the transformation of this underutilized site &mdash; currently occupied by aging thermal power and industrial infrastructure &mdash; into a vibrant, mixed-use district that serves as the new center of civic, commercial, and cultural life for a nation on the rise.</p>
 
-    <div class="metrics-bar">
+    <div class="metrics-bar" id="execMetrics">
       <div class="metric-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="metric-value" style="color: var(--navy);">30 ha</div>
+        <div class="metric-value" style="color: var(--navy);" data-stat="true" data-target="30" data-suffix=" ha">30 ha</div>
         <div class="metric-label">Site Area</div>
       </div>
       <div class="metric-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="metric-value" style="color: var(--navy);">~2.5M</div>
+        <div class="metric-value" style="color: var(--navy);" data-stat="true" data-target="2.5" data-prefix="~" data-suffix="M" data-decimals="1">~2.5M</div>
         <div class="metric-label">sqm GFA Potential</div>
       </div>
       <div class="metric-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="metric-value" style="color: var(--navy);">15,000+</div>
+        <div class="metric-value" style="color: var(--navy);" data-stat="true" data-target="15000" data-suffix="+">15,000+</div>
         <div class="metric-label">Residents</div>
       </div>
       <div class="metric-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="metric-value" style="color: var(--navy);">20,000+</div>
+        <div class="metric-value" style="color: var(--navy);" data-stat="true" data-target="20000" data-suffix="+">20,000+</div>
         <div class="metric-label">Jobs Created</div>
       </div>
       <div class="metric-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="metric-value" style="color: var(--navy);">$3&ndash;5B</div>
+        <div class="metric-value" style="color: var(--navy);" data-stat="true" data-target="5" data-prefix="$3&#x2013;" data-suffix="B">$3&#x2013;5B</div>
         <div class="metric-label">Projected Value at Maturity</div>
       </div>
       <div class="metric-card" data-aos="fade-up" data-aos-delay="300">
@@ -1839,7 +1875,7 @@ ul.styled-list li::before {
     <div class="section-divider"></div>
 
     <div class="showcase-img" data-aos="fade-in">
-      <img src="images/tower-sunset.png" alt="Boghi Dushanbe landmark tower reflected in lake at sunset" width="1200" height="675" loading="lazy">
+      <img src="images/tower-sunset.png" alt="Boghi Dushanbe landmark tower reflected in lake at sunset" width="1200" height="675" loading="lazy" onload="this.classList.add('loaded')">
     </div>
 
     <div class="two-col mt-2" data-aos="fade-up">
@@ -1987,7 +2023,7 @@ ul.styled-list li::before {
     <p class="subtitle" style="color: var(--stone-light);">We present two development schemes &mdash; one pragmatic, one aspirational &mdash; to illustrate the range of possibilities. Either can be refined, or elements combined, based on government priorities and market conditions.</p>
 
     <div class="showcase-img mt-2" data-aos="fade-in">
-      <img src="images/hero-aerial.png" alt="Aerial view of the Boghi Dushanbe development" width="1200" height="675" loading="lazy">
+      <img src="images/hero-aerial.png" alt="Aerial view of the Boghi Dushanbe development" width="1200" height="675" loading="lazy" onload="this.classList.add('loaded')">
     </div>
 
     <div class="two-col mt-3" data-aos="fade-up">
@@ -2092,8 +2128,8 @@ ul.styled-list li::before {
 
     <h3 class="mt-3">Material Palette</h3>
     <div class="materials-grid" data-aos="fade-in">
-      <img src="images/materials-1.png" alt="Material palette: travertine, brass, and walnut" width="600" height="400" loading="lazy">
-      <img src="images/materials-2.png" alt="Material palette: onyx, marble, and velvet" width="600" height="400" loading="lazy">
+      <img src="images/materials-1.png" alt="Material palette: travertine, brass, and walnut" width="600" height="400" loading="lazy" onload="this.classList.add('loaded')">
+      <img src="images/materials-2.png" alt="Material palette: onyx, marble, and velvet" width="600" height="400" loading="lazy" onload="this.classList.add('loaded')">
     </div>
 
     <div class="card-grid mt-2">
@@ -2138,27 +2174,27 @@ ul.styled-list li::before {
     <p class="subtitle mb-2" style="color: var(--stone);">From luxury lobbies to penthouse living, every interior space reflects the fusion of Central Asian craft and contemporary sophistication.</p>
     <div class="img-grid">
       <div class="img-grid-item" data-aos="fade-in" data-aos-delay="100" onclick="openLightbox('images/interior-lobby.png')">
-        <img src="images/interior-lobby.png" alt="Luxury lobby with golden Islamic panels" width="600" height="400" loading="lazy">
+        <img src="images/interior-lobby.png" alt="Luxury lobby with golden Islamic panels" width="600" height="400" loading="lazy" onload="this.classList.add('loaded')">
         <div class="img-caption">Grand Lobby</div>
       </div>
       <div class="img-grid-item" data-aos="fade-in" data-aos-delay="200" onclick="openLightbox('images/interior-living.png')">
-        <img src="images/interior-living.png" alt="Penthouse living room with mountain views" width="600" height="400" loading="lazy">
+        <img src="images/interior-living.png" alt="Penthouse living room with mountain views" width="600" height="400" loading="lazy" onload="this.classList.add('loaded')">
         <div class="img-caption">Penthouse Living</div>
       </div>
       <div class="img-grid-item" data-aos="fade-in" data-aos-delay="300" onclick="openLightbox('images/interior-bedroom.png')">
-        <img src="images/interior-bedroom.png" alt="Master bedroom with carved walnut headboard" width="600" height="400" loading="lazy">
+        <img src="images/interior-bedroom.png" alt="Master bedroom with carved walnut headboard" width="600" height="400" loading="lazy" onload="this.classList.add('loaded')">
         <div class="img-caption">Master Bedroom</div>
       </div>
       <div class="img-grid-item" data-aos="fade-in" data-aos-delay="100" onclick="openLightbox('images/interior-kitchen.png')">
-        <img src="images/interior-kitchen.png" alt="High-end kitchen with marble island" width="600" height="400" loading="lazy">
+        <img src="images/interior-kitchen.png" alt="High-end kitchen with marble island" width="600" height="400" loading="lazy" onload="this.classList.add('loaded')">
         <div class="img-caption">Gourmet Kitchen</div>
       </div>
       <div class="img-grid-item" data-aos="fade-in" data-aos-delay="200" onclick="openLightbox('images/interior-bathroom.png')">
-        <img src="images/interior-bathroom.png" alt="Luxury bathroom with freestanding tub" width="600" height="400" loading="lazy">
+        <img src="images/interior-bathroom.png" alt="Luxury bathroom with freestanding tub" width="600" height="400" loading="lazy" onload="this.classList.add('loaded')">
         <div class="img-caption">Spa Bathroom</div>
       </div>
       <div class="img-grid-item" data-aos="fade-in" data-aos-delay="300" onclick="openLightbox('images/interior-office.png')">
-        <img src="images/interior-office.png" alt="Modern co-working space with green wall" width="600" height="400" loading="lazy">
+        <img src="images/interior-office.png" alt="Modern co-working space with green wall" width="600" height="400" loading="lazy" onload="this.classList.add('loaded')">
         <div class="img-caption">Co-Working Space</div>
       </div>
     </div>
@@ -2327,27 +2363,27 @@ ul.styled-list li::before {
 
     <div class="img-grid">
       <div class="img-grid-item" data-aos="fade-in" data-aos-delay="100" onclick="openLightbox('images/retail-street.png')">
-        <img src="images/retail-street.png" alt="Luxury retail high-street at golden hour" width="600" height="400" loading="lazy">
+        <img src="images/retail-street.png" alt="Luxury retail high-street at golden hour" width="600" height="400" loading="lazy" onload="this.classList.add('loaded')">
         <div class="img-caption">Retail High Street</div>
       </div>
       <div class="img-grid-item" data-aos="fade-in" data-aos-delay="200" onclick="openLightbox('images/green-spine.png')">
-        <img src="images/green-spine.png" alt="Central boulevard and linear park with water channel" width="600" height="400" loading="lazy">
+        <img src="images/green-spine.png" alt="Central boulevard and linear park with water channel" width="600" height="400" loading="lazy" onload="this.classList.add('loaded')">
         <div class="img-caption">Green Spine Boulevard</div>
       </div>
       <div class="img-grid-item" data-aos="fade-in" data-aos-delay="300" onclick="openLightbox('images/courtyard.png')">
-        <img src="images/courtyard.png" alt="Residential courtyard with Islamic fountain" width="600" height="400" loading="lazy">
+        <img src="images/courtyard.png" alt="Residential courtyard with Islamic fountain" width="600" height="400" loading="lazy" onload="this.classList.add('loaded')">
         <div class="img-caption">Residential Courtyard</div>
       </div>
       <div class="img-grid-item" data-aos="fade-in" data-aos-delay="100" onclick="openLightbox('images/cultural-building.png')">
-        <img src="images/cultural-building.png" alt="Grand civic building with arch entrance" width="600" height="400" loading="lazy">
+        <img src="images/cultural-building.png" alt="Grand civic building with arch entrance" width="600" height="400" loading="lazy" onload="this.classList.add('loaded')">
         <div class="img-caption">Cultural Center</div>
       </div>
       <div class="img-grid-item" data-aos="fade-in" data-aos-delay="200" onclick="openLightbox('images/tower-day.png')">
-        <img src="images/tower-day.png" alt="Landmark tower from ground level, daytime" width="600" height="400" loading="lazy">
+        <img src="images/tower-day.png" alt="Landmark tower from ground level, daytime" width="600" height="400" loading="lazy" onload="this.classList.add('loaded')">
         <div class="img-caption">Landmark Tower &mdash; Day</div>
       </div>
       <div class="img-grid-item" data-aos="fade-in" data-aos-delay="300" onclick="openLightbox('images/tower-night.png')">
-        <img src="images/tower-night.png" alt="Landmark tower at night with illuminated fountains" width="600" height="400" loading="lazy">
+        <img src="images/tower-night.png" alt="Landmark tower at night with illuminated fountains" width="600" height="400" loading="lazy" onload="this.classList.add('loaded')">
         <div class="img-caption">Landmark Tower &mdash; Night</div>
       </div>
     </div>
@@ -2482,7 +2518,7 @@ ul.styled-list li::before {
 
     <h3 class="mt-3">Penthouse Floor Plan (280 sqm)</h3>
     <div class="showcase-img" data-aos="fade-in">
-      <img src="images/floor-plan.png" alt="280 sqm penthouse floor plan" width="1200" height="800" loading="lazy">
+      <img src="images/floor-plan.png" alt="280 sqm penthouse floor plan" width="1200" height="800" loading="lazy" onload="this.classList.add('loaded')">
     </div>
 
     <h3 class="mt-3">Key Quantities</h3>
@@ -3256,6 +3292,66 @@ function toggleCollapsible(btn) {
     arrow.style.transform = 'rotate(0deg)';
   }
 }
+
+// ── IMAGE FADE-IN: handle cached images ──
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('img').forEach(function(img) {
+    if (img.complete && img.naturalHeight > 0) {
+      img.classList.add('loaded');
+    }
+  });
+});
+
+// ── ANIMATED STAT COUNTERS (Executive Summary metrics) ──
+(function() {
+  var statObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (!entry.isIntersecting) return;
+      var container = entry.target;
+      var statEls = container.querySelectorAll('[data-stat="true"]');
+      statEls.forEach(function(el) {
+        if (el.dataset.statAnimated) return;
+        el.dataset.statAnimated = 'true';
+        var target = parseFloat(el.dataset.target);
+        var prefix = el.dataset.prefix || '';
+        var suffix = el.dataset.suffix || '';
+        var decimals = parseInt(el.dataset.decimals) || 0;
+        var duration = 2000;
+        var startTime = null;
+
+        function formatNum(n) {
+          if (decimals > 0) {
+            return n.toFixed(decimals);
+          }
+          if (n >= 1000) {
+            return Math.floor(n).toLocaleString('en-US');
+          }
+          return Math.floor(n).toString();
+        }
+
+        function animate(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          var current = eased * target;
+          el.textContent = prefix + formatNum(current) + suffix;
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            el.textContent = prefix + formatNum(target) + suffix;
+          }
+        }
+        requestAnimationFrame(animate);
+      });
+      statObserver.unobserve(container);
+    });
+  }, { threshold: 0.3 });
+
+  var metricsBar = document.getElementById('execMetrics');
+  if (metricsBar) {
+    statObserver.observe(metricsBar);
+  }
+})();
 </script>
 
 </body>
