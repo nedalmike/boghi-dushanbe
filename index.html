@@ -4,9 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BOGHI DUSHANBE — A Vision for Dushanbe's New Urban Heart</title>
+<meta name="description" content="A 30-hectare mixed-use development proposal for the heart of Dushanbe, Tajikistan. Transforming industrial legacy into a world-class urban district.">
+<meta property="og:title" content="BOGHI DUSHANBE — A Vision for Dushanbe's New Urban Heart">
+<meta property="og:description" content="A 30-hectare mixed-use development proposal for the heart of Dushanbe, Tajikistan">
+<meta property="og:image" content="images/hero-aerial.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BOGHI DUSHANBE — A Vision for Dushanbe's New Urban Heart">
+<meta name="twitter:description" content="A 30-hectare mixed-use development proposal for the heart of Dushanbe, Tajikistan">
+<meta name="twitter:image" content="images/hero-aerial.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231a1f3a'/%3E%3Cpolygon points='16,6 22,16 16,26 10,16' fill='%23c5a55a'/%3E%3Cpolygon points='16,10 19,16 16,22 13,16' fill='%231a1f3a'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <style>
 :root {
   --navy: #1a1f3a;
@@ -48,6 +59,49 @@ body {
 
 h1, h2 {
   font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+}
+
+/* ── PAGE LOADER ── */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--navy-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.page-loader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.page-loader svg {
+  height: 40px;
+  width: auto;
+  margin-bottom: 1.5rem;
+}
+.loader-bar {
+  width: 120px;
+  height: 2px;
+  background: rgba(197,165,90,0.2);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.loader-bar::after {
+  content: '';
+  display: block;
+  width: 60%;
+  height: 100%;
+  background: var(--gold);
+  border-radius: 1px;
+  animation: loaderSlide 1s ease-in-out infinite;
+}
+@keyframes loaderSlide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
 }
 
 /* ── NAVIGATION ── */
@@ -165,14 +219,6 @@ nav.scrolled {
 /* ── SECTIONS ── */
 section {
   padding: 6rem 2rem;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .section-inner {
@@ -396,6 +442,16 @@ strong {
   line-height: 1.7;
 }
 
+/* ── COVER LOGO ── */
+.cover-logo {
+  margin-bottom: 2rem;
+}
+.cover-logo svg {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+}
+
 /* ── KEY METRICS BAR ── */
 .metrics-bar {
   display: grid;
@@ -492,12 +548,14 @@ strong {
   overflow-x: auto;
   margin: 2rem 0;
   border-radius: 10px;
+  -webkit-overflow-scrolling: touch;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.9rem;
+  min-width: 600px;
 }
 
 .dark-section table,
@@ -756,11 +814,15 @@ tbody tr:hover td {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
-  font-size: 0.9rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
   flex-shrink: 0;
+}
+
+.swot-cell h4 .swot-icon svg {
+  width: 16px;
+  height: 16px;
 }
 
 .swot-cell ul {
@@ -785,25 +847,29 @@ tbody tr:hover td {
   border-radius: 50%;
 }
 
-.swot-s { background: rgba(45,106,79,0.1); border: 1px solid rgba(45,106,79,0.25); }
+.swot-s { background: rgba(45,106,79,0.15); border: 1px solid rgba(45,106,79,0.3); }
 .swot-s h4 { color: var(--emerald-light); }
-.swot-s h4 .swot-icon { background: rgba(45,106,79,0.2); color: var(--emerald-light); }
+.swot-s h4 .swot-icon { background: rgba(45,106,79,0.25); color: var(--emerald-light); }
 .swot-s li::before { background: var(--emerald-light); }
+.swot-s li { color: #1a3a2a; }
 
-.swot-w { background: rgba(196,120,74,0.1); border: 1px solid rgba(196,120,74,0.25); }
+.swot-w { background: rgba(196,120,74,0.15); border: 1px solid rgba(196,120,74,0.3); }
 .swot-w h4 { color: var(--terracotta); }
-.swot-w h4 .swot-icon { background: rgba(196,120,74,0.2); color: var(--terracotta); }
+.swot-w h4 .swot-icon { background: rgba(196,120,74,0.25); color: var(--terracotta); }
 .swot-w li::before { background: var(--terracotta); }
+.swot-w li { color: #3a2a1a; }
 
-.swot-o { background: rgba(91,155,213,0.1); border: 1px solid rgba(91,155,213,0.25); }
+.swot-o { background: rgba(91,155,213,0.15); border: 1px solid rgba(91,155,213,0.3); }
 .swot-o h4 { color: var(--sky); }
-.swot-o h4 .swot-icon { background: rgba(91,155,213,0.2); color: var(--sky); }
+.swot-o h4 .swot-icon { background: rgba(91,155,213,0.25); color: var(--sky); }
 .swot-o li::before { background: var(--sky); }
+.swot-o li { color: #1a2a3a; }
 
-.swot-t { background: rgba(197,165,90,0.1); border: 1px solid rgba(197,165,90,0.25); }
-.swot-t h4 { color: var(--gold); }
-.swot-t h4 .swot-icon { background: rgba(197,165,90,0.2); color: var(--gold); }
-.swot-t li::before { background: var(--gold); }
+.swot-t { background: rgba(197,60,60,0.1); border: 1px solid rgba(197,60,60,0.25); }
+.swot-t h4 { color: #c53c3c; }
+.swot-t h4 .swot-icon { background: rgba(197,60,60,0.2); color: #c53c3c; }
+.swot-t li::before { background: #c53c3c; }
+.swot-t li { color: #3a1a1a; }
 
 /* ── RISK TABLE ── */
 .risk-high { color: #e05555; font-weight: 600; }
@@ -856,6 +922,7 @@ tbody tr:hover td {
   height: auto;
   display: block;
   transition: transform 0.5s ease;
+  max-width: 100%;
 }
 
 .showcase-img:hover img {
@@ -883,6 +950,7 @@ tbody tr:hover td {
   object-fit: cover;
   display: block;
   transition: transform 0.5s ease;
+  max-width: 100%;
 }
 
 .img-grid-item:hover img {
@@ -923,6 +991,7 @@ tbody tr:hover td {
   display: block;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   transition: transform 0.4s ease;
+  max-width: 100%;
 }
 
 .materials-grid img:hover {
@@ -1099,6 +1168,72 @@ tbody tr:hover td {
   height: 14px;
   border-radius: 3px;
   flex-shrink: 0;
+}
+
+/* ── KPI COUNTERS ── */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+.kpi-card {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(197,165,90,0.15);
+}
+.kpi-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+.kpi-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--stone-light);
+}
+
+/* ── BAR CHART ── */
+.bar-chart {
+  margin: 2rem 0;
+}
+.bar-chart-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+.bar-chart-label {
+  width: 120px;
+  font-size: 0.82rem;
+  text-align: right;
+  color: var(--stone-light);
+  flex-shrink: 0;
+}
+.bar-chart-track {
+  flex: 1;
+  height: 28px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+.bar-chart-fill {
+  height: 100%;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding-left: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--white);
+  transition: width 1.5s ease;
 }
 
 /* ── MAP ── */
@@ -1340,6 +1475,16 @@ ul.styled-list li::before {
   .h-timeline-line { display: none; }
   .h-timeline-node { min-width: unset; padding: 0; margin-bottom: 1.5rem; }
   .donut-chart-container { flex-direction: column; }
+  .kpi-row { grid-template-columns: 1fr; }
+  .bar-chart-label { width: 80px; font-size: 0.75rem; }
+}
+
+@media (max-width: 768px) {
+  .img-grid { grid-template-columns: repeat(2, 1fr); }
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.6rem; }
+  section { padding: 3rem 1rem; }
+  .kpi-value { font-size: 2.2rem; }
 }
 
 @media (max-width: 600px) {
@@ -1347,27 +1492,106 @@ ul.styled-list li::before {
   h1 { font-size: 2rem; }
   h2 { font-size: 1.5rem; }
   .img-grid { grid-template-columns: 1fr; }
+  .cover-logo svg { max-width: 280px; }
 }
 
 /* ── PRINT ── */
 @media print {
-  nav { display: none; }
-  section { opacity: 1 !important; transform: none !important; padding: 2rem 1rem; }
-  .dark-section, .deep-section { background: #fff !important; color: #000 !important; }
-  .dark-section h2, .dark-section h3, .deep-section h2 { color: #1a1f3a !important; }
-  .dark-section .section-label, .deep-section .section-label { color: #333 !important; }
-  .dark-section .card, .deep-section .card { border-color: #ddd !important; }
+  .page-loader { display: none !important; }
+  nav { display: none !important; }
+  .hamburger { display: none !important; }
+  .lightbox-overlay { display: none !important; }
+  .nav-download, .footer-download-btn { display: none !important; }
+  .collapsible-toggle { display: none !important; }
+  .collapsible-content { max-height: none !important; overflow: visible !important; }
+
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+  body { background: #fff !important; color: #000 !important; font-size: 11pt; }
+
+  section {
+    opacity: 1 !important;
+    transform: none !important;
+    padding: 2rem 1rem;
+    page-break-before: always;
+    break-before: page;
+  }
+
+  #cover { page-break-before: avoid; break-before: avoid; min-height: auto; }
+
+  .dark-section, .deep-section {
+    background: #fff !important;
+    color: #222 !important;
+  }
+  .dark-section h2, .dark-section h3, .deep-section h2, .deep-section h3 {
+    color: #1a1f3a !important;
+  }
+  .dark-section .section-label, .deep-section .section-label {
+    color: #555 !important;
+  }
+  .dark-section .card, .deep-section .card {
+    border-color: #ddd !important;
+    background: #fafafa !important;
+    color: #222 !important;
+  }
+  .dark-section .subtitle, .deep-section .subtitle,
+  .dark-section p, .deep-section p,
+  .dark-section li, .deep-section li {
+    color: #333 !important;
+  }
   .metric-card .metric-value { color: #1a1f3a !important; }
-  body { background: #fff; }
-  #cover { min-height: auto; background: #fff !important; }
+  .metric-card { border-color: #ddd !important; background: #fafafa !important; }
+
+  .light-section { background: #fff !important; }
+
+  #cover { background: #fff !important; }
   #cover h1, #cover .cover-subtitle { color: #1a1f3a !important; }
   #cover .pre-title, .cover-content h1 em { color: #666 !important; }
-  .callout-gold { border-color: #ccc; color: #333; }
-  .lightbox-overlay { display: none !important; }
+  #cover .hero-bg, #cover .hero-overlay, #cover .pattern-overlay { display: none !important; }
+
+  .callout-gold { border-color: #ccc !important; color: #333 !important; background: #f9f7f2 !important; }
+  .callout-note { border-color: #ccc !important; color: #333 !important; background: #f5f8fc !important; }
+
+  .showcase-img, .img-grid-item { box-shadow: none !important; }
+  .showcase-img img, .img-grid-item img, .materials-grid img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .h-timeline-detail { box-shadow: none !important; border: 1px solid #ddd !important; }
+  .h-timeline-title { color: #1a1f3a !important; }
+
+  .kpi-card { background: #fafafa !important; border-color: #ddd !important; }
+  .kpi-value { color: #1a1f3a !important; }
+  .kpi-label { color: #555 !important; }
+
+  .swot-cell { page-break-inside: avoid; break-inside: avoid; }
+  .card { page-break-inside: avoid; break-inside: avoid; }
+
+  table { page-break-inside: auto; }
+  tr { page-break-inside: avoid; break-inside: avoid; }
+
+  footer { page-break-before: always; break-before: page; }
+
+  .map-container iframe { display: none; }
+  .map-container::after { content: 'Map: OpenStreetMap — Dushanbe, 38.6088, 68.7732'; font-style: italic; padding: 1rem; display: block; color: #666; }
+
+  /* AOS resets */
+  [data-aos] { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
 </style>
 </head>
 <body>
+
+<!-- ════════════════════ PAGE LOADER ════════════════════ -->
+<div class="page-loader" id="pageLoader">
+  <svg viewBox="0 0 280 24" xmlns="http://www.w3.org/2000/svg">
+    <text x="0" y="17" font-family="'Playfair Display', Georgia, serif" font-size="14" font-weight="700" fill="#c5a55a" letter-spacing="4">BOGHI</text>
+    <polygon points="88,12 92,8 96,12 92,16" fill="#c5a55a" opacity="0.7"/>
+    <text x="104" y="17" font-family="'Playfair Display', Georgia, serif" font-size="14" font-weight="700" fill="#c5a55a" letter-spacing="4">DUSHANBE</text>
+  </svg>
+  <div class="loader-bar"></div>
+</div>
 
 <!-- ════════════════════ LIGHTBOX ════════════════════ -->
 <div class="lightbox-overlay" id="lightbox">
@@ -1410,7 +1634,36 @@ ul.styled-list li::before {
   <div class="pattern-overlay"></div>
   <div class="cover-content">
     <div class="pre-title">Concept Proposal &middot; March 2026</div>
-    <h1>BOGHI DUSHANBE<em>Garden of Dushanbe</em></h1>
+
+    <!-- Typographic Logo -->
+    <div class="cover-logo">
+      <svg viewBox="0 0 420 120" xmlns="http://www.w3.org/2000/svg">
+        <!-- Tajik geometric border -->
+        <rect x="10" y="5" width="400" height="110" rx="4" fill="none" stroke="#c5a55a" stroke-width="0.5" opacity="0.3"/>
+        <rect x="15" y="10" width="390" height="100" rx="2" fill="none" stroke="#c5a55a" stroke-width="0.5" opacity="0.2"/>
+        <!-- Corner geometric patterns -->
+        <polygon points="10,5 25,5 10,20" fill="#c5a55a" opacity="0.08"/>
+        <polygon points="410,5 395,5 410,20" fill="#c5a55a" opacity="0.08"/>
+        <polygon points="10,115 25,115 10,100" fill="#c5a55a" opacity="0.08"/>
+        <polygon points="410,115 395,115 410,100" fill="#c5a55a" opacity="0.08"/>
+        <!-- Small diamond accents along top -->
+        <polygon points="130,10 133,7 136,10 133,13" fill="#c5a55a" opacity="0.2"/>
+        <polygon points="210,10 213,7 216,10 213,13" fill="#c5a55a" opacity="0.3"/>
+        <polygon points="290,10 293,7 296,10 293,13" fill="#c5a55a" opacity="0.2"/>
+        <!-- Small diamond accents along bottom -->
+        <polygon points="130,110 133,107 136,110 133,113" fill="#c5a55a" opacity="0.2"/>
+        <polygon points="210,110 213,107 216,110 213,113" fill="#c5a55a" opacity="0.3"/>
+        <polygon points="290,110 293,107 296,110 293,113" fill="#c5a55a" opacity="0.2"/>
+        <!-- Main text -->
+        <text x="210" y="58" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="36" font-weight="700" fill="#c5a55a" letter-spacing="8">BOGHI</text>
+        <!-- Center diamond -->
+        <polygon points="210,68 216,74 210,80 204,74" fill="#c5a55a" opacity="0.6"/>
+        <!-- Sub text -->
+        <text x="210" y="100" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="20" font-weight="400" fill="#c5a55a" letter-spacing="12" opacity="0.85">DUSHANBE</text>
+      </svg>
+    </div>
+
+    <h1 style="font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 300; letter-spacing: 0.05em;">BOGHI DUSHANBE<em>Garden of Dushanbe</em></h1>
     <div class="cover-line"></div>
     <div class="cover-subtitle">A Vision for Dushanbe's New Urban Heart</div>
     <p class="cover-tagline">Transforming 30 hectares of industrial legacy into a world-class mixed-use district for Tajikistan's capital</p>
@@ -1428,40 +1681,40 @@ ul.styled-list li::before {
 
 <!-- ════════════════════ 2. EXECUTIVE SUMMARY ════════════════════ -->
 <section id="executive" class="light-section">
-  <div class="section-inner">
+  <div class="section-inner" data-aos="fade-up">
     <span class="section-label">01 &mdash; Executive Summary</span>
     <h2>The Opportunity of a Generation</h2>
     <div class="section-divider" style="background: var(--navy);"></div>
     <p class="subtitle" style="color: var(--stone);">In the heart of Dushanbe, 30 hectares of industrial land present a once-in-a-century opportunity to reshape the capital of Tajikistan. Boghi Dushanbe envisions the transformation of this underutilized site &mdash; currently occupied by aging thermal power and industrial infrastructure &mdash; into a vibrant, mixed-use district that serves as the new center of civic, commercial, and cultural life for a nation on the rise.</p>
 
     <div class="metrics-bar">
-      <div class="metric-card">
+      <div class="metric-card" data-aos="fade-up" data-aos-delay="100">
         <div class="metric-value" style="color: var(--navy);">30 ha</div>
         <div class="metric-label">Site Area</div>
       </div>
-      <div class="metric-card">
+      <div class="metric-card" data-aos="fade-up" data-aos-delay="200">
         <div class="metric-value" style="color: var(--navy);">~2.5M</div>
         <div class="metric-label">sqm GFA Potential</div>
       </div>
-      <div class="metric-card">
+      <div class="metric-card" data-aos="fade-up" data-aos-delay="300">
         <div class="metric-value" style="color: var(--navy);">15,000+</div>
         <div class="metric-label">Residents</div>
       </div>
-      <div class="metric-card">
+      <div class="metric-card" data-aos="fade-up" data-aos-delay="100">
         <div class="metric-value" style="color: var(--navy);">20,000+</div>
         <div class="metric-label">Jobs Created</div>
       </div>
-      <div class="metric-card">
+      <div class="metric-card" data-aos="fade-up" data-aos-delay="200">
         <div class="metric-value" style="color: var(--navy);">$3&ndash;5B</div>
         <div class="metric-label">Projected Value at Maturity</div>
       </div>
-      <div class="metric-card">
+      <div class="metric-card" data-aos="fade-up" data-aos-delay="300">
         <div class="metric-value" style="color: var(--navy);">10&ndash;15</div>
         <div class="metric-label">Year Phased Delivery</div>
       </div>
     </div>
 
-    <div class="two-col mt-3">
+    <div class="two-col mt-3" data-aos="fade-up">
       <div>
         <h3>The Context</h3>
         <p>Dushanbe's population of 1.07 million is growing at 2.73% annually, generating intense demand for housing, employment, and urban amenities that the current building stock cannot meet. The city is expanding its boundaries to 25,000 hectares by 2040, yet the most valuable intervention lies not at the periphery but in the center &mdash; where infrastructure already exists and where transformation carries the greatest symbolic and economic weight.</p>
@@ -1474,7 +1727,7 @@ ul.styled-list li::before {
       </div>
     </div>
 
-    <div class="callout callout-note mt-2">
+    <div class="callout callout-note mt-2" data-aos="fade-up">
       <strong>Approach:</strong> This document presents a conceptual framework for consideration. All figures, areas, and projections are indicative and subject to detailed feasibility studies, environmental assessments, infrastructure analysis, and legal review. The intent is to demonstrate the potential of the site and provide a foundation for informed government decision-making.
     </div>
 
@@ -1580,16 +1833,16 @@ ul.styled-list li::before {
 
 <!-- ════════════════════ 3. VISION NARRATIVE ════════════════════ -->
 <section id="vision" class="dark-section">
-  <div class="section-inner">
+  <div class="section-inner" data-aos="fade-up">
     <span class="section-label">02 &mdash; Vision</span>
     <h2>Why This Site. Why Now. Why This Matters.</h2>
     <div class="section-divider"></div>
 
-    <div class="showcase-img">
-      <img src="images/tower-sunset.png" alt="Boghi Dushanbe landmark tower reflected in lake at sunset" loading="lazy">
+    <div class="showcase-img" data-aos="fade-in">
+      <img src="images/tower-sunset.png" alt="Boghi Dushanbe landmark tower reflected in lake at sunset" width="1200" height="675" loading="lazy">
     </div>
 
-    <div class="two-col mt-2">
+    <div class="two-col mt-2" data-aos="fade-up">
       <div>
         <h3>A Rare Asset</h3>
         <p>Thirty hectares of contiguous land in central Dushanbe is an extraordinary asset. In most capital cities worldwide, sites of this scale simply do not become available. The Luchob-area industrial site &mdash; located near the city's botanical gardens, with potential proximity to the Varzob River corridor, and within reach of Dushanbe's institutional and commercial core &mdash; is a site of genuine strategic significance.</p>
@@ -1614,25 +1867,25 @@ ul.styled-list li::before {
 
 <!-- ════════════════════ 4. SITE & CONTEXT ANALYSIS ════════════════════ -->
 <section id="site" class="light-section">
-  <div class="section-inner">
+  <div class="section-inner" data-aos="fade-up">
     <span class="section-label">03 &mdash; Site &amp; Context Analysis</span>
     <h2>Understanding the Land</h2>
     <div class="section-divider" style="background: var(--navy);"></div>
 
     <div class="metrics-bar">
-      <div class="metric-card">
+      <div class="metric-card" data-aos="fade-up" data-aos-delay="100">
         <div class="metric-value" style="color: var(--navy);">295,000</div>
         <div class="metric-label">sqm Site Area</div>
       </div>
-      <div class="metric-card">
+      <div class="metric-card" data-aos="fade-up" data-aos-delay="200">
         <div class="metric-value" style="color: var(--navy);">~2,792</div>
         <div class="metric-label">Meter Perimeter</div>
       </div>
-      <div class="metric-card">
+      <div class="metric-card" data-aos="fade-up" data-aos-delay="300">
         <div class="metric-value" style="color: var(--navy);">38.6088</div>
         <div class="metric-label">Latitude</div>
       </div>
-      <div class="metric-card">
+      <div class="metric-card" data-aos="fade-up" data-aos-delay="100">
         <div class="metric-value" style="color: var(--navy);">68.7732</div>
         <div class="metric-label">Longitude</div>
       </div>
@@ -1640,11 +1893,11 @@ ul.styled-list li::before {
 
     <!-- OpenStreetMap -->
     <h3 class="mt-2">Site Location</h3>
-    <div class="map-container">
-      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=68.755%2C38.598%2C68.792%2C38.619&layer=mapnik&marker=38.6088%2C68.7732" allowfullscreen loading="lazy"></iframe>
+    <div class="map-container" data-aos="fade-in">
+      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=68.755%2C38.598%2C68.792%2C38.619&layer=mapnik&marker=38.6088%2C68.7732" allowfullscreen loading="lazy" title="Site location map"></iframe>
     </div>
 
-    <div class="two-col mt-2">
+    <div class="two-col mt-2" data-aos="fade-up">
       <div>
         <h3>Site Characteristics</h3>
         <ul class="styled-list">
@@ -1669,8 +1922,8 @@ ul.styled-list li::before {
 
     <h3 class="mt-3">SWOT Analysis</h3>
     <div class="swot-grid">
-      <div class="swot-cell swot-s">
-        <h4><span class="swot-icon">&#9650;</span> Strengths</h4>
+      <div class="swot-cell swot-s" data-aos="fade-up" data-aos-delay="100">
+        <h4><span class="swot-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span> Strengths</h4>
         <ul>
           <li>Exceptionally large contiguous site in city center</li>
           <li>Proximity to civic, cultural, and institutional uses</li>
@@ -1681,8 +1934,8 @@ ul.styled-list li::before {
           <li>Single-ownership (likely state) simplifies land assembly</li>
         </ul>
       </div>
-      <div class="swot-cell swot-w">
-        <h4><span class="swot-icon">&#9660;</span> Weaknesses</h4>
+      <div class="swot-cell swot-w" data-aos="fade-up" data-aos-delay="200">
+        <h4><span class="swot-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span> Weaknesses</h4>
         <ul>
           <li>Active industrial operations require relocation</li>
           <li>Potential soil contamination from decades of industrial use</li>
@@ -1692,8 +1945,8 @@ ul.styled-list li::before {
           <li>Existing structures may have limited adaptive reuse potential</li>
         </ul>
       </div>
-      <div class="swot-cell swot-o">
-        <h4><span class="swot-icon">&#9733;</span> Opportunities</h4>
+      <div class="swot-cell swot-o" data-aos="fade-up" data-aos-delay="100">
+        <h4><span class="swot-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span> Opportunities</h4>
         <ul>
           <li>Addresses critical housing shortage directly</li>
           <li>Aligns with World Bank and EBRD urban development strategies</li>
@@ -1705,8 +1958,8 @@ ul.styled-list li::before {
           <li>Tourism growth potential (Silk Road, mountain tourism)</li>
         </ul>
       </div>
-      <div class="swot-cell swot-t">
-        <h4><span class="swot-icon">&#9888;</span> Threats</h4>
+      <div class="swot-cell swot-t" data-aos="fade-up" data-aos-delay="200">
+        <h4><span class="swot-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span> Threats</h4>
         <ul>
           <li>Environmental remediation costs may be significant</li>
           <li>Political and regulatory complexity</li>
@@ -1719,7 +1972,7 @@ ul.styled-list li::before {
       </div>
     </div>
 
-    <div class="callout callout-note mt-2">
+    <div class="callout callout-note mt-2" data-aos="fade-up">
       <strong>Assumptions Requiring Validation:</strong> This analysis is based on publicly available data and satellite imagery interpretation. A formal feasibility study must validate: (1) exact site boundaries and ownership structure; (2) environmental contamination levels; (3) status and timeline of industrial operations; (4) utility infrastructure condition and capacity; (5) precise topographic and geotechnical conditions; (6) applicable zoning and planning regulations; (7) traffic and transportation capacity of surrounding roads; and (8) the Varzob River's exact relationship to the site.
     </div>
   </div>
@@ -1727,17 +1980,17 @@ ul.styled-list li::before {
 
 <!-- ════════════════════ 5. MASTER PLAN CONCEPT ════════════════════ -->
 <section id="masterplan" class="deep-section">
-  <div class="section-inner">
+  <div class="section-inner" data-aos="fade-up">
     <span class="section-label">04 &mdash; Master Plan Concept</span>
     <h2>Two Paths Forward</h2>
     <div class="section-divider"></div>
     <p class="subtitle" style="color: var(--stone-light);">We present two development schemes &mdash; one pragmatic, one aspirational &mdash; to illustrate the range of possibilities. Either can be refined, or elements combined, based on government priorities and market conditions.</p>
 
-    <div class="showcase-img mt-2">
-      <img src="images/hero-aerial.png" alt="Aerial view of the Boghi Dushanbe development" loading="lazy">
+    <div class="showcase-img mt-2" data-aos="fade-in">
+      <img src="images/hero-aerial.png" alt="Aerial view of the Boghi Dushanbe development" width="1200" height="675" loading="lazy">
     </div>
 
-    <div class="two-col mt-3">
+    <div class="two-col mt-3" data-aos="fade-up">
       <!-- SCHEME A -->
       <div class="scheme-card balanced">
         <div class="scheme-badge">Pragmatic</div>
@@ -1823,7 +2076,7 @@ ul.styled-list li::before {
       </div>
     </div>
 
-    <div class="callout callout-gold mt-3">
+    <div class="callout callout-gold mt-3" data-aos="fade-up">
       <strong>Recommendation:</strong> We suggest beginning with Scheme A as the foundation &mdash; delivering the housing, schools, parks, and retail that Dushanbe needs most urgently &mdash; while reserving the southern or eastern portion of the site for Scheme B elements (landmark tower, cultural center, destination retail) to be phased in as market conditions and financing allow. This hybrid approach balances pragmatism with ambition.
     </div>
   </div>
@@ -1831,48 +2084,48 @@ ul.styled-list li::before {
 
 <!-- ════════════════════ 6. VISUAL CONCEPT LANGUAGE ════════════════════ -->
 <section id="design-language" class="light-section">
-  <div class="section-inner">
+  <div class="section-inner" data-aos="fade-up">
     <span class="section-label">05 &mdash; Design Language</span>
     <h2>Contemporary Central Asian Urbanism</h2>
     <div class="section-divider" style="background: var(--navy);"></div>
     <p class="subtitle" style="color: var(--stone);">The architectural identity of Boghi Dushanbe must honor Tajikistan's extraordinary artistic heritage while asserting a thoroughly contemporary vision. The design language bridges tradition and modernity without pastiche or kitsch.</p>
 
     <h3 class="mt-3">Material Palette</h3>
-    <div class="materials-grid">
-      <img src="images/materials-1.png" alt="Material palette: travertine, brass, and walnut" loading="lazy">
-      <img src="images/materials-2.png" alt="Material palette: onyx, marble, and velvet" loading="lazy">
+    <div class="materials-grid" data-aos="fade-in">
+      <img src="images/materials-1.png" alt="Material palette: travertine, brass, and walnut" width="600" height="400" loading="lazy">
+      <img src="images/materials-2.png" alt="Material palette: onyx, marble, and velvet" width="600" height="400" loading="lazy">
     </div>
 
     <div class="card-grid mt-2">
-      <div class="card">
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
         <h3 style="color: var(--navy);">Facade Language</h3>
         <p>Clean, geometric forms with depth and texture. Contemporary reinterpretations of mashrabiya screens &mdash; the perforated geometric screens of Islamic architecture &mdash; rendered in anodized aluminum, weathering steel, or precast concrete. These screens provide solar shading (critical in Dushanbe's continental climate with hot summers), visual privacy in residential buildings, and a rhythmic, human-scale pattern language that connects to centuries of Central Asian decorative art.</p>
         <p>The geometric patterns draw specifically from Ismaili and broader Islamic geometric traditions prevalent in Tajikistan &mdash; interlocking stars, hexagonal tessellations, and arabesques &mdash; abstracted to contemporary precision rather than literal reproduction.</p>
       </div>
-      <div class="card">
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
         <h3 style="color: var(--navy);">Materials Palette</h3>
         <p><strong>Travertine:</strong> Locally sourced from Tajikistan's extensive limestone deposits. Used for podium cladding, public realm paving, and feature walls. Warm cream and honey tones that glow in Dushanbe's clear mountain light.</p>
         <p><strong>Local granite:</strong> Dark grey-black granite for base courses, plaza paving, and water feature edges. Provides gravitas and permanence.</p>
         <p><strong>Anodized aluminum:</strong> Bronze and champagne-toned anodized aluminum for mashrabiya screens, balcony railings, and tower crowns. Low maintenance, corrosion-resistant, and capable of precision geometric fabrication.</p>
         <p><strong>Glass curtain walls:</strong> High-performance glazing for office and tower buildings. Low-emissivity coatings for energy efficiency, with selective use of fritted or etched glass incorporating geometric patterns.</p>
       </div>
-      <div class="card">
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
         <h3 style="color: var(--navy);">Skyline Composition</h3>
         <p>Heights graduated from the edges to the center or key node, creating a legible silhouette from multiple city viewpoints. The landmark tower anchors the composition, with surrounding buildings stepping down in deliberate increments. No building blocks the mountain view corridors identified in the master plan.</p>
         <p>The skyline reads as a mountain range in miniature &mdash; peaks, ridges, and valleys &mdash; an architectural metaphor for the Fann Mountains that frame Dushanbe's horizon. This is achieved through varied tower heights (80m, 120m, 150m, 200m+) and articulated rooflines rather than flat-topped uniformity.</p>
       </div>
-      <div class="card">
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
         <h3 style="color: var(--navy);">Landscape &amp; Public Realm</h3>
         <p><strong>Mature tree planting:</strong> London plane trees, walnuts, mulberries, and elms (all native or naturalized in Tajikistan) planted at semi-mature size to create immediate canopy. The "bogh" (garden) identity demands lush, generous planting from day one.</p>
         <p><strong>Water features:</strong> Reflecting pools, channels (jui), and fountains referencing the Persian-Tajik garden tradition of flowing water as both cooling element and spiritual metaphor. Recycled water systems for sustainability.</p>
         <p><strong>Mountain-view corridors:</strong> East-west visual axes maintained through building placement, ensuring residents and visitors always feel connected to the Fann Mountains and the dramatic topography that defines Dushanbe's identity.</p>
       </div>
-      <div class="card">
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
         <h3 style="color: var(--navy);">Night Identity</h3>
         <p>Warm gold uplighting on key facade elements and public buildings, creating a cohesive nocturnal identity visible from across the city. The landmark tower's crown illuminated with a constellation-inspired LED pattern &mdash; referencing Tajikistan's crown and stars on the national flag.</p>
         <p>Retail promenades lit with festoon-style warm white lighting. Landscape features with embedded ground lighting in pools and channels. The overall effect: warm, inviting, and distinctly "golden" &mdash; a district that glows rather than glares.</p>
       </div>
-      <div class="card">
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
         <h3 style="color: var(--navy);">Tajik Heritage Integration</h3>
         <p><strong>Suzani motifs:</strong> The vibrant embroidered textiles of Tajikistan &mdash; suzani &mdash; abstracted into large-scale facade panels, public art installations, and paving patterns. Not literal reproduction, but the flowing botanical forms and radial symmetries of suzani translated into contemporary materials.</p>
         <p><strong>Chaikhona tradition:</strong> The Tajik teahouse &mdash; a place of community gathering, elevated on a platform with carpets and low tables &mdash; inspires the design of public pavilions, rooftop terraces, and community spaces throughout the district. These are social infrastructure, not decoration.</p>
@@ -1884,28 +2137,28 @@ ul.styled-list li::before {
     <h3 class="mt-3">Interior Design Vision</h3>
     <p class="subtitle mb-2" style="color: var(--stone);">From luxury lobbies to penthouse living, every interior space reflects the fusion of Central Asian craft and contemporary sophistication.</p>
     <div class="img-grid">
-      <div class="img-grid-item" onclick="openLightbox('images/interior-lobby.png')">
-        <img src="images/interior-lobby.png" alt="Luxury lobby with golden Islamic panels" loading="lazy">
+      <div class="img-grid-item" data-aos="fade-in" data-aos-delay="100" onclick="openLightbox('images/interior-lobby.png')">
+        <img src="images/interior-lobby.png" alt="Luxury lobby with golden Islamic panels" width="600" height="400" loading="lazy">
         <div class="img-caption">Grand Lobby</div>
       </div>
-      <div class="img-grid-item" onclick="openLightbox('images/interior-living.png')">
-        <img src="images/interior-living.png" alt="Penthouse living room with mountain views" loading="lazy">
+      <div class="img-grid-item" data-aos="fade-in" data-aos-delay="200" onclick="openLightbox('images/interior-living.png')">
+        <img src="images/interior-living.png" alt="Penthouse living room with mountain views" width="600" height="400" loading="lazy">
         <div class="img-caption">Penthouse Living</div>
       </div>
-      <div class="img-grid-item" onclick="openLightbox('images/interior-bedroom.png')">
-        <img src="images/interior-bedroom.png" alt="Master bedroom with carved walnut headboard" loading="lazy">
+      <div class="img-grid-item" data-aos="fade-in" data-aos-delay="300" onclick="openLightbox('images/interior-bedroom.png')">
+        <img src="images/interior-bedroom.png" alt="Master bedroom with carved walnut headboard" width="600" height="400" loading="lazy">
         <div class="img-caption">Master Bedroom</div>
       </div>
-      <div class="img-grid-item" onclick="openLightbox('images/interior-kitchen.png')">
-        <img src="images/interior-kitchen.png" alt="High-end kitchen with marble island" loading="lazy">
+      <div class="img-grid-item" data-aos="fade-in" data-aos-delay="100" onclick="openLightbox('images/interior-kitchen.png')">
+        <img src="images/interior-kitchen.png" alt="High-end kitchen with marble island" width="600" height="400" loading="lazy">
         <div class="img-caption">Gourmet Kitchen</div>
       </div>
-      <div class="img-grid-item" onclick="openLightbox('images/interior-bathroom.png')">
-        <img src="images/interior-bathroom.png" alt="Luxury bathroom with freestanding tub" loading="lazy">
+      <div class="img-grid-item" data-aos="fade-in" data-aos-delay="200" onclick="openLightbox('images/interior-bathroom.png')">
+        <img src="images/interior-bathroom.png" alt="Luxury bathroom with freestanding tub" width="600" height="400" loading="lazy">
         <div class="img-caption">Spa Bathroom</div>
       </div>
-      <div class="img-grid-item" onclick="openLightbox('images/interior-office.png')">
-        <img src="images/interior-office.png" alt="Modern co-working space with green wall" loading="lazy">
+      <div class="img-grid-item" data-aos="fade-in" data-aos-delay="300" onclick="openLightbox('images/interior-office.png')">
+        <img src="images/interior-office.png" alt="Modern co-working space with green wall" width="600" height="400" loading="lazy">
         <div class="img-caption">Co-Working Space</div>
       </div>
     </div>
@@ -1914,7 +2167,7 @@ ul.styled-list li::before {
 
 <!-- ════════════════════ 7. RENDER PROMPTS ════════════════════ -->
 <section id="renders" class="dark-section">
-  <div class="section-inner">
+  <div class="section-inner" data-aos="fade-up">
     <span class="section-label">06 &mdash; Visualization Prompts</span>
     <h2>Architectural Rendering Prompts</h2>
     <div class="section-divider"></div>
@@ -2058,7 +2311,7 @@ ul.styled-list li::before {
       An outdoor amphitheater in a modern urban park, capacity 3,000. Tiered stone seating facing a contemporary stage with a fabric tensile canopy. A traditional Tajik music performance in progress, audience engaged. The landmark tower illuminated in the background. String lights and warm ground lighting. Evening atmosphere, community celebration, cultural vitality.
     </div>
 
-    <div class="callout callout-gold mt-2">
+    <div class="callout callout-gold mt-2" data-aos="fade-up">
       <strong>Note on Visualization:</strong> These prompts are calibrated for current-generation AI image tools (Midjourney v6+, DALL-E 3, Stable Diffusion XL) and can also serve as verbal briefs for traditional visualization studios such as DBOX, Brick Visual, or Mir. For the formal proposal, we recommend commissioning 8&ndash;10 hero images from a professional studio, supplemented by AI-generated concept views.
     </div>
   </div>
@@ -2066,35 +2319,35 @@ ul.styled-list li::before {
 
 <!-- ════════════════════ 8. GALLERY ════════════════════ -->
 <section id="gallery" class="deep-section">
-  <div class="section-inner">
+  <div class="section-inner" data-aos="fade-up">
     <span class="section-label">07 &mdash; Gallery</span>
     <h2>Envisioning the District</h2>
     <div class="section-divider"></div>
     <p class="subtitle mb-2" style="color: var(--stone-light);">A curated selection of architectural renderings capturing the character, scale, and ambition of Boghi Dushanbe across different settings and times of day.</p>
 
     <div class="img-grid">
-      <div class="img-grid-item" onclick="openLightbox('images/retail-street.png')">
-        <img src="images/retail-street.png" alt="Luxury retail high-street at golden hour" loading="lazy">
+      <div class="img-grid-item" data-aos="fade-in" data-aos-delay="100" onclick="openLightbox('images/retail-street.png')">
+        <img src="images/retail-street.png" alt="Luxury retail high-street at golden hour" width="600" height="400" loading="lazy">
         <div class="img-caption">Retail High Street</div>
       </div>
-      <div class="img-grid-item" onclick="openLightbox('images/green-spine.png')">
-        <img src="images/green-spine.png" alt="Central boulevard and linear park with water channel" loading="lazy">
+      <div class="img-grid-item" data-aos="fade-in" data-aos-delay="200" onclick="openLightbox('images/green-spine.png')">
+        <img src="images/green-spine.png" alt="Central boulevard and linear park with water channel" width="600" height="400" loading="lazy">
         <div class="img-caption">Green Spine Boulevard</div>
       </div>
-      <div class="img-grid-item" onclick="openLightbox('images/courtyard.png')">
-        <img src="images/courtyard.png" alt="Residential courtyard with Islamic fountain" loading="lazy">
+      <div class="img-grid-item" data-aos="fade-in" data-aos-delay="300" onclick="openLightbox('images/courtyard.png')">
+        <img src="images/courtyard.png" alt="Residential courtyard with Islamic fountain" width="600" height="400" loading="lazy">
         <div class="img-caption">Residential Courtyard</div>
       </div>
-      <div class="img-grid-item" onclick="openLightbox('images/cultural-building.png')">
-        <img src="images/cultural-building.png" alt="Grand civic building with arch entrance" loading="lazy">
+      <div class="img-grid-item" data-aos="fade-in" data-aos-delay="100" onclick="openLightbox('images/cultural-building.png')">
+        <img src="images/cultural-building.png" alt="Grand civic building with arch entrance" width="600" height="400" loading="lazy">
         <div class="img-caption">Cultural Center</div>
       </div>
-      <div class="img-grid-item" onclick="openLightbox('images/tower-day.png')">
-        <img src="images/tower-day.png" alt="Landmark tower from ground level, daytime" loading="lazy">
+      <div class="img-grid-item" data-aos="fade-in" data-aos-delay="200" onclick="openLightbox('images/tower-day.png')">
+        <img src="images/tower-day.png" alt="Landmark tower from ground level, daytime" width="600" height="400" loading="lazy">
         <div class="img-caption">Landmark Tower &mdash; Day</div>
       </div>
-      <div class="img-grid-item" onclick="openLightbox('images/tower-night.png')">
-        <img src="images/tower-night.png" alt="Landmark tower at night with illuminated fountains" loading="lazy">
+      <div class="img-grid-item" data-aos="fade-in" data-aos-delay="300" onclick="openLightbox('images/tower-night.png')">
+        <img src="images/tower-night.png" alt="Landmark tower at night with illuminated fountains" width="600" height="400" loading="lazy">
         <div class="img-caption">Landmark Tower &mdash; Night</div>
       </div>
     </div>
@@ -2103,7 +2356,7 @@ ul.styled-list li::before {
 
 <!-- ════════════════════ 9. DEVELOPMENT PROGRAM ════════════════════ -->
 <section id="program" class="light-section">
-  <div class="section-inner">
+  <div class="section-inner" data-aos="fade-up">
     <span class="section-label">08 &mdash; Development Program</span>
     <h2>Indicative Development Program</h2>
     <div class="section-divider" style="background: var(--navy);"></div>
@@ -2115,7 +2368,7 @@ ul.styled-list li::before {
     <h3 class="mt-2">Land Use Allocation</h3>
 
     <!-- Donut Chart -->
-    <div class="donut-chart-container">
+    <div class="donut-chart-container" data-aos="fade-up">
       <svg viewBox="0 0 200 200" width="220" height="220">
         <!-- Donut segments. Using stroke-dasharray and stroke-dashoffset to create segments -->
         <!-- Total circumference = 2 * PI * 70 = 439.82 -->
@@ -2228,8 +2481,8 @@ ul.styled-list li::before {
     </div>
 
     <h3 class="mt-3">Penthouse Floor Plan (280 sqm)</h3>
-    <div class="showcase-img">
-      <img src="images/floor-plan.png" alt="280 sqm penthouse floor plan" loading="lazy">
+    <div class="showcase-img" data-aos="fade-in">
+      <img src="images/floor-plan.png" alt="280 sqm penthouse floor plan" width="1200" height="800" loading="lazy">
     </div>
 
     <h3 class="mt-3">Key Quantities</h3>
@@ -2302,7 +2555,7 @@ ul.styled-list li::before {
       </table>
     </div>
 
-    <div class="callout callout-note mt-2">
+    <div class="callout callout-note mt-2" data-aos="fade-up">
       <strong>Conceptual &mdash; Subject to Feasibility Studies:</strong> The above program reflects the potential of a 30-hectare site at FAR 3.5&ndash;6.0 (varying by zone). Actual buildable area will be determined by geotechnical conditions, infrastructure capacity, regulatory approvals, and market absorption rates. A detailed demand study is essential before finalizing any development program.
     </div>
   </div>
@@ -2310,38 +2563,115 @@ ul.styled-list li::before {
 
 <!-- ════════════════════ 10. ECONOMIC & STRATEGIC VALUE ════════════════════ -->
 <section id="economics" class="dark-section">
-  <div class="section-inner">
+  <div class="section-inner" data-aos="fade-up">
     <span class="section-label">09 &mdash; Economic &amp; Strategic Value</span>
     <h2>The Case for Investment</h2>
     <div class="section-divider"></div>
 
-    <div class="card-grid">
-      <div class="card">
+    <!-- KPI Counters -->
+    <div class="kpi-row">
+      <div class="kpi-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="kpi-value" data-counter="true" data-target="5" data-prefix="$" data-suffix="B">$0B</div>
+        <div class="kpi-label">Total Value at Maturity</div>
+      </div>
+      <div class="kpi-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="kpi-value" data-counter="true" data-target="20000" data-suffix="+">0+</div>
+        <div class="kpi-label">Jobs Created</div>
+      </div>
+      <div class="kpi-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="kpi-value" data-counter="true" data-target="45000" data-suffix="">0</div>
+        <div class="kpi-label">Residents at Capacity</div>
+      </div>
+    </div>
+
+    <!-- Economics Donut Chart -->
+    <h3 class="mt-3">Land Use Allocation</h3>
+    <div class="donut-chart-container" data-aos="fade-up">
+      <svg viewBox="0 0 200 200" width="200" height="200">
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#2d6a4f" stroke-width="30"
+          stroke-dasharray="164.93 274.89" stroke-dashoffset="0" transform="rotate(-90 100 100)"/>
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#5b9bd5" stroke-width="30"
+          stroke-dasharray="48.38 391.44" stroke-dashoffset="-164.93" transform="rotate(-90 100 100)"/>
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#c5a55a" stroke-width="30"
+          stroke-dasharray="39.58 400.24" stroke-dashoffset="-213.31" transform="rotate(-90 100 100)"/>
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#c4784a" stroke-width="30"
+          stroke-dasharray="15.39 424.43" stroke-dashoffset="-252.89" transform="rotate(-90 100 100)"/>
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#7db3e0" stroke-width="30"
+          stroke-dasharray="24.19 415.63" stroke-dashoffset="-268.28" transform="rotate(-90 100 100)"/>
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#40916c" stroke-width="30"
+          stroke-dasharray="87.96 351.86" stroke-dashoffset="-292.47" transform="rotate(-90 100 100)"/>
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#8a8d93" stroke-width="30"
+          stroke-dasharray="72.57 367.25" stroke-dashoffset="-380.43" transform="rotate(-90 100 100)"/>
+        <text x="100" y="97" text-anchor="middle" font-family="'Playfair Display', serif" font-size="14" font-weight="700" fill="#c5a55a">30 ha</text>
+        <text x="100" y="112" text-anchor="middle" font-family="'Inter', sans-serif" font-size="7" fill="#8a8d93" letter-spacing="0.1em">ALLOCATION</text>
+      </svg>
+      <ul class="donut-legend" style="color: var(--stone-light);">
+        <li><span class="donut-legend-color" style="background: #2d6a4f;"></span> Residential &mdash; 37.5%</li>
+        <li><span class="donut-legend-color" style="background: #5b9bd5;"></span> Commercial &mdash; 11%</li>
+        <li><span class="donut-legend-color" style="background: #c5a55a;"></span> Retail &amp; F&B &mdash; 9%</li>
+        <li><span class="donut-legend-color" style="background: #c4784a;"></span> Hospitality &mdash; 3.5%</li>
+        <li><span class="donut-legend-color" style="background: #7db3e0;"></span> Community &mdash; 5.5%</li>
+        <li><span class="donut-legend-color" style="background: #40916c;"></span> Parks &mdash; 20%</li>
+        <li><span class="donut-legend-color" style="background: #8a8d93;"></span> Roads &mdash; 16.5%</li>
+      </ul>
+    </div>
+
+    <!-- Projected Value by Phase Bar Chart -->
+    <h3 class="mt-3">Projected Value by Phase</h3>
+    <div class="bar-chart" data-aos="fade-up">
+      <div class="bar-chart-row">
+        <div class="bar-chart-label">Phase 1</div>
+        <div class="bar-chart-track">
+          <div class="bar-chart-fill" style="width: 20%; background: linear-gradient(90deg, var(--emerald), var(--emerald-light));">$0.4&ndash;0.6B</div>
+        </div>
+      </div>
+      <div class="bar-chart-row">
+        <div class="bar-chart-label">Phase 2</div>
+        <div class="bar-chart-track">
+          <div class="bar-chart-fill" style="width: 40%; background: linear-gradient(90deg, var(--sky), var(--sky-light));">$0.8&ndash;1.2B</div>
+        </div>
+      </div>
+      <div class="bar-chart-row">
+        <div class="bar-chart-label">Phase 3</div>
+        <div class="bar-chart-track">
+          <div class="bar-chart-fill" style="width: 70%; background: linear-gradient(90deg, var(--gold-dark), var(--gold));">$1.5&ndash;2.0B</div>
+        </div>
+      </div>
+      <div class="bar-chart-row">
+        <div class="bar-chart-label">Phase 4</div>
+        <div class="bar-chart-track">
+          <div class="bar-chart-fill" style="width: 100%; background: linear-gradient(90deg, var(--terracotta), var(--terracotta-light));">$3.0&ndash;5.0B</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-grid mt-3">
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
         <div class="card-icon">&#9670;</div>
         <h3>Job Creation</h3>
         <p>Construction phase: 20,000+ direct jobs over 10&ndash;15 years, including skilled trades, engineering, and project management. Permanent employment: 15,000&ndash;20,000 jobs in offices, retail, hospitality, education, healthcare, and facility management. Indirect employment multiplier of 2.5&ndash;3x creates an additional 40,000&ndash;60,000 jobs in the broader economy through supply chain effects.</p>
       </div>
-      <div class="card">
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
         <div class="card-icon">&#9670;</div>
         <h3>Tax Revenue</h3>
         <p>The completed district would generate significant municipal and national tax revenue through property taxes, business taxes, VAT on retail and hospitality, income taxes from employees, and land value capture mechanisms. At maturity, the district could contribute meaningfully to Dushanbe's annual municipal budget, reducing the city's dependence on central government transfers.</p>
       </div>
-      <div class="card">
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
         <div class="card-icon">&#9670;</div>
         <h3>Real Estate Value</h3>
         <p>At current Dushanbe market rates and projected appreciation (4.69% annual growth), the completed Boghi Dushanbe district could represent $3&ndash;5 billion in real estate value at maturity. This would make it the single most valuable real estate asset in Tajikistan and a cornerstone of national wealth. Rental yields of approximately 10% in the current market suggest strong investor returns.</p>
       </div>
-      <div class="card">
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
         <div class="card-icon">&#9670;</div>
         <h3>Tourism &amp; Destination Appeal</h3>
         <p>The 5-star hotel, cultural center, destination retail, and architectural landmarks would position Boghi Dushanbe as a regional tourist destination. Dushanbe is increasingly recognized as a gateway to the Pamir Highway and Tajikistan's spectacular mountain landscapes. A world-class urban district enhances the city's appeal for business tourism, cultural tourism, and stopover visitors.</p>
       </div>
-      <div class="card">
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
         <div class="card-icon">&#9670;</div>
         <h3>Foreign Investment</h3>
         <p>A well-structured PPP (public-private partnership) for Boghi Dushanbe could attract investment from international development finance institutions (EBRD, IFC, ADB), sovereign wealth funds (particularly Gulf-based funds with interest in Central Asia), and international real estate developers. The project's scale and government backing provide the credibility that institutional investors require.</p>
       </div>
-      <div class="card">
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
         <div class="card-icon">&#9670;</div>
         <h3>National Prestige &amp; City Branding</h3>
         <p>Boghi Dushanbe would become Tajikistan's most visible urban development project, comparable in ambition to Astana's new city center (Kazakhstan) or Ashgabat's marble-clad modernization (Turkmenistan), but with a more humane, livable, and economically sustainable approach. International media coverage of a well-designed Central Asian district project would enhance Tajikistan's global reputation.</p>
@@ -2349,7 +2679,7 @@ ul.styled-list li::before {
     </div>
 
     <h3 class="mt-3">Catalytic Economic Effects</h3>
-    <div class="two-col">
+    <div class="two-col" data-aos="fade-up">
       <div>
         <p>Large-scale urban redevelopment generates value far beyond the site boundary. International experience (London Docklands, Barcelona 22@, Songdo IBD) demonstrates that well-planned flagship districts increase property values in surrounding neighborhoods by 15&ndash;30% within the first decade.</p>
         <p>For Dushanbe, Boghi Dushanbe would:</p>
@@ -2378,7 +2708,7 @@ ul.styled-list li::before {
 
 <!-- ════════════════════ 11. PHASING STRATEGY ════════════════════ -->
 <section id="phasing" class="light-section">
-  <div class="section-inner">
+  <div class="section-inner" data-aos="fade-up">
     <span class="section-label">10 &mdash; Phasing Strategy</span>
     <h2>A Decade of Deliberate Transformation</h2>
     <div class="section-divider" style="background: var(--navy);"></div>
@@ -2446,7 +2776,7 @@ ul.styled-list li::before {
 
 <!-- ════════════════════ 12. GOVERNMENT APPROVAL ════════════════════ -->
 <section id="government" class="dark-section">
-  <div class="section-inner">
+  <div class="section-inner" data-aos="fade-up">
     <span class="section-label">11 &mdash; Government Approval Strategy</span>
     <h2>Framing the Public Interest</h2>
     <div class="section-divider"></div>
@@ -2454,19 +2784,19 @@ ul.styled-list li::before {
     <p class="subtitle">The success of Boghi Dushanbe depends on strong, sustained government commitment. The project must be framed not as a commercial real estate venture but as a national initiative that serves the people of Tajikistan.</p>
 
     <div class="card-grid mt-2">
-      <div class="card">
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
         <h3>Modernization of the Capital</h3>
         <p>Dushanbe is the face of Tajikistan to the world. As the nation's diplomatic, commercial, and cultural center, the capital's physical environment directly reflects national ambition and capability. Boghi Dushanbe transforms an industrial-era liability into a 21st-century asset, demonstrating that Tajikistan is building for the future while honoring its past.</p>
       </div>
-      <div class="card">
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
         <h3>Livability &amp; Quality of Life</h3>
         <p>The project directly addresses the housing crisis that affects hundreds of thousands of Dushanbe residents. By delivering 12,000&ndash;15,000 modern homes alongside schools, clinics, parks, and retail, Boghi Dushanbe creates a complete neighborhood where families can thrive. This is government serving its citizens in the most tangible way possible.</p>
       </div>
-      <div class="card">
+      <div class="card" data-aos="fade-up" data-aos-delay="300">
         <h3>Jobs &amp; Economic Growth</h3>
         <p>With 20,000+ construction jobs and 15,000+ permanent positions, Boghi Dushanbe represents one of the largest job creation initiatives in Tajikistan's modern history. The project provides employment across skill levels, from laborers to engineers, from shop assistants to hotel managers, creating a broad-based economic benefit.</p>
       </div>
-      <div class="card">
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
         <h3>Environmental Upgrade</h3>
         <p>Replacing industrial infrastructure with green urbanism &mdash; parks, tree-lined streets, clean buildings, and modern waste management &mdash; is an environmental win for Dushanbe. The project eliminates a source of industrial pollution and creates the city's largest new green space, contributing to air quality, biodiversity, and climate resilience.</p>
       </div>
@@ -2538,7 +2868,7 @@ ul.styled-list li::before {
       </table>
     </div>
 
-    <div class="callout callout-gold mt-2">
+    <div class="callout callout-gold mt-2" data-aos="fade-up">
       <strong>A Note on Process:</strong> This proposal is presented with deep respect for the Government of the Republic of Tajikistan's authority and decision-making processes. We recognize that a project of this significance requires careful deliberation, broad stakeholder consultation, and rigorous technical validation. Our recommendation is to begin with the feasibility studies outlined above, allowing the evidence to guide the path forward.
     </div>
   </div>
@@ -2546,7 +2876,7 @@ ul.styled-list li::before {
 
 <!-- ════════════════════ 13. RISKS & MITIGATION ════════════════════ -->
 <section id="risks" class="light-section">
-  <div class="section-inner">
+  <div class="section-inner" data-aos="fade-up">
     <span class="section-label">12 &mdash; Risk Assessment</span>
     <h2>Risks &amp; Mitigation Strategies</h2>
     <div class="section-divider" style="background: var(--navy);"></div>
@@ -2628,7 +2958,7 @@ ul.styled-list li::before {
 
 <!-- ════════════════════ 14. CLOSING ════════════════════ -->
 <section id="closing" class="deep-section" style="padding: 8rem 2rem;">
-  <div class="section-inner" style="max-width: 900px; text-align: center;">
+  <div class="section-inner" style="max-width: 900px; text-align: center;" data-aos="fade-up">
     <span class="section-label">13 &mdash; Closing Argument</span>
     <h2 style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.3;">Cities Are Built by Those Who Dare to Imagine Them</h2>
     <div class="section-divider" style="margin: 2rem auto;"></div>
@@ -2661,87 +2991,10 @@ ul.styled-list li::before {
   </div>
 </section>
 
-<!-- ════════════════════ 15. PPTX GUIDANCE ════════════════════ -->
-<section id="pptx" class="dark-section">
-  <div class="section-inner">
-    <span class="section-label">14 &mdash; PowerPoint Guidance</span>
-    <h2>Presentation Design System</h2>
-    <div class="section-divider"></div>
-    <p class="subtitle mb-2">Guidelines for translating this proposal into a formal PowerPoint presentation for government and investor audiences.</p>
-
-    <div class="two-col">
-      <div>
-        <h3>Typography</h3>
-        <ul class="styled-list">
-          <li><strong>Title slides:</strong> 36pt bold, system sans-serif (Segoe UI, Helvetica Neue, or Arial). Color: white on dark backgrounds, navy on light.</li>
-          <li><strong>Section headers:</strong> 28pt light/regular weight. Color: gold (#c5a55a) on dark, navy (#1a1f3a) on light.</li>
-          <li><strong>Body text:</strong> 14pt regular. Color: light grey (#b0b3b8) on dark, dark grey (#3a3d42) on light.</li>
-          <li><strong>Captions &amp; labels:</strong> 10pt, uppercase, letter-spacing 0.1em. Color: muted grey.</li>
-          <li><strong>Data callouts:</strong> 48pt bold for key numbers. Color: gold.</li>
-        </ul>
-
-        <h3 class="mt-2">Color System</h3>
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 1rem;">
-          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #1a1f3a;"></div><span class="text-small">Navy #1a1f3a</span></div>
-          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #c5a55a;"></div><span class="text-small">Gold #c5a55a</span></div>
-          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #f5f7fa;"></div><span class="text-small">Glacier #f5f7fa</span></div>
-          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #2d6a4f;"></div><span class="text-small">Emerald #2d6a4f</span></div>
-          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #5b9bd5;"></div><span class="text-small">Sky #5b9bd5</span></div>
-          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #c4784a;"></div><span class="text-small">Terracotta #c4784a</span></div>
-          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #8a8d93;"></div><span class="text-small">Stone #8a8d93</span></div>
-          <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 24px; border-radius: 4px; background: #111428;"></div><span class="text-small">Deep Navy #111428</span></div>
-        </div>
-      </div>
-      <div>
-        <h3>Slide Composition Principles</h3>
-        <ul class="styled-list">
-          <li><strong>One idea per slide.</strong> Do not crowd. If a topic needs more space, add a slide.</li>
-          <li><strong>60/40 rule:</strong> 60% visual (renders, charts, maps, diagrams), 40% text maximum.</li>
-          <li><strong>Consistent margins:</strong> 1.5cm on all sides. Align all elements to a 12-column grid.</li>
-          <li><strong>Dark backgrounds</strong> for hero slides, data callouts, and section dividers. <strong>Light backgrounds</strong> for tables, detailed text, and technical content.</li>
-          <li><strong>Full-bleed images</strong> for render slides with a semi-transparent gradient overlay and white text.</li>
-          <li><strong>Minimal animation:</strong> Fade-in only. No wipes, spins, or bounces. Builds allowed for sequential data reveals.</li>
-          <li><strong>Page numbers:</strong> Bottom-right, 8pt, grey. Slide count format: "07 / 25".</li>
-          <li><strong>Branding strip:</strong> Thin gold line (2px) at the bottom of every slide. "BOGHI DUSHANBE" in 8pt gold text, bottom-left.</li>
-        </ul>
-      </div>
-    </div>
-
-    <h3 class="mt-3">25-Slide Outline</h3>
-    <ol class="slide-list">
-      <li><strong>Title Slide</strong><br><span>"BOGHI DUSHANBE &mdash; A Vision for Dushanbe's New Urban Heart." Project name, date, classification, prepared-for line. Dark navy background with subtle geometric pattern. Gold typography.</span></li>
-      <li><strong>The Opportunity</strong><br><span>Full-bleed aerial/satellite image of the site. Key metrics overlay: 30ha, central location, industrial legacy. One-sentence thesis.</span></li>
-      <li><strong>Executive Summary</strong><br><span>Six key numbers in large format (30ha, 2.5M sqm, 15K residents, 20K jobs, $3&ndash;5B value, 10&ndash;15 year delivery). Three-sentence narrative.</span></li>
-      <li><strong>Why Now</strong><br><span>Four pillars: population growth (2.73%/yr), housing crisis, modernization wave (RMJM Tower, World Bank project), EBRD green city strategy. Icons and brief text.</span></li>
-      <li><strong>Project Name &amp; Identity</strong><br><span>"Boghi Dushanbe" &mdash; meaning, rationale, alternatives considered. Gold calligraphic rendering of the name.</span></li>
-      <li><strong>Site Location</strong><br><span>City map of Dushanbe with the site highlighted. Key adjacencies labeled: botanical gardens, city center, river corridor, mountains.</span></li>
-      <li><strong>Site Analysis</strong><br><span>Site plan with dimensions, perimeter, access points, edges. Annotated satellite image.</span></li>
-      <li><strong>SWOT Analysis</strong><br><span>Four-quadrant SWOT in color-coded cards. Clean, visual, one page.</span></li>
-      <li><strong>Vision Statement</strong><br><span>Full-bleed conceptual render (aerial). Vision text overlay: "From industrial legacy to urban heart." Emotional, aspirational.</span></li>
-      <li><strong>Master Plan &mdash; Scheme A: The Balanced City</strong><br><span>Annotated master plan diagram. Land use percentages as progress bars. Key zone descriptions.</span></li>
-      <li><strong>Master Plan &mdash; Scheme B: The Landmark District</strong><br><span>Same format as Slide 10. Emphasis on landmark tower, cultural center, destination retail.</span></li>
-      <li><strong>Design Language</strong><br><span>Materials palette (travertine, granite, aluminum, glass). Facade mashrabiya concept. Heritage integration (suzani, Islamic geometry). Reference images.</span></li>
-      <li><strong>Architectural Renders: Aerial View</strong><br><span>Full-bleed hero render. No text except small caption.</span></li>
-      <li><strong>Architectural Renders: Street Level</strong><br><span>Retail promenade render. Human-scale, warm, inviting.</span></li>
-      <li><strong>Architectural Renders: Landmark Tower</strong><br><span>Dramatic tower render at sunset. National prestige image.</span></li>
-      <li><strong>Architectural Renders: Public Life</strong><br><span>Grid of 4 renders: plaza, park, mosque, school. Community and quality of life.</span></li>
-      <li><strong>Development Program</strong><br><span>Land use allocation table. GFA ranges. Key quantities. "Conceptual" disclaimer.</span></li>
-      <li><strong>Economic Impact</strong><br><span>Jobs (20K construction, 15K permanent), tax revenue, real estate value ($3&ndash;5B). Bar charts or icon arrays.</span></li>
-      <li><strong>Investment Structure</strong><br><span>PPP model diagram. Government role, private sector role, DFI role. Revenue sharing logic.</span></li>
-      <li><strong>Phasing Strategy</strong><br><span>Timeline graphic: Phase 0&ndash;4 with key milestones. Quick wins highlighted.</span></li>
-      <li><strong>Phase 1 Quick Wins</strong><br><span>Renders of: public park, first residential towers, retail street opening. "Visible transformation within 3 years."</span></li>
-      <li><strong>Government Benefits</strong><br><span>Four-card layout: modernization, livability, jobs, environmental upgrade. Public interest framing.</span></li>
-      <li><strong>Risk Assessment</strong><br><span>Risk matrix (impact vs. likelihood). Top 5 risks with one-line mitigations. Color-coded.</span></li>
-      <li><strong>Next Steps</strong><br><span>Recommended actions: feasibility study, environmental assessment, master plan competition, stakeholder consultation. Timeline: 6&ndash;9 months. Call to action.</span></li>
-      <li><strong>Closing Slide</strong><br><span>"The garden is ready to be planted." Full-bleed sunset render. Contact information. Gold border. Tajik flag colors subtly integrated.</span></li>
-    </ol>
-  </div>
-</section>
-
-<!-- ════════════════════ 16. SOURCES ════════════════════ -->
+<!-- ════════════════════ 15. SOURCES ════════════════════ -->
 <section id="sources" class="light-section">
-  <div class="section-inner">
-    <span class="section-label">15 &mdash; Sources &amp; References</span>
+  <div class="section-inner" data-aos="fade-up">
+    <span class="section-label">14 &mdash; Sources &amp; References</span>
     <h2>Supporting Documentation</h2>
     <div class="section-divider" style="background: var(--navy);"></div>
     <p class="subtitle" style="color: var(--stone);">The following publicly available sources informed the analysis, data, and assumptions in this proposal. All sources should be verified during the formal feasibility study phase.</p>
@@ -2810,7 +3063,7 @@ ul.styled-list li::before {
       </table>
     </div>
 
-    <div class="callout callout-note mt-2">
+    <div class="callout callout-note mt-2" data-aos="fade-up">
       <strong>Disclaimer:</strong> This proposal is a conceptual document prepared for discussion purposes. All data, projections, and design concepts are indicative and must be validated through formal feasibility studies, market research, environmental assessments, and legal review before any commitments are made. The authors do not guarantee the accuracy of third-party data sources referenced above.
     </div>
   </div>
@@ -2857,30 +3110,24 @@ ul.styled-list li::before {
 </footer>
 
 <!-- ════════════════════ JAVASCRIPT ════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
-// Intersection Observer for fade-in animations
+// Page loader
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    document.getElementById('pageLoader').classList.add('loaded');
+  }, 1200);
+});
+
+// Initialize AOS
+AOS.init({
+  duration: 800,
+  once: true,
+  offset: 100
+});
+
+// Nav scroll effect
 document.addEventListener('DOMContentLoaded', function() {
-  var sections = document.querySelectorAll('section:not(#cover)');
-
-  var observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -60px 0px',
-    threshold: 0.03
-  };
-
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, observerOptions);
-
-  sections.forEach(function(section) {
-    observer.observe(section);
-  });
-
-  // Nav scroll effect
   var nav = document.getElementById('mainNav');
   window.addEventListener('scroll', function() {
     if (window.scrollY > 100) {
@@ -2923,10 +3170,54 @@ document.addEventListener('DOMContentLoaded', function() {
       navLinksEl.classList.remove('open');
     });
   });
+
+  // KPI Counter Animation
+  var kpiObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var el = entry.target;
+        if (el.dataset.animated) return;
+        el.dataset.animated = 'true';
+        var target = parseInt(el.dataset.target);
+        var prefix = el.dataset.prefix || '';
+        var suffix = el.dataset.suffix || '';
+        var duration = 2000;
+        var start = 0;
+        var startTime = null;
+
+        function formatNumber(n) {
+          if (n >= 1000) {
+            return n.toLocaleString('en-US');
+          }
+          return n.toString();
+        }
+
+        function animate(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var eased = 1 - Math.pow(1 - progress, 3);
+          var current = Math.floor(eased * target);
+          el.textContent = prefix + formatNumber(current) + suffix;
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            el.textContent = prefix + formatNumber(target) + suffix;
+          }
+        }
+        requestAnimationFrame(animate);
+        kpiObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('[data-counter="true"]').forEach(function(el) {
+    kpiObserver.observe(el);
+  });
 });
 
 // Lightbox
 function openLightbox(src) {
+  if (!src) return;
   var overlay = document.getElementById('lightbox');
   var img = document.getElementById('lightbox-img');
   img.src = src;
@@ -2936,8 +3227,10 @@ function openLightbox(src) {
 
 function closeLightbox() {
   var overlay = document.getElementById('lightbox');
+  var img = document.getElementById('lightbox-img');
   overlay.classList.remove('active');
   document.body.style.overflow = '';
+  img.src = '';
 }
 
 document.getElementById('lightbox').addEventListener('click', function(e) {
